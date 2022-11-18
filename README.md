@@ -1,4 +1,4 @@
 
 <img src="./img/oregontrail.png">
 
-# Oregon-Trail
+# Oregon Trail Game
