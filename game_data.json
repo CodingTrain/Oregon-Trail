@@ -1,0 +1,23 @@
+{
+  "professions": [
+    {
+      "name": "banker",
+      "money": 1600
+    },
+    {
+      "name": "farmer",
+      "money": 0
+    }
+  ],
+
+  "intro": {
+    "choices": [
+      "Travel the trail",
+      "Learn about the trail",
+      "See the Oregon Top Ten",
+      "Turn sound off"
+    ],
+    "prompt": "What is your choice?",
+    "img": "img/title.png"
+  }
+}
