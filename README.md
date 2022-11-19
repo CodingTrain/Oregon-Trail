@@ -1,1 +1,5 @@
-# Oregon-Trail
+
+<img src="./img/oregontrail.png">
+
+# Oregon Trail Game
+

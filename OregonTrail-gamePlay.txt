@@ -1,0 +1,2133 @@
+
+APPLE II --- OREGON TRAIL 
+
+this is a sequence of game play to help in the p5js remaking of this original version 
+played on YouTube livestream Nov 18, 2022.
+-------
+
+
+------------------------------------------
+The Oregon Trail 
+
+You may:
+    1. Travel the trail 
+    2. Learn about the trail
+    3. See the Oregon Top Ten 
+    4. Turn sound off 
+
+What is your choice ? 1
+------------------------------------------
+
+
+------------------------------------------
+    Many kinds of people made the tip to Oregon.
+
+    You may:
+        1. Be a banker from Boston
+        2. Be a carpenter from Ohio 
+        3. Be a farmer from Illinois
+        4. Find out the differences between these choices
+
+        what is your choice ? 4
+------------------------------------------
+
+------------------------------------------
+            Traveling to Oregon isn't easy! But if you're a banker, you'll have more money for supplies
+            and services than a carpenter or a farmer.
+
+            However, the harder you have to try, the more points you deserve!
+            Therefore, the farmer earns the greatest number of points and the banker earns the least.
+
+            Press SPACE BAR to continue 
+
+------------------------------------------
+
+
+------------------------------------------
+    Many kinds of people made the tip to Oregon.
+
+    You may:
+        1. Be a banker from Boston
+        2. Be a carpenter from Ohio 
+        3. Be a farmer from Illinois
+        4. Find out the differences between these choices
+
+        what is your choice ? 1
+------------------------------------------
+
+------------------------------------------
+        What is the first name of the wagon leader?  CHOOCHOO
+
+        What are the first names of the fourother members of your party ?
+
+        1. CHOOCHOO
+        2. THISDOT
+        3. REFACTOR
+        4. PFIVEJS
+        5. PROCESSIN
+
+        (Enter names or press Return)
+
+        Are these names correct ? YES 
+------------------------------------------
+
+
+------------------------------------------
+    [ Going back to 1848 ]
+------------------------------------------
+
+
+
+------------------------------------------
+It is 1848. Your jumping off place for Oregon is Independence, Missouri.
+You must decide which month to leave Independence.
+
+    1. March
+    2. April 
+    3. May 
+    4. June 
+    5. July 
+    6. Ask for advice
+
+What is your choice ? 6 
+------------------------------------------
+
+
+
+------------------------------------------
+You attend a public meeting held for "folks with the California Oregon fever"
+You're told:
+
+If you leave too early, there won't be any grass for your oxen to eat.
+If you leave too late, you may not get to Oregon before winter comes.
+If you leave at just the right time, there will be green grass and 
+the weather will still be cool.
+
+Press SPACE BAR to continue  
+------------------------------------------
+
+
+
+------------------------------------------
+It is 1848. Your jumping off place for Oregon is Independence, Missouri.
+You must decide which month to leave Independence.
+
+    1. March
+    2. April 
+    3. May 
+    4. June 
+    5. July 
+    6. Ask for advice
+
+What is your choice ? 2
+------------------------------------------
+
+
+
+------------------------------------------
+Before leaving Independence, you should buy equipment and supplies. 
+You have $1600.00 in cash, but you don't have to spend it all now. 
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+You can buy whatever you need at Matt's General Store
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+Hello, I'm Matt. So you're going to Oregon!
+I can fix you up with what you need:
+
+- a team of oxen to pull your wagon 
+- clothing for both summer and winter 
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+Hello, I'm Matt. So you're going to Oregon!
+I can fix you up with what you need:
+
+- plenty of food for the trip 
+- ammunition for your rifles 
+- spare parts for your wagon 
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+-----------------------------------------
+1. Oxen                     $ 0.00
+2. food                     $ 0.00
+1. clothing                 $ 0.00
+1. ammunition               $ 0.00
+1. spare parts              $ 0.00
+----------------------------------------
+                Total bill: $0.00
+
+Amount you have: $1600.00
+
+Which item would you like to buy ?  1
+
+Press SPACE BAR to leave store 
+------------------------------------------
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+There are 2 oxen in a yoke; I recommend at least 3 yoke.
+I charge $40 a yoke.
+
+How many yoke do you want ? 6
+
+Bill so far: $0.00
+------------------------------------------
+
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+-----------------------------------------
+1. Oxen                     $ 240.00
+2. food                     $ 0.00
+1. clothing                 $ 0.00
+1. ammunition               $ 0.00
+1. spare parts              $ 0.00
+----------------------------------------
+                Total bill: $240.00
+
+Amount you have: $1600.00
+
+Which item would you like to buy ?  2
+
+Press SPACE BAR to leave store 
+------------------------------------------
+
+
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+
+I recommend you take at least 200 pounds of food for each person in your family.;
+I see that you have 5 people in all. You'll need flour, sugar, bacon, and coffee.
+My price is 20 cents per pound.
+
+How many pounds of food do you want ? 1500
+
+Bill so far: $240.00
+------------------------------------------
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+-----------------------------------------
+1. Oxen                     $ 240.00
+2. food                     $ 300.00
+1. clothing                 $ 0.00
+1. ammunition               $ 0.00
+1. spare parts              $ 0.00
+----------------------------------------
+                Total bill: $540.00
+
+Amount you have: $1600.00
+
+Which item would you like to buy ?  3
+
+Press SPACE BAR to leave store 
+------------------------------------------
+
+
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+you'll need warm clothing in the mountains. 
+I recommend taking at least 2 sets of clothes per person.
+Each set is $10.00.
+
+How many sets of clothes do you want ? 15
+
+Bill so far: $540.00
+------------------------------------------
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+-----------------------------------------
+1. Oxen                     $ 240.00
+2. food                     $ 300.00
+1. clothing                 $ 150.00
+1. ammunition               $ 0.00
+1. spare parts              $ 0.00
+----------------------------------------
+                Total bill: $690.00
+
+Amount you have: $1600.00
+
+Which item would you like to buy ?  4
+
+Press SPACE BAR to leave store 
+------------------------------------------
+
+
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+I sell ammunition in boxes of 20 bullets.
+Each box costs $2.00.
+
+How many boxes do you want? 1
+
+Bill so far: $690.00
+------------------------------------------
+
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+-----------------------------------------
+1. Oxen                     $ 240.00
+2. food                     $ 300.00
+1. clothing                 $ 150.00
+1. ammunition               $ 2.00
+1. spare parts              $ 0.00
+----------------------------------------
+                Total bill: $692.00
+
+Amount you have: $1600.00
+
+Which item would you like to buy ?  5
+
+Press SPACE BAR to leave store 
+------------------------------------------
+
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+
+It's a good idea to have a few spare parts for your wagon.
+Here are the prices:
+
+    wagon wheel -   $10 each
+    wagon axle -    $10 each 
+    wagon tongue -  $10 each
+
+How many wagon wheels ? 5
+    -> You wagon many only carry 3 wagon wheels.
+How many wagon wheels ? 3
+How many wagon axles ?  5
+    -> You wagon many only carry 3 wagon axles.
+How many wagon axles ? 3
+How many wagon tongues ? 5
+    -> You wagon many only carry 3 wagon tongues.
+How many wagon tongues ? 3
+
+Bill so far: $692.00
+
+------------------------------------------
+
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+-----------------------------------------
+1. Oxen                     $ 240.00
+2. food                     $ 300.00
+1. clothing                 $ 150.00
+1. ammunition               $ 2.00
+1. spare parts              $ 90.00
+----------------------------------------
+                Total bill: $782.00
+
+Amount you have: $1600.00
+
+Which item would you like to buy ?  2
+
+Press SPACE BAR to leave store 
+------------------------------------------
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+
+I recommend you take at least 200 pounds of food for each person in your family.;
+I see that you have 5 people in all. You'll need flour, sugar, bacon, and coffee.
+My price is 20 cents per pound.
+
+How many pounds of food do you want ? 2000      {{ game does not add previous amount }}
+
+Bill so far: $482.00
+------------------------------------------
+
+
+
+------------------------------------------
+        Matt's General Store
+        Independence, Missouri
+                 April 1, 1848
+
+-----------------------------------------
+1. Oxen                     $ 240.00
+2. food                     $ 400.00
+1. clothing                 $ 150.00
+1. ammunition               $ 2.00
+1. spare parts              $ 90.00
+----------------------------------------
+                Total bill: $882.00
+
+Amount you have: $1600.00
+
+Which item would you like to buy ?  
+
+Press SPACE BAR to leave store    <--- pressed 
+------------------------------------------
+
+
+
+
+
+
+
+------------------------------------------
+Well then, you're ready to start.
+Good luck ! You have a long and difficult jounrey ahead of you.
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+        [Now loading the wagon]
+------------------------------------------
+
+
+------------------------------------------
+    Independence April 1, 1848
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+     Independence April 1, 1848
+
+Weather: cool 
+Health: good 
+Pace: steady 
+Rations: filling 
+----
+You may: 
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Talk to people 
+    9. Buy supplies
+
+What is your choice ? 3     => shows map , space bar pressed 
+
+What is your choice ? 1
+------------------------------------------
+
+
+------------------------------------------
+From Independence it is 102 miles to Kansas River crossing
+
+Date: April 1, 1848
+Weather: cool 
+Health: good 
+Food: 2000 pounds
+Next landmark: 102 miles 
+Miles traveled: 0 miles 
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+Press RETURN to size up the situation 
+
+Date: April 2, 1848
+Weather: cool 
+Health: good 
+Food: 1985 pounds           
+Next landmark: 82 miles     
+Miles traveled: 20 miles    
+------------------------------------------
+
+
+------------------------------------------
+        April 1, 1848
+Weather: cool 
+Health: good 
+Pace: steady 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  4
+------------------------------------------
+
+
+------------------------------------------
+Change pace (currently "steady")
+
+The pace at which you travel can change. Your choices are: 
+
+    1. a steady pace 
+    2. a strenuous pace 
+    3. a grueling pace 
+    4. find out what these different paces mean 
+
+What is your choice ? 2
+------------------------------------------
+
+
+------------------------------------------
+        April 1, 1848
+Weather: cool 
+Health: good 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  1
+------------------------------------------
+
+
+
+------------------------------------------
+Press RETURN to size up the situation
+
+ {{ animation shows cart moving left, values below change }}
+
+ THISDOT has cholera
+
+Date: April 2, 1848                 April 2 --> 4
+Weather: cool                       cool --> warm 
+Health: good 
+Food: 1985 pounds                   1985 --> 1955
+Next landmark: 22 miles             82 --> 52 --> 22
+Miles traveled: 80 miles            50 --> 80 
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+You are now at the Kansas River crossing. 
+Would you like to look around ? Y 
+
+Date: April 5, 1848                 
+Weather: warm                        
+Health: good 
+Food: 1940 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 102 miles            
+
+------------------------------------------
+
+
+------------------------------------------
+shows river stream 
+
+Kasas River crossing
+April 5, 1848
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+    Kansas River crossing
+        April 5, 1848
+
+Weather: warm  
+Health: good 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  2
+------------------------------------------
+
+
+
+------------------------------------------
+        Your Supplies 
+
+oxen                12 
+sets of clothes     15
+bullets             20
+wagon wheels        3
+wagon axles         3
+wagon tongues       3
+pounds of food      1940
+money left          $718.00
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+
+
+------------------------------------------
+
+
+Date: April 5, 1848                 
+Weather: warm                        
+Health: good 
+Food: 1940 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 102 miles       
+------------------------------------------
+
+
+
+------------------------------------------
+    Kansas River crossing
+        April 5, 1848
+
+Weather: warm  
+Health: good 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  6
+
+How many days would you like to rest ? 2
+------------------------------------------
+
+
+
+------------------------------------------
+    Kansas River crossing
+        April 7, 1848
+
+Weather: warm  
+Health: good 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  3        --> shows map 
+
+What is your choice ?  1
+------------------------------------------
+
+
+------------------------------------------
+    Kansas River crossing
+        April 7, 1848
+
+You must cross the river in order to continue. The 
+river at this point is currently 625 feet across,
+and the 4.3 feet deep in the middle.
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+
+------------------------------------------
+    Kansas River crossing
+        April 7, 1848
+
+Weather: warm 
+River width: 625 feet 
+River depth: 4.3 feet 
+
+You may: 
+1. attempt to ford the river 
+2. caulk wagon and float it across 
+3. take a ferry across
+4. wait to see if conditions improve 
+5. get more information 
+
+What is your choice ? 5
+------------------------------------------
+
+
+
+------------------------------------------
+    Kansas River crossing
+        April 7, 1848
+
+to ford a river means to pull your wagon across a shallow
+part of the river, with the oxen still attached.
+
+Press the SPACE BAR to continue
+
+To caulk the wagon means to seal it so that no water can get in. 
+The wagon can then be floated across like a boat.
+
+Press the SPACE BAR to continue
+
+To use a ferry means to put your wagon on top of a flat boat that belongs to someone else.
+The owner of the ferry will take your wagon across the river. 
+
+Press the SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+    Kansas River crossing
+        April 7, 1848
+
+Weather: warm 
+River width: 625 feet 
+River depth: 4.3 feet 
+
+You may: 
+1. attempt to ford the river 
+2. caulk wagon and float it across 
+3. take a ferry across
+4. wait to see if conditions improve 
+5. get more information 
+
+What is your choice ? 3
+------------------------------------------
+
+
+------------------------------------------
+    Kansas River crossing
+        April 7, 1848
+
+The ferry operator says that he will charge you
+$5.00 and that you will have to wait 5 days. 
+Are you willing to do this ?  Y 
+------------------------------------------
+
+
+
+------------------------------------------
+{{ day animates counting }}
+
+    Kansas River crossing
+        April 12, 1848
+
+shows wagon on ferry animating across river    
+
+    (end of animation)
+    The ferry got your party and wagon safely across 
+
+Press the SPACE BAR to continue
+------------------------------------------
+
+
+
+------------------------------------------
+From Kansas River crossing it is 83 miles 
+to the Big Blue River crossing
+
+Date: April 12, 1848                 
+Weather: warm                        
+Health: good 
+Food: 1835 pounds                  
+Next landmark: 83 miles            
+Miles traveled: 102 miles      
+
+Press SPACE BAR to continue
+
+{{ animation }}
+
+You are now at the Big Blue River corssing.
+Would you like to look around ?  Y 
+
+Date: April 15, 1848                 
+Weather: cool                        
+Health: good 
+Food: 1790 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 185 miles    
+
+
+shows a river stream image 
+------------------------------------------
+
+
+------------------------------------------
+    Big Blue River crossing
+        April 15, 1848
+
+Weather: cool  
+Health: good 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. talk to people
+
+What is your choice ?  2
+
+------------------------------------------
+
+
+------------------------------------------
+        Your Supplies 
+
+oxen                12 
+sets of clothes     15
+bullets             20
+wagon wheels        3
+wagon axles         3
+wagon tongues       3
+pounds of food      1790
+money left          $713.00
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+
+
+------------------------------------------
+    Big Blue River crossing
+        April 15, 1848
+
+Weather: cool  
+Health: good 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. talk to people
+
+What is your choice ?  1
+
+------------------------------------------
+
+
+
+
+------------------------------------------
+    Big Blue River crossing
+        April 15, 1848
+
+You must cross the river in order to continue.
+The river at this point is currently 230 feet across
+and 2.4 feet deep in the middle.
+
+Press SPACE BAR to continue
+
+------------------------------------------
+
+------------------------------------------
+    Big Blue River crossing
+        April 15, 1848
+
+Weather: cool  
+River width: 230 feet 
+River depth: 2.4 feet 
+
+You may: 
+1. attempt to ford the river 
+2. caulk wagon and float it across 
+3. wait to see if conditions improve 
+4. get more information 
+
+What is your choice ? 1
+------------------------------------------
+
+
+------------------------------------------
+    Big Blue River crossing
+        April 15, 1848
+
+animation crossing river
+
+You become stuck in the mud. Lose 1 day.
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+
+------------------------------------------
+From the Big Blue River crossing it is 
+119 miles to Fort Kearney.
+
+Date: April 16, 1848                 
+Weather: cool                         
+Health: good 
+Food: 1775 pounds                  
+Next landmark: 119 miles            
+Miles traveled: 182 miles      
+
+Press SPACE BAR to continue
+
+{animates}
+
+Date: April 18, 1848                 
+Weather: warm                         
+Health: good 
+Food: 1745 pounds                  
+Next landmark: 59 miles            
+Miles traveled: 245 miles    
+
+You pass a gravesite. Would you like to look closer ?  Y 
+
+shows gravestone: Here lies andy 
+    peperony and chease 
+
+Press SPACE BAR to continue
+
+{animates}
+
+Date: April 20, 1848                 
+Weather: hot                         
+Health: good 
+Food: 1715 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 304 miles  
+
+You are now at Fort Kearney.
+Would you like to look around ?  Y 
+
+shows Fort Kearney
+------------------------------------------
+
+
+
+
+------------------------------------------
+    Fort Kearney
+        April 20, 1848
+
+Weather: hot   
+Health: good 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. talk to people
+    9. Buy supplies
+
+What is your choice ?  1
+
+------------------------------------------
+
+
+
+
+------------------------------------------
+From the Fort Kearney 
+it is 250 miles 
+to Chimney Rock
+
+Date: April 20, 1848                 
+Weather: hot                          
+Health: good 
+Food: 1715 pounds                  
+Next landmark: 250 miles            
+Miles traveled: 304 miles   
+
+Press SPACE BAR to continue
+
+{animates}
+
+Date: April 22, 1848                 
+Weather: hot                          
+Health: fair 
+Food: 1685 pounds                  
+Next landmark: 190 miles            
+Miles traveled: 364 miles  
+
+A theif comes during the night and steals 61 pounds of food.
+
+Press SPACE BAR to continue
+
+{animates}
+
+Date: April 25, 1848                 
+Weather: warm                          
+Health: fair 
+Food: 1579 pounds                  
+Next landmark: 100 miles            
+Miles traveled: 454 miles  
+
+Press RETURN to size up the situation   --> return 
+------------------------------------------
+
+
+------------------------------------------
+  April 25, 1848
+
+Weather: warm    
+Health: fair 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  3   --> shows map 
+
+What is your choice ? 2
+------------------------------------------
+
+
+------------------------------------------
+        Your Supplies 
+
+oxen                12 
+sets of clothes     15
+bullets             20
+wagon wheels        3
+wagon axles         3
+wagon tongues       3
+pounds of food      1579
+money left          $713.00
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+
+------------------------------------------
+  April 25, 1848
+
+Weather: warm    
+Health: fair 
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  6
+
+How many days would you like to rest? 2
+------------------------------------------
+
+
+
+------------------------------------------
+  April 27, 1848
+
+Weather: warm    
+Health: good  
+Pace: strenuous 
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  4
+------------------------------------------
+
+
+
+------------------------------------------
+Change pace (currently "strenuous")
+
+The pace at which you travel can change. Your choices are: 
+
+    1. a steady pace 
+    2. a strenuous pace 
+    3. a grueling pace 
+    4. find out what these different paces mean 
+
+What is your choice ? 3
+------------------------------------------
+
+
+------------------------------------------
+April 27, 1848
+
+Weather: warm    
+Health: good  
+Pace: grueling
+Rations: filling
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  1
+------------------------------------------
+
+
+
+
+------------------------------------------
+
+Date: April 27, 1848                 
+Weather: warm                          
+Health: good  
+Food: 1549 pounds                  
+Next landmark: 100 miles            
+Miles traveled: 454 miles  
+
+Press RETURN to size up the situation
+
+{animates}
+
+Date: April 30, 1848                 
+Weather: cool                          
+Health: fair 
+Food: 1504 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 554 miles  
+
+You are now at Chimney Rock.
+Would you like to look around ?  Y 
+
+shows location 
+------------------------------------------
+
+
+
+------------------------------------------
+Chimney Rock
+April 30, 1848 
+
+Weather: cool                          
+Health: fair 
+Food: 1504 pounds    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  1
+------------------------------------------
+
+
+------------------------------------------
+From Chimney Rock it is 
+86 miles to Fort Laramie 
+
+Date: April 30, 1848                 
+Weather: cool                           
+Health: fair 
+Food: 1504 pounds                  
+Next landmark: 86 miles            
+Miles traveled: 554 miles  
+
+Press SPACE BAR to continue
+
+{animates}
+
+Date: May 3, 1848                 
+Weather: warm                            
+Health: fair 
+Food: 1459 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 640 miles  
+------------------------------------------
+
+
+--- 
+To continue on your jounrey to Oregon,
+please flip the diskette to side 2.
+
+Press SPACE BAR to continue
+---
+
+
+
+------------------------------------------
+
+Date: May 3, 1848                 
+Weather: warm                            
+Health: fair 
+Food: 1459 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 640 miles  
+
+You are now at Fort Laramie.
+Would you like to look around?  N 
+
+{animates}
+
+[inadequate grass] 
+
+[bad water]
+
+
+Date: May 11, 1848                 
+Weather: warm                            
+Health: poor
+Food: 1339 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 830 miles  
+
+You are now at Independence Rock.
+Would you like to look around ? Y 
+
+shows image 
+------------------------------------------
+
+
+
+------------------------------------------
+Independence Rock
+May 11, 1848 
+
+Weather: warm                          
+Health: poor   
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  5
+------------------------------------------
+
+
+
+------------------------------------------
+change food rations 
+(currently "filling")
+
+The amount of food the people in your party eat 
+each day can change. These amounts are: 
+
+1. filling - meals are large and generous 
+2. meager - meals are small but adequate 
+3. bare bones - meals are very small, everyone stays hungry 
+
+What is your choice ? 1
+------------------------------------------
+
+
+------------------------------------------
+Independence Rock
+May 11, 1848 
+
+Weather: warm                          
+Health: poor   
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  6
+
+How many days would you like to rest ? 3
+------------------------------------------
+
+
+
+------------------------------------------
+Independence Rock
+May 14, 1848 
+
+Weather: warm                          
+Health: fair    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ?  6 
+How many days would you like to rest ? 3
+------------------------------------------
+
+
+
+------------------------------------------
+Independence Rock
+May 17, 1848 
+
+Weather: warm                          
+Health: fair    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ? 1
+------------------------------------------
+
+
+------------------------------------------
+From Independence Rock it is 
+102 miles to South Pass 
+
+Date: May 17, 1848                 
+Weather: warm                            
+Health: fair 
+Food: 1249 pounds                  
+Next landmark: 102 miles            
+Miles traveled: 830 miles  
+
+Press SPACE BAR to continue
+
+{animates}
+
+[inadequate grass]
+[Lose trail. Lose 4 days ]
+
+
+Date: May 26, 1848                 
+Weather: warm                            
+Health: good  
+Food: 1114 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 932 miles 
+
+You are now at South Pass.
+Would you like to look around ? N 
+------------------------------------------
+
+
+------------------------------------------
+The trail divides here. 
+You may: 
+    1. head for Green River crossing
+    2. head for Fort Bridger 
+    3. see the map 
+
+What is your choice ? 3         shows map 
+
+What is your choice ? 1
+------------------------------------------
+
+
+------------------------------------------
+From South Pass it is 
+57 miles to Green River crossing 
+
+Date: May 26, 1848                 
+Weather: warm                            
+Health: good  
+Food: 1114 pounds                  
+Next landmark: 57 miles            
+Miles traveled: 932 miles  
+
+Press SPACE BAR to continue
+
+{animation}
+
+[very little water]
+[one of the oxen is injured]
+[find wild fruit]
+
+Date: May 29, 1848                 
+Weather: cool                             
+Health: fair 
+Food: 1089 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 989 miles  
+
+You are now at Green River crossing.
+Would you like to look around ? N 
+------------------------------------------
+
+
+------------------------------------------
+Green River crossing
+May 29, 1848
+
+You must cross the river in order to continue.
+The river at this point is currently 400 feet across
+and 20 feet deep in the middle.
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+
+------------------------------------------
+Green River crossing
+May 29, 1848
+
+Weather: cool  
+River width: 400 feet 
+River depth: 20 feet 
+
+You may: 
+1. attempt to ford the river 
+2. caulk wagon and float it across 
+3. take a ferry across
+4. wait to see if conditions improve 
+5. get more information 
+
+What is your choice ? 3
+------------------------------------------
+
+
+
+------------------------------------------
+Green River crossing
+May 29, 1848
+
+The ferry operator says that he will charge you 
+$5.00 and that you will have to wait 4 days.
+Are you willing to do this ?  Y 
+------------------------------------------
+
+
+------------------------------------------
+{animates}
+
+Green River crossing
+June 2, 1848
+
+[The ferry got your party and wagon safely across]
+------------------------------------------
+
+
+
+------------------------------------------
+From Green River crossing it is 
+144 miles to Soda Springs 
+
+Date: June 2, 1848                 
+Weather: warm                            
+Health: good  
+Food: 1029 pounds                  
+Next landmark: 144 miles            
+Miles traveled: 989 miles  
+
+Press SPACE BAR to continue
+
+{animates}
+
+[bad water]
+[find wild fruit]
+[bad water]
+[one of the oxen has died]
+[inadequate grass]
+
+
+Date: June 8, 1848                 
+Weather: warm                            
+Health: poor  
+Food: 959 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 1133 miles 
+
+You are now at Soda Springs.
+Would you like to look around ? Y 
+
+shows image 
+------------------------------------------
+
+
+------------------------------------------
+Independence Rock
+June 8, 1848 
+
+Weather: warm                          
+Health: poor     
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Talk to people
+
+What is your choice ? 2
+------------------------------------------
+
+
+------------------------------------------
+        Your Supplies 
+
+oxen                11
+sets of clothes     15
+bullets             20
+wagon wheels        3
+wagon axles         3
+wagon tongues       3
+pounds of food      959
+money left          $708.00
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+Independence Rock
+June 8, 1848 
+
+Weather: warm                          
+Health: poor     
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Talk to people
+
+What is your choice ? 6 
+How many days would you like to rest ? 2
+------------------------------------------
+
+
+
+------------------------------------------
+Independence Rock
+June 10, 1848 
+
+Weather: hot                          
+Health: fair     
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Talk to people
+
+What is your choice ? 1
+------------------------------------------
+
+
+
+------------------------------------------
+From Soda Springs it is 
+57 miles to Fort Hall 
+
+Date: June 10, 1848                 
+Weather: hot                             
+Health: fair  
+Food: 929 pounds                  
+Next landmark: 57 miles            
+Miles traveled: 1133 miles  
+
+Press SPACE BAR to continue
+
+{animates}
+
+[Lose trail. Lose 2 days]
+[very little water]
+
+Date: June 15, 1848                 
+Weather: warm                              
+Health: fair  
+Food: 929 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 1190 miles  
+
+You are now at Fort Hall.
+Would you like to look around ? N 
+
+
+From Fort Hall it is 
+182 miles to Snake River crossing 
+
+Date: June 15, 1848                 
+Weather: warm                              
+Health: fair  
+Food: 854 pounds                  
+Next landmark: 182 miles            
+Miles traveled: 1190 miles  
+
+{animates}
+
+[very little water]
+[inadequate grass]
+[very little water]
+[very little water]
+[bad water]
+
+THISDOT has measles
+
+Date: June 21, 1848                 
+Weather: hot                               
+Health: very poor 
+Food: 764 pounds                  
+Next landmark: 38 miles            
+Miles traveled: 1334 miles  
+
+{animates}
+
+
+A theif comes during the night and steals 26 pounds of food 
+
+[inadequate grass]
+
+Date: June 23, 1848                 
+Weather: hot                               
+Health: very poor 
+Food: 708 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 1372 miles  
+
+You are now at Snake River crossing.
+Would you like to look around ?  Y 
+
+show image 
+------------------------------------------
+
+
+------------------------------------------
+Snake River crossing
+June 23, 1848 
+
+Weather: hot                          
+Health: very poor    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Talk to people
+
+What is your choice ? 1
+------------------------------------------
+
+
+
+------------------------------------------
+Snake River crossing
+June 23, 1848 
+
+You must cross the river in order to continue.
+The river at this point is currently 1000 feet 
+across and 6 feet deep in the middle.
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+Snake River crossing
+June 23, 1848
+
+Weather: hot   
+River width: 1000 feet 
+River depth: 6 feet 
+
+You may: 
+1. attempt to ford the river 
+2. caulk wagon and float it across 
+3. hire [ a person ] to help 
+4. wait to see if conditions improve 
+5. get more information 
+
+What is your choice ? 2
+
+{animates}
+
+You had no trouble floating the wagon across.
+------------------------------------------
+
+
+
+------------------------------------------
+From Snake River crossing it is 
+114 miles to Fort Boise 
+
+Date: June 14, 1848                 
+Weather: hot                             
+Health: very poor   
+Food: 693 pounds                  
+Next landmark: 114 miles            
+Miles traveled: 1372 miles  
+
+Press SPACE BAR to continue
+
+{animates}
+
+PROCESSIN HAS measles
+
+PRESS RETURN  to size up the situation -> return 
+------------------------------------------
+
+
+------------------------------------------
+June 25, 1848 
+
+Weather: hot                          
+Health: very poor    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ? 6
+How many days would you like to rest? 1
+
+
+June 26, 1848 
+
+Weather: hot                          
+Health: poor    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. Hunt for food 
+
+What is your choice ? 1
+------------------------------------------
+
+
+------------------------------------------
+{animates}
+
+[inadequate grass]
+[very little water]
+[one of the oxen is injured]
+[inadequate grass]
+
+
+Date: July 1, 1848                 
+Weather: hot                             
+Health: poor   
+Food: 588 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 1486 miles  
+
+You are now at Fort Boise.
+Would you like to look around ? N 
+
+
+From Fort Boise it is 160 miles to the Blue mountains
+
+Date: July 1, 1848                 
+Weather: hot                             
+Health: poor   
+Food: 588 pounds                  
+Next landmark: 165 miles            
+Miles traveled: 1485 miles 
+
+Press SPACE BAR to continue
+
+[very little water]
+[inadequate grass]
+[inadequate grass]
+[rough trail]
+[inadequate grass]
+[THISDOT has cholera]
+[inadequate grass]
+
+
+Date: July 9, 1848                 
+Weather: hot                             
+Health: very poor   
+Food: 468 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 1646 miles 
+
+You are now at the Blue mountains.
+Would you like to look around ? Y 
+
+shows image 
+------------------------------------------
+
+
+------------------------------------------
+July 9, 1848 
+
+Weather: hot                          
+Health: very poor    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. talk to people
+
+What is your choice ? 3     shows map 
+What is your choice ? 6
+How many days would you like to rest ? 1 
+------------------------------------------
+
+
+
+------------------------------------------
+July 10, 1848 
+
+Weather: hot                          
+Health: very poor    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. talk to people
+
+What is your choice ? 2
+------------------------------------------
+
+
+
+------------------------------------------
+        Your Supplies 
+
+oxen                11
+sets of clothes     15
+bullets             20
+wagon wheels        3
+wagon axles         3
+wagon tongues       3
+pounds of food      453
+money left          $708.00
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+------------------------------------------
+July 10, 1848 
+
+Weather: hot                          
+Health: very poor    
+Pace: grueling
+Rations: filling              
+
+You may:
+    1. Continue on trail 
+    2. Check supplies 
+    3. Look at map 
+    4. Change the pace 
+    5. Change food rations
+    6. Stop to rest
+    7. Attempt to trade 
+    8. talk to people
+
+What is your choice ? 1
+------------------------------------------
+
+
+
+------------------------------------------
+The trail divides here. 
+You may: 
+    1. head for Fort Walla Walla
+    2. head for The Dalles 
+    3. see the map
+
+What is your choice ? 2
+------------------------------------------
+
+
+------------------------------------------
+From the Blue mountains it is 
+125 miles to The Dalles 
+
+Date: July 10, 1848                 
+Weather: hot                             
+Health: very poor   
+Food: 453 pounds                  
+Next landmark: 125 miles            
+Miles traveled: 1645 miles  
+
+Press SPACE BAR to continue
+
+{animates}
+
+[THISDOT has a snakebite]
+[find wild fruit]
+[bad water]
+[THISDOT has died]
+[very little water]
+[very little water]
+
+
+Date: July 16, 1848                 
+Weather: hot                             
+Health: very poor   
+Food: 392 pounds                  
+Next landmark: 0 miles            
+Miles traveled: 1771 miles 
+
+You are now at the Dalles.
+Would you like to look around ? N 
+------------------------------------------
+
+
+------------------------------------------
+The trail divides here. 
+You may: 
+    1. float down the Columbia River 
+    2. take the Barlow Toll road 
+
+What is your choice ? 1
+
+shows river image 
+
+Use the arrow keys to guide your raft through the rushing
+waters of the Columbia River 
+
+Press SPACE BAR to continue
+
+After passing the third direction sign, 
+land your raft at the trail to the Willamette Valley.
+
+Press SPACE BAR to continue
+
+{animation of raft on river with rock objects}
+------------------------------------------
+
+
+-- one moment please --
+
+
+------------------------------------------
+The Willamette Valley, Oregon.
+July 16, 1848
+
+Press SPACE BAR to continue
+
+Congratulations! You have made it to Oregon!
+Let's see how many points you have received.
+
+Press SPACE BAR to continue
+
+
+Points for arriving in Oregon
+
+4   people in very poor health      800
+1   wagon                           50
+11  oxen                            44
+9   spare wagon parts               18
+15  sets of clothing                30 
+20  bullets                         0
+392 pounds of food                  15 
+    $708.00 cash                    141 
+
+total: 1098
+
+Press SPACE BAR to continue
+
+To see if you qualify for the Oregon Top Ten,
+please flip your diskette to side one. 
+
+Press SPACE BAR to continue
+------------------------------------------
+
+
+Coding Train is # 9
+
+
+returns to home screen 
+
+
