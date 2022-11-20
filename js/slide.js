@@ -72,7 +72,7 @@ class Slide {
         let str = choice[c];
         if(c == 0)
           str = (i+1) + ". " + str;
-        this.renderText(1, str);
+        this.renderText((c==0?1:2), str);
       }
     }
     this.newLine();
