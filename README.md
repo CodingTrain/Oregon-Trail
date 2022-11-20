@@ -1,5 +1,5 @@
 
-<img src="./img/oregontrail.png">
+<img src="./img/title.png">
 
 # Oregon Trail Game
 
