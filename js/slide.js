@@ -8,7 +8,11 @@ class Slide {
     this.title = json.title;
 
     let content = json.content;
-    this.font = content.font.name;
+    if (content.font.file) {
+      this.font = loadFont(content.font.file);
+    } else {
+      this.font = content.font.name;
+    }
     this.fontSize = content.font.size;
     this.textIndent = content.textIndent;
 
