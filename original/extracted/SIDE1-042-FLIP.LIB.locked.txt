@@ -1,0 +1,7 @@
+
+ 50000 S = 1: IF  PEEK (955) <  > 254 THEN  & SET,2: GOTO 50030
+ 50005  & TAKE,0,Y5 + 10,279,180,49152: & QFH: & WIND: & BOX,0,Y5,279,191: & DFW,7 AT 10,140,260,51: & WIND,7: PRINT "To continue on your journey to Oregon, please flip the diskette to side 2."
+ 50010  GOSUB 30000: & CDN,ZN$:Z =  VAL ( MID$ (ZN$,20,1)):ZN$ =  MID$ (ZN$,2,12): IF QN$ <  > ZN$ OR Z <  > 2 THEN 50010
+ 50020  & WIND: GOSUB 355: & PUT,0,Y5 + 10,49152
+ 50030  & QFH: & RFL,"MOUNTAINS.IMA" AT 49152: & OPEN,"TOMB.SEQ": FOR L = 0 TO 1: & TPTR,L * 49: & TREED,CM$,ZN$:SN(L) =  VAL (ZN$): & TREED,CM$,ZN$:ML(L) =  VAL (ZN$): NEXT : & CLOSE:ZN$ = ZN$ + "": RETURN 
+

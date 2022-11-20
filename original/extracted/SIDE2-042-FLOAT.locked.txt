@@ -1,0 +1,102 @@
+
+ 10  REM  NEW FLOAT
+ 20  REM  COPYRIGHT (C) 1985,MECC
+ 30  REM  PROGRAMMER: STEVEN SPLINTER
+ 40  REM  LAST UPDATE: 07/18/85
+ 50  ONERR  GOTO 32000
+ 60 S = 1
+ 90  GOTO 1000
+ 110  FOR A = 1 TO 8: READ I$(A):I$(A) = I$(A) + "": NEXT :NP =  PEEK (900): & DFT,15,1153:A = 1153: POKE A,1: POKE A + 1,0: POKE A + 2,4: POKE A + 3,0:A = A + 4
+ 115  FOR L = 21 TO 1 STEP  - 1: POKE A,L: POKE A + 1,1:A = A + 2: NEXT : POKE A,128: POKE A + 1,0:AM =  PEEK (902):AD =  PEEK (903):AY =  PEEK (901):AS = 4 * ( PEEK (902) < 4)
+ 120  FOR L = 3 TO 7:I(L) =  PEEK (905 + L): NEXT :I(8) =  PEEK (906) + 256 *  PEEK (907):I(2) =  PEEK (909):I(4) =  PEEK (904) + 256 *  PEEK (905):Z = 1920: FOR L = 0 TO NP - 1:N$(L) = "": FOR L1 = Z TO 4000
+ 130  IF  PEEK (L1) THEN N$(L) = N$(L) +  CHR$ ( PEEK (L1))
+ 140  IF  NOT  PEEK (L1) THEN Z = L1 + 1:L1 = 4001
+ 150  NEXT : NEXT : RETURN 
+ 200 ROCK = Z:COL = 1: IF X2 < X3 OR X1 > X4 OR Y1 > Y4 OR Y2 < Y3 THEN COL = 0:ROCK =  - 1: RETURN 
+ 210  RETURN 
+ 300 FL(Z) = 1:N =  INT (100 *  RND (1) + 1): IF N < 14 THEN RY(Z) = 175:RX(Z) =  INT (10 *  RND (1)): RETURN 
+ 310 RX(Z) = 0:RY(Z) = 50 +  INT (120 *  RND (1) + 1): RETURN 
+ 400 COL = 0: IF HP < 1 OR HP > 16 THEN COL = 1:DIR =  - DIR
+ 410  RETURN 
+ 500  FOR A = 0 TO NR:X3 = RX(A):Y3 = RY(A):X4 = X3 + 28:Y4 = Y3 + 8: GOSUB 200: IF COL THEN A = NR + 1
+ 510  NEXT : RETURN 
+ 600  IF RX(Z) < 240 AND RY(Z) > 10 THEN  RETURN 
+ 610 FL(Z) = 0: RETURN 
+ 700 Z = 0: IF ROCK =  - 1 THEN A$ = "The raft has hit the shore.":V = .15: GOSUB 50175:V = .3: GOSUB 50185:V = .5: GOSUB 50205: GOTO 720
+ 710 A$ = "The raft has hit a rock.":FL(ROCK) = 0:V = .6: GOSUB 50175:V = .6: GOSUB 50185:V = .7: GOSUB 50205
+ 720 Z$ = "": IF Z THEN Z$ = "  You have lost:"
+ 730  IF Z > 9 THEN A$ = "The raft is destroyed, everything has been lost.":NP = 0:Z$ = "":Z = 0
+ 740  IF  PEEK (975) THEN  FOR S1 = 0 TO 3: & PT,1: NEXT 
+ 750 A$ = A$ + Z$: GOSUB 800: FOR L = 0 TO NP - 1: IF H1(L) =  - 2 THEN H1(L) =  - 1:NP = NP - 1:N$(L) = N$(NP)
+ 760  NEXT : IF  NOT NP THEN Z = 0:A$ = "Everyone in the party has died.": GOSUB 800: GOSUB 33000: & WIND: PRINT CL$: & CO,0,89: PRINT "One moment please...": &  & : & HOOK: & RNH,"MENU"
+ 770  IF ROCK <  >  - 1 THEN  & PUTP,ROCK + 1,3 AT 275,0: RETURN 
+ 780  RETURN 
+ 800  & WIND:X1 = 28:X2 = X1 + 203:Y1 = 40:Y2 = Y1 + 30 + 9 * Z: GOSUB 41000: PRINT A$: IF Z THEN  FOR L = 0 TO Z - 1: PRINT  SPC(3)T$(L):T$(L) = "": NEXT : & TAKE,0,180,279,191,SA
+ 810  GOSUB 41100: & PUT,0,180,SA: & PUT,X1,Y1,PA: RETURN 
+ 900  & PUTP,0,1 AT  FN RX(HP), FN RY(HP): &  & : POKE 230,64: & HOOK: PRINT : GOSUB 33000: & DUN,"L17.PCK" AT 12200,16: & WIND: & CO,0,170: PRINT "One moment please..."; CHR$ (3): & RFL,"MS16.BIN" AT 1153
+ 910  POKE 900,NP: POKE 909,I(2):F = I(8): POKE 906, FN LO(F): POKE 907, FN HI(F): POKE 908,I(3):F = I(4): POKE 904, FN LO(F): POKE 905, FN HI(F): FOR L = 5 TO 7: POKE 905 + L,I(L): NEXT : GOSUB 33000: & RNH,"WIN"
+ 950 A$ = "The raft has missed the landing.":Z = 0:V = .5: GOSUB 50205: IF Z THEN A$ = A$ + "  You have lost:": GOSUB 800
+ 960  FOR A = HP TO 17: & PUTP,0,1 AT  FN RX(A), FN RY(A): FOR B = 1 TO 30: NEXT : NEXT :HP = 17: GOTO 900
+ 1000  LOMEM:39170: & DUN,"L16.PCK" AT 7710,16: GOSUB 110: GOSUB 40000: DEF  FN X(Z) =  INT (Z / 7) * 7: DEF  FN HI(Z) =  INT (Z / 256): DEF  FN LO(Z) = Z -  FN HI(Z) * 256:QN$ = "OREGON TRAIL":PN$ = "FLOAT"
+ 1010  & HSP,2: & RFL,"ORSPRITE.IMA" AT 49152: & RNH,"DALLESUTIL.OBJ":PA = 7710:SA = 52760: & WIND:X1 = 7:X2 = 252:Y1 = 62:Y2 = 109: GOSUB 41000: PRINT "Use the arrow keys to guide your raft through the rushing waters of the Columbia River."
+ 1015  GOSUB 30000: & WIND:X2 = 252: GOSUB 41000: PRINT "After passing the third direction sign, land your raft at the trail to the Willamette Valley.": GOSUB 30000
+ 1020  GOSUB 33000: & DUN,"RIVER.PCK" AT PA,16: & DFT,7,49152: & CST,50800: & DPB,0,50200: & DPB,1,50400: & DPB,2,50600
+ 1030  DIM FL(3),RX(3),RY(3):DIR =  - 1:HP = 16:TC = 000:XI = 8:YI =  - 4:LP = HP:ROCK =  - 1:COL = 0:C0 = 0:C1 = 1:C2 = 18:C3 = 26:C4 = 25:C5 = 11:C6 = 1:C7 = 20:C8 = 6:U = 139:D = 138:LE = 136:R = 149
+ 1040  DEF  FN RX(Z) = 84 + 8 * Z: DEF  FN RY(Z) = 5 * Z - 6
+ 1050 X =  FN RX(HP):Y =  FN RY(HP):X1 = X:Y1 = Y:X2 = X + 35:Y2 = Y + 25
+ 1060  & WIND:NR =  - 1:MR = 1:RF = 15
+ 1070 TC = TC + C1: IF  NOT FL(C0) AND  INT (100 *  RND (C1) + C1) <  = RF THEN Z = C0: GOSUB 300
+ 1075  IF  NOT FL(C1) AND  INT (100 *  RND (C1) + C1) <  = RF THEN Z = C1: GOSUB 300
+ 1080  IF FL(C0) THEN RX(C0) = RX(C0) + XI:RY(C0) = RY(C0) + YI
+ 1085  IF FL(C1) THEN RX(C1) = RX(C1) + XI:RY(C1) = RY(C1) + YI
+ 1090 KEY =  USR (3): IF HP > 0 THEN  IF KEY = LE OR KEY = U THEN DIR = DIR - 1: IF DIR <  - 1 THEN DIR =  - 1
+ 1100  IF HP < 17 THEN  IF KEY = R OR KEY = D THEN DIR = DIR + 1: IF DIR > 1 THEN DIR = 1
+ 1110  IF DIR <  > C0 THEN HP = HP + DIR: GOSUB 400:X =  FN RX(HP):Y =  FN RY(HP):X1 = X + C8:Y1 = Y + C2:X2 = X + C3:Y2 = Y + C4
+ 1115  IF TC > 205 THEN  IF HP = 17 THEN 900
+ 1116  IF TC > 225 THEN 950
+ 1120  IF  NOT COL THEN  IF FL(C0) THEN X3 = RX(C0) + C5:Y3 = RY(C0) + C6:X4 = X3 + C7:Y4 = Y3 + C8:Z = C0: GOSUB 200
+ 1130  IF  NOT COL THEN  IF FL(C1) THEN X3 = RX(C1) + C5:Y3 = RY(C1) + C6:X4 = X3 + C7:Y4 = Y3 + C8:Z = C1: GOSUB 200
+ 1140  IF HP <  > LP THEN LP = HP: & PUTP,0,1 AT X,Y
+ 1144  IF TC = 97 OR TC = 157 THEN FL(2) = 0
+ 1145  IF TC = 60 OR TC = 120 OR TC = 170 THEN FL(2) = 1:SX = 62:SY = 189
+ 1146  IF TC = 175 THEN FL(3) = 1:TX =  - 8:TY = 218
+ 1148  IF FL(2) THEN  & IMAGE,5,SX,SY:SX = SX + 6:SY = SY - 3
+ 1149  IF FL(3) THEN  & IMAGE,6,TX,TY:TX = TX + 6:TY = TY - 3
+ 1150  IF FL(C0) THEN  & PUTP,1,3 AT RX(C0),RY(C0)
+ 1155  IF FL(C1) THEN  & PUTP,2,3 AT RX(C1),RY(C1)
+ 1160  IF FL(C1) THEN Z = C1: GOSUB 600: IF  NOT FL(C1) THEN  & PUTP,2,3 AT 275,0
+ 1165  IF FL(C0) THEN Z = C0: GOSUB 600: IF  NOT FL(C0) THEN  & PUTP,1,3 AT 275,0
+ 1170  IF COL THEN  GOSUB 700:COL = C0:X =  FN RX(HP):Y =  FN RY(HP):X1 = X + C8:Y1 = Y + C2:X2 = X + C3:Y2 = Y + C4
+ 1180  GOTO 1070
+ 25000  DATA Wagon,oxen,sets of clothing,bullets,wagon wheels,wagon axles,wagon tongues,pounds of food
+ 30000  & SPACE: & QFH: RETURN 
+ 31000  &  & : & HOOK: CALL 54915: & WIND,0: GOSUB 33000: PRINT CL$: & CO,0,89: PRINT "Getting the "QN$" menu..."
+ 31130  & RNH,"MENU"
+ 32000 ZE =  PEEK (222):ZN =  PEEK (218) +  PEEK (219) * 256: POKE 216,0: ONERR  GOTO 32000
+ 32010  IF ZE = 12 THEN  & CLOSE: RESUME 
+ 32015  IF ZE = 8 THEN  RESUME 
+ 32020  IF ZU AND ZE > 0 AND ZE < 16 THEN  RESUME 
+ 32110  IF ZE = 255 THEN 31000
+ 32120  NORMAL : & WIND: PRINT CL$: & CO,,80: PRINT "Error "ZE" at line #"ZN" in "PN$".": PRINT : PRINT "Please report this error to MECC.": GOSUB 30000: GOTO 31000
+ 33000 S = 1: & SET,1 + S
+ 33010 ZN$ = "":ZE = 0: IF  NOT ZE THEN  & CDN,ZN$
+ 33011 Z =  VAL ( MID$ (ZN$,20,1)):ZN$ =  MID$ (ZN$,2,12):ZE = 0: IF  NOT ZE AND QN$ = ZN$ AND Z = 1 + S THEN  RETURN 
+ 33020  & WIND: PRINT CL$: & CO,,89: PRINT "Please insert side "1 + S" of the "QN$" diskette.": GOSUB 30000: GOTO 33010
+ 40000  ONERR  GOTO 32000
+ 40005 D$ =  CHR$ (4):CC$ =  CHR$ (3):CL$ =  CHR$ (12):CM$ =  CHR$ (13):PA = 12200:SA = 15900
+ 40010  RETURN 
+ 41000  HCOLOR=3:X1 =  FN X(X1):X2 =  FN X(X2) + 6: & TAKE,X1,Y1,X2,Y2,PA: & BOX,X1,Y1,X2,Y2: FOR L = 1 TO 3
+ 41005  HPLOT X1 + L,Y1 + 4 - L TO X2 - L,Y1 + 4 - L TO X2 - L,Y2 - 4 + L TO X1 + L,Y2 - 4 + L TO X1 + L,Y1 + 4 - L: NEXT : & DFW,7 AT X1 + 8,Y1 + 6,X2 - 16 - X1,Y2 - 6 - Y1: & WIND,7: RETURN 
+ 41100  & WIND: & BOX,0,182,279,191: GOSUB 30000: RETURN 
+ 50175  FOR L = (NP > 1) TO NP - 1: IF  RND (1) < V THEN T$(Z) = N$(L) + " (drowned)":H1(L) =  - 2:Z = Z + 1:V = V * (Z < 11)
+ 50180  NEXT : RETURN 
+ 50185 Y = 0:X = I(2): IF  NOT X THEN  RETURN 
+ 50190  FOR L = 1 TO X: IF  RND (1) < V THEN Y = Y + 1
+ 50195  NEXT : IF Y THEN T$(Z) =  STR$ (Y) + " oxen":T$(Z) =  LEFT$ (T$(Z), LEN (T$(Z)) - 2 * (Y = 1)):Z = Z + 1:I(2) = X - Y: IF I(2) < 0 THEN I(2) = 0
+ 50200  RETURN 
+ 50205  FOR L = 3 TO 8:X = I(L): IF X AND  RND (1) < V THEN Y =  INT ( RND (1) * X + 1):I(L) = X - Y:Z$ = I$(L): GOSUB 50250:T$(Z) =  STR$ (Y) + " " + Z$:Z = Z + 1
+ 50210  NEXT :Z$ = Z$ + "": RETURN 
+ 50250 X = (Y = 1) * ((L = 8) + (L = 3) + ("s" =  RIGHT$ (Z$,1))): IF  NOT X THEN  RETURN 
+ 50255  IF L <  > 8 AND L <  > 3 THEN Z$ =  LEFT$ (Z$, LEN (Z$) - 1): RETURN 
+ 50260 X = 6 - 2 * (L = 3):Z$ =  LEFT$ (Z$,X - 1) +  RIGHT$ (Z$, LEN (Z$) - X): RETURN 
+

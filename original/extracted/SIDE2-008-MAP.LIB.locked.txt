@@ -1,0 +1,5 @@
+
+ 50000  HCOLOR=4: IF Q1 - 1 THEN  FOR L = 0 TO Q1 - 2: HPLOT MP%(Q(L),0),MP%(Q(L),1) TO MP%(Q(L + 1),0),MP%(Q(L + 1),1): NEXT 
+ 50010  IF LM <  > NM THEN X1 = MP%(NM,0):X2 = MP%(LM,0):Y1 = MP%(NM,1):Y2 = MP%(LM,1):L = (Y2 - Y1) / (X2 - X1):Z = D * (X2 - X1) / DD:X = Z + X1:Y = Y2 - L * (X2 - X): HPLOT X2,Y2 TO X,Y
+ 50015  GOSUB 41100: PRINT CL$: RETURN 
+

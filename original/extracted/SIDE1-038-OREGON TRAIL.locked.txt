@@ -1,0 +1,162 @@
+
+ 20  REM OREGON TRAIL
+ 30  REM PROGRAMMER:J KRENZ
+ 40  REM COPYRIGHT (C) MECC 1984
+ 50  REM UPDATE 86/02/20 JJK
+ 100  POKE 919,0: LOMEM:39170: & RFL,"VAR.BIN" AT 39170: & RFL,"PT.BIN" AT 105: & APP,"COMMON.LIB": ONERR  GOTO 32000
+ 105  DEF  FN B(Z) = ( PEEK ( - 16384) = 13): DEF  FN X(Z) =  INT (Z / 7) * 7: DEF  FN HI(Z) =  INT (Z / 256): DEF  FN LO(Z) = Z -  FN HI(Z) * 256: DEF  FN W(Z) = ( NOT Z + .003 * Z) * ( ASC ( MID$ (WC$(ZO),AM * 2 + Z - 1,1)) - 30) - 20 *  NOT Z
+ 110  GOSUB 29000: & DBL,29000,29900: & DBL,40000,40010:Z$ = "Y": POKE 919,1: GOTO 1000
+ 190  & DBL,50000,60000: & CST,14848: RETURN 
+ 200 V =  INT (V * 100 + .5):K$ = "0" +  STR$ (V):K$ =  STR$ ( INT (V / 100)) + "." +  RIGHT$ (K$,2): RETURN 
+ 250 TD$ = M$(AM - 1) + " " +  STR$ (AD) + ", " +  STR$ (AY): RETURN 
+ 260 Z$ =  RIGHT$ (LM$(LM,0), LEN (LM$(LM,0)) - 4 * ( LEFT$ (LM$(LM,0),4) = "the ")): RETURN 
+ 300 F9 = 0: & WIND: & QFH: GOSUB 250:X1 = 0:X2 = 278:Y2 = 180: IF  NOT LL THEN V$ = "L" +  STR$ (LM) + ".PCK": IF LM THEN  GOSUB 33000: & DUN,V$ AT PA,16: & CST,14848
+ 305  IF  NOT LL THEN  & BOX,X1,160,X2,180,3: INVERSE : & CO,,162: GOSUB 260: PRINT Z$CC$: PRINT TD$CC$: NORMAL : RETURN 
+ 310  & BOX,0,SR * 31,279 - SR * (I <  > 8) * 94,191 - SR * 132,4:SR = 1:CC = 3 * (AS >  = 1) + (AS < 1) * (5 * (AR <  = .2) + (AR > .2)):Y1 = Y5: & DFT,7,49152: & IMAGE,4,0,13: & BOX,0,60,278,Y5 - 1,CC:I = 1
+ 312 IA(0) = SA: & UIM,NI,IA(0),Z:IA(1) = IA(0) + Z: FOR L = 1 TO 3: & UIM,L,IA(L),Z:IA(L + 1) = IA(L) + Z: NEXT : & CST,14848:WG = 1: & IMAGE,WG,186,32: & DPC,278,170,Z: IF  NOT Z THEN  & BOX,X1,Y1,X2,Y2,3
+ 315  GOSUB 400: INVERSE :T$(0) = TD$:T$(1) = W$(W):T$(3) =  STR$ (PF) + " pounds":T$(2) = H$( INT (H / 35)):T$(4) =  STR$ ( INT (D)) + " miles":T$(5) =  STR$ ( INT (M)) + " miles"
+ 320  & CO,,125: FOR L = 0 TO 5: READ Z$: & CO,B(L): PRINT Z$":": NEXT : & WIND,5: FOR L = 0 TO 5: PRINT CE$T$(L):T$(L) = "": NEXT : & QFH: RETURN 
+ 350  & BOX,0,60,278,80,CC: RETURN 
+ 355  & WIND: & BOX,0,Y5,278,Y5 + 9,3: RETURN 
+ 400  & WIND: RESTORE : READ Z$: IF LM <  > NM THEN  & BOX,0,Y5,279,Y5 + 9: & HSP,1: & CO,,Y5 + 1: PRINT Z$CC$: & HSP
+ 401  RETURN 
+ 450 DL =  - 1: FOR L4 = 0 TO 1: IF (SN = SN(L4)) AND (DL < ML(L4)) AND (ML(L4) < D) THEN LN = L4:DL = ML(L4)
+ 455  NEXT : RETURN 
+ 500  IF SD THEN ZX = D:ZY = M:D = 0:DI = P:P = 0: FOR K1 = 1 TO SD: INVERSE : GOSUB 3100: NEXT :SD = 0:D = ZX:M = ZY:I(8) = PF:P = DI
+ 505  RETURN 
+ 550 XX =  INT ( RND (1) * Z + 1):V$ = A$ + ".  Lose " +  STR$ (XX) + " day": IF XX > 1 THEN V$ = V$ + "s"
+ 560 V$ = V$ + ".": GOSUB 355: GOSUB 700
+ 570 SD = XX: GOSUB 500: GOSUB 400: GOSUB 30000: GOSUB 350:B = ( PEEK ( - 16384) = 13): RETURN 
+ 600  GOSUB 33000: & APP,"FLIP.LIB": GOSUB 50000: GOSUB 190: RETURN 
+ 650 V = I(2) / 4: IF V > 1 THEN V = 1
+ 660 FC = NP * (4 - R):BS = MD * V * (P + 1) / 2:OP = I(3) / NP:F0 = 2 * (R - 1):V = BS: RETURN 
+ 700 Y1 = 60 + G:Y2 = Y1 + 20:X = 6 +  INT ( LEN (V$) / 2 * 8):X1 = (139 - X) * (X < 140):X2 = (139 + X) * (X < 140) + 279 * (X >  = 140): GOSUB 41000: PRINT V$CC$: RETURN 
+ 710  GOSUB 700: GOSUB 41100:G = 0: & PUT,X1,Y1,PA: IF  NOT B THEN B =  FN B(Z) AND  NOT SD
+ 711  RETURN 
+ 800 X =  USR (C3): IF X < 128 OR SD THEN  RETURN 
+ 810  IF X = 141 THEN  NORMAL :I(8) = PF: GOSUB 4000:PF = I(8): GOSUB 300
+ 820  RETURN 
+ 900 X1 = 28:X2 = 238:Y1 = 60:Y2 = 90 + 9 * Z: GOSUB 41000: PRINT A$: IF Z THEN  FOR L = 0 TO Z - 1: PRINT  SPC(3)T$(L): NEXT 
+ 905  GOSUB 41100: & PUT,X1,Y1,PA:B = ( PEEK ( - 16384) = 13): RETURN 
+ 950  & WIND: & BOX,0,180,279,191: & CO,,182: PRINT "Press SPACE BAR to continue"CC$:Z =  USR (1)
+ 955  IF  PEEK (975) THEN  & PT,1,1
+ 956 Z =  USR (2): IF Z < 128 THEN 955
+ 957  IF Z = 147 THEN  POKE 975, NOT  PEEK (975):Z =  USR (1): GOTO 955
+ 958  & BOX,0,180,279,191: RETURN 
+ 1000  & WIND:A =  INT ( RND (1) * 3):ZO = (LM > 2) + (LM > 5) + (LM > 10) + (LM > 13)
+ 1005  IF LM THEN  GOSUB 33000:F9 = 0:Z$ = "MS" +  STR$ (LM) + ".BIN": & RFL,Z$ AT 51944: GOSUB 350:X1 = 21:X2 = 252:Y1 = 60:Y2 = 98: GOSUB 355
+ 1006  IF LM THEN  GOSUB 41000: PRINT "You are now at "LM$(LM,0)".  Would you like to look around? ";: GOSUB 30100: & PUT,X1,Y1,PA:Q(Q1) = LM:Q1 = Q1 + 1
+ 1010  IF Z$ = "Y" THEN LL = 0: GOSUB 300: GOSUB 950: GOSUB 4000:LL = 1
+ 1015  ON LM$(LM,1) = "2" GOSUB 3500:Z = 1:Y1 = 40:Y2 = 125:X1 = 28:X2 = 250: GOSUB 21000: ON B > 0 GOSUB 4000: GOSUB 2100: IF Z = 3 THEN  GOSUB 4200: GOSUB 190: GOTO 1015
+ 1016  GOSUB 2200:LL = 1: GOSUB 3000:LM = NM: ON LM = 5 GOSUB 600: IF LM <  > 17 THEN 1000
+ 1020 LL = 0: GOSUB 33000: & APP,"END.LIB": GOTO 50000
+ 2100  IF LM = 16 THEN  & APP,"END.LIB": GOSUB 50000: GOSUB 190
+ 2105  GOSUB 300: GOSUB 355:Z = 1: IF  NOT  VAL (LM$(LM,3)) THEN  RETURN 
+ 2110 Y2 = 154:Y1 = 60:X1 = 0:X2 = 279: GOSUB 41000: PRINT "The trail divides here.  You may:": PRINT : & IN,10: FOR L = 1 TO 2: PRINT L". head for "LM$(LM( VAL (LM$(LM,1 + L)),2),0): NEXT : PRINT L". see the map": PRINT : & IN
+ 2120  PRINT : PRINT WW$;: & INP,1,"-13",1,Z$:Z =  VAL (Z$): & PUT,X1,Y1,PA: RETURN 
+ 2200  INVERSE :Z =  VAL (LM$(LM,Z + 1)):D = LM(Z,0):MD = LM(Z,1):NM = LM(Z,2): & WIND,5: & CO,,36: PRINT CE$D" miles":Y1 = 60:Y2 = 97 + 9 * (LM = 1):X1 = 28:X2 = 250:Z$ = "From " + LM$(LM,0) + " it is " +  STR$ (D) + " miles to " + LM$(NM,0) + ".": GOSUB 41000: PRINT Z$: GOSUB 950: RETURN 
+ 3000 PF = I(8):SN = NM * 100 + LM:FX = 180 - L%(NM - 1,1):IX = FX - D * 2:NI = L%(NM - 1,0): GOSUB 300:X =  USR (1):DD = D:SD = 0: GOSUB 650
+ 3060  GOSUB 450:RE(8) = .04 + .03 * (ZO > 2):RE(10) = .05 * (ZO > 2):RE(11) = .04 * (AM > 4 AND AM < 10)
+ 3100 QT =  FN W(0):QP =  FN W(1): FOR L0 = C1 TO C1: IF  NOT SD THEN  GOSUB 800
+ 3150  IF H > 139 THEN H = 139
+ 3160 RE(C0) = (AS > 30):RE(14) = P5 * (AR < .1):RE(C3) = .01 + H / 1500:RE(C4) = (D < DL):RE(5) = .05 * (PF = 0):RE(6) = (W > 7) + .15 * (TM < C2)
+ 3170  & WIND: IF F9 THEN  GOSUB 350:F9 = 0
+ 3180 HR = 0: IF  NOT SD THEN  FOR L8 = C0 TO RE: IF  RND (C1) < RE(L8) THEN  & WIND: NORMAL : & DFT,7,52200: ON L8 + C1 GOSUB 10000,10100,10200,10300,10400,10500,10600,10700,10800,10900,11000,11100,11200,11300,11400: INVERSE : IF B > 0 THEN  GOSUB 4000: GOSUB 300:L8 = 20
+ 3190  IF  NOT SD THEN  NEXT : & CST,14848: & DFT,7,49152: & WIND: GOSUB 800
+ 3200 H0 = C0: FOR L = C0 TO C4: IF H1(L) > C0 THEN H2(L) = H2(L) - C1:H0 = H0 + C1: IF H2(L) < C1 THEN H1(L) = C0
+ 3205  NEXT : IF  RND (C1) < P5 THEN TM = QT +  INT ( RND (C1) * 41):PP = ( RND (C1) < QP):W =  INT ((TM + 10) / 20):TM = W
+ 3206 TR = C0:TS = C0: IF PP THEN Z = ( RND (C1) < .3):W = 6 + Z + Z:TR = .2 + .6 * Z: IF TM < C2 THEN W = W + C1:TS = 8 * TR:TR = C0
+ 3207 ZT = TM - C3: IF ZT < C0 THEN ZT = C2 - TM
+ 3210 ZC = 5 - TM - TM - OP: IF ZC < C0 THEN ZC = C0
+ 3215 X = (ZC > P5):Y = (PF = C0):ZF = F0: IF Y THEN ZF = 8
+ 3220 ZP = (W > 5) + (W > 7) + P + P
+ 3225 Z = FS * P5: IF X OR Y THEN Z = FS + .8
+ 3230 FS = Z:H = .9 * H + ZT + ZC + ZF + ZP + FS + H0 + HR:PF = PF - FC: IF PF < C0 THEN PF = C0
+ 3235  IF  NOT W1 AND H > 139 THEN  GOSUB 10300: INVERSE 
+ 3240 AR = .9 * AR + TR:AS = .97 * AS + TS:C = (AR > .2) + (AR > C2): IF AS THEN : IF TM > C2 OR W = 8 THEN AR = AR + P5:AS = AS - 5: IF AS < C0 THEN AS = C0
+ 3244 Z = 1 - AS / 40: IF Z < 0 THEN Z = 0
+ 3245 V = BS * (C1 - .1 * H0) *  NOT SD * Z: IF 1.1 * V > D THEN V = D
+ 3246 D = D - V:M = M + V: IF  NOT SD THEN VP =  INT (((FX - D * C2 - IX) / C4) + .5): IF VP THEN  FOR L4 = 1 TO VP:WG = WG * (WG < 3) + 1:IX = IX + C4: & DFT,7,IA(C0): & IMAGE,1,IX,31: & DFT,7,IA(WG): & IMAGE,1,186,32: NEXT 
+ 3250  IF H > 139 THEN H = 139
+ 3255 AD = AD + C1: IF AD > 31 OR (AD > 28 AND AM = C2) OR (AD > 30 AND (AM = C4 OR AM = 6 OR AM = 9 OR AM = 11)) THEN AD = C1:AM = AM + C1:AY = AY + (AM > 12):AM = AM * (AM < 13) + (AM > 12):QT =  FN W(C0):QP =  FN W(C1)
+ 3260  IF SR THEN  & WIND,5: PRINT CE$M$(AM - C1)" "AD", "AY: PRINT CE$W$(W): PRINT CE$H$( INT (H / 35)): PRINT CE$PF" pounds"
+ 3265  IF  NOT SD THEN  PRINT CE$ INT (D + P5)" miles": PRINT CE$ INT (M + P5)" miles"
+ 3499 L0 =  NOT D: NEXT L0:I(8) = PF: NORMAL : RETURN 
+ 3500 W1 = 1: GOSUB 33000: & RFL,"OREGON.IMA" AT SA: & DFT,7,SA: PRINT CL$: & IMAGE,10,10,160: & IMAGE,10,10,30: & APP,"RIVER.LIB"
+ 3504  GOSUB 50000:W1 = 0: GOSUB 190: & APP,"CROSS.LIB": GOSUB 50000: GOSUB 190: GOSUB 900: & QFH: IF Z THEN  & APP,"TOMB.LIB": FOR L1 = 0 TO 4:Q = L1: ON (H1(L1) =  - 2) GOSUB 50000: NEXT : GOSUB 190
+ 3505 PF = I(8): RETURN 
+ 4000 F9 = 0:SR = 0: GOSUB 33000: & RFL,"OREGON.IMA" AT SA: & DFT,7,SA: NORMAL 
+ 4005 B = B * (B <  > 1): & QFH: & WIND: PRINT CL$: & CO:Z$ = "": IF  NOT LL THEN  GOSUB 260
+ 4010  GOSUB 250: PRINT Z$CC$: PRINT TD$CC$: INVERSE : & WIND,2: & BOX: & CO,,5: & IN,10: IF H > 139 THEN H = 139
+ 4020  PRINT "Weather: "W$(W): PRINT "Health: "H$( INT (H / 35)): PRINT "Pace: "P$(P - 1): PRINT "Rations: "R$(R - 1): NORMAL : & IN
+ 4030  & WIND,1: PRINT CF$;"You may:":A = (A + 1) * (A < 2)
+ 4040  PRINT : & IN,30: FOR L = 0 TO 6: PRINT L + 1". "AQ$(L): NEXT :L = L + 1:Z = 0: IF  NOT LL THEN  PRINT L". "AQ$(7):L = L + 1: IF  VAL (LM$(LM,1)) = 1 THEN  PRINT L". "AQ$(8):L = L + 1
+ 4050  IF LL THEN  PRINT L". "AQ$(9):Z = 2:L = L + 1
+ 4060 Z$ = "-1" +  STR$ (L - 1): & IN: & CO,,110: PRINT WW$;: & INP,1,Z$,1,Z$:X =  VAL (Z$): IF  NOT B AND X = 1 THEN B = 2 * (I(2) = 0): IF  NOT B THEN  & DFT,7,49152: & CST,14848: RETURN 
+ 4070  IF B AND X = 1 THEN  & WIND: & BOX,0,73,279,191:T$(0) = "a ":T$(1) = "an ": & WIND,3: PRINT "You must trade for "T$(B = 2)S$(B - 2,2)" to be able to continue.": GOSUB 41100: GOTO 4005
+ 4090 Z = Z * ( VAL (Z$) > 7) +  VAL (Z$): ON Z - 1 GOSUB 4100,4200,4300,4400,4500,4900,4700,4800,4600: ON SD > 0 GOSUB 500: IF I(B) THEN I(B) = I(B) - (B > 2):B = 0
+ 4095  GOTO 4005
+ 4100  & WIND: PRINT CL$: PRINT "  Your Supplies"CC$:V = MY: GOSUB 200: & IMAGE,2,0,30: & IMAGE,3,20,80: & IMAGE,8,10,140: & IMAGE,5,82,120: & IMAGE,6,169,130
+ 4110  & WIND,4: FOR L = 2 TO 8: PRINT I$(L);: & GCP,,ZY: PRINT : & CO,130,ZY: PRINT  RIGHT$ ("   " +  STR$ ( INT (I(L) + .51)),4): NEXT : & GCP,,ZY: PRINT "money left": & CO,120,ZY: PRINT  RIGHT$ ("   " + "$" + K$,8): GOSUB 41100: RETURN 
+ 4200  GOSUB 33000: & DUN,"M0.PCK" AT PA,16: & APP,"MAP.LIB": GOSUB 50000: GOSUB 190: RETURN 
+ 4300  GOSUB 33000: & APP,"PACE.LIB": GOSUB 50000: GOSUB 190: RETURN 
+ 4400  GOSUB 33000: & APP,"RATION.LIB": GOSUB 50000: GOSUB 190: RETURN 
+ 4500 X1 = 40:Y1 = 60:X2 = 240:Y2 = 88: GOSUB 41000: PRINT "How many days would you like to rest? ";: & INP,1,"-09",1,Z$:SD =  VAL (Z$):X5 = 9
+ 4505  IF SD THEN F9 = 0:JQ = P:P = 0:ZX = D:ZY = M:D = 0: FOR K1 = 1 TO SD: GOSUB 3100: & WIND: GOSUB 250: & CO,,X5: PRINT CE$TD$CC$: NEXT :SD = 0:D = ZX:M = ZY:P = JQ
+ 4510  RETURN 
+ 4600  GOSUB 33000: & APP,"HUNT.LIB": GOSUB 50000: GOSUB 190:SD = 1: RETURN 
+ 4700  GOSUB 33000: & APP,"TALK.LIB": GOSUB 50000: GOSUB 190: RETURN 
+ 4800  GOSUB 33000: & APP,"BUY.LIB": GOSUB 50000: GOSUB 190: RETURN 
+ 4900  GOSUB 33000: & APP,"TRADE.LIB": GOSUB 50000: GOSUB 190:SD = 1:I(2) = I(2) * (I(2) > 0): RETURN 
+ 8000  GOSUB 33000: & APP,"TOMB.LIB": GOSUB 50000: GOSUB 190: GOSUB 650: RETURN 
+ 10000 A$ = "Snow bound":Z = 10: & IMAGE,8,130,47: GOSUB 550: GOSUB 300: RETURN 
+ 10100  IF TM > C2 THEN  GOSUB 11500:V$ = N$(Z) + " has " + IL$(2) + ".":H1(Z) = 2:H2(Z) = 10: GOSUB 710
+ 10105  RETURN 
+ 10300  ON  NOT SD GOSUB 355:G = 20:HR = 20:V =  INT ( RND (1) * 6) + 3: GOSUB 11500:Z$ = N$(Z) + " has ":A$ = IL$(V): IF H1(Z) THEN A$ = "died":V$ = Z$ + A$ + ".":H1(Z) =  - 1: GOSUB 710:Q = Z: GOSUB 8000: ON  NOT SD GOSUB 400: RETURN 
+ 10310 V$ = Z$ + A$ + ".": GOSUB 710:H1(Z) = V:H2(Z) = 10: ON  NOT SD GOSUB 400: RETURN 
+ 10400 X1 = 0:X2 = 279:Y1 = 60:Y2 = 90: GOSUB 41000: PRINT "You pass a gravesite.  Would you like to look closer? ";: GOSUB 30100: & PUT,X1,Y1,PA: IF Z$ = "Y" THEN  GOSUB 33000: & APP,"TOMB.LIB": GOSUB 50100: GOSUB 190
+ 10410  GOSUB 450: RETURN 
+ 10500 PF = PF + 30:V$ = "Indians help find food.": GOSUB 710: RETURN 
+ 10600  IF TM = C2 OR TM = C3 THEN  RETURN 
+ 10602 A$ = "Severe ":Z = 1:Z$ = "thunderstorm":I = 1:AR = AR + 1: IF TM < C2 THEN Z$ = "blizzard":I = 3:AR = AR - 1:AS = AS + 8
+ 10605 A$ = A$ + Z$: & IMAGE,I,105,0: GOSUB 550: & BOX,105,0,165,15: RETURN 
+ 10700  IF LM > 11 AND TM < 5 THEN A$ = "Heavy fog":V$ = A$:Z =  RND (1) > .5: ON Z + 1 GOSUB 710,550
+ 10705  IF LM <  = 11 AND TM > 4 THEN V$ = "Hail storm.": & IMAGE,2,118,0: GOSUB 710: & WIND: & BOX,118,0,165,15
+ 10710  RETURN 
+ 10800  IF  RND (1) < .33 THEN  GOSUB 33000: & APP,"PART.LIB":B =  INT ( RND (1) * 3) + 5: GOSUB 42000: & DBL,42000,42900:SD = 1: GOSUB 500:I = 8: ON  NOT B GOSUB 300: RETURN 
+ 10810  IF  RND (1) < .5 THEN 10830
+ 10820 V$ = "One of the oxen ":Z$ = "is injured.":I(2) = I(2) - .5: IF I(2) =  INT (I(2)) THEN Z$ = "has died."
+ 10825 V$ = V$ + Z$: GOSUB 710: GOSUB 650: GOSUB 21000: RETURN 
+ 10830  GOSUB 11500:V =  INT ( RND (1) * 2):H1(Z) = V:H2(Z) = 30:V$ = N$(Z) + " has " + IL$(V) + ".": GOSUB 710: RETURN 
+ 10900 A$ = "Lose trail":Z = 5: IF  RND (1) < .5 THEN A$ = "Wrong trail"
+ 10910  GOSUB 550: RETURN 
+ 11000  IF  RND (1) < .5 THEN V$ = "Rough trail": GOSUB 710:HR = 10: RETURN 
+ 11010 A$ = "Impassible trail":Z = 10: GOSUB 550: RETURN 
+ 11100 V$ = "Find wild fruit.": & IMAGE,6,150,32:PF = PF + 20: GOSUB 710: GOSUB 300: RETURN 
+ 11200  ON  INT ( RND (1) * 3) GOTO 11250,11275
+ 11205  GOSUB 33000: & APP,"LF.LIB": GOSUB 50000: GOSUB 190
+ 11210  IF Z > 0 THEN  & IMAGE,5,184,32: GOSUB 900:I = 8: GOSUB 300
+ 11211  RETURN 
+ 11250  GOSUB 11500:A$ = N$(Z) + " is lost":Z = 5: GOSUB 550: RETURN 
+ 11275 A$ = "Ox wanders off":Z = 3: GOSUB 550: RETURN 
+ 11300  GOSUB 33000: & APP,"LF.LIB": ON  RND (1) < .5 GOTO 11330: GOSUB 51000: GOSUB 190: GOSUB 900: RETURN 
+ 11330  GOSUB 52000: GOSUB 190: IF Z THEN  & IMAGE,7,263,35: GOSUB 900: & BOX,263,35,279,59
+ 11370  GOSUB 21000: RETURN 
+ 11400 F9 = 1: IF  RND (1) < .2 THEN HR = 20:V$ = "Bad water": GOSUB 700: RETURN 
+ 11410  IF  RND (1) < .5 THEN HR = 10:V$ = "Very little water": GOSUB 700: RETURN 
+ 11420 V$ = "Inadequate grass": GOSUB 700: RETURN 
+ 11500 Z =  INT ( RND (1) * NP)
+ 11505 Z = (Z + 1) * (Z < (NP - 1)): ON (H1(Z) < 0) GOTO 11505:Z = Z + (NP > 1) * (Z = 0): RETURN 
+ 21000  IF  NOT I(2) THEN X1 = 21:X2 = 245:Y1 = 70:Y2 = 110: GOSUB 41000: PRINT "You are unable to continue your journey.  You have no oxen to pull the wagon.": GOSUB 41100:B = 2: & PUT,X1,Y1,PA
+ 21005  RETURN 
+ 22000  DATA Press RETURN to size up the situation,Date,Weather,Health,Food,Next landmark,Miles traveled
+ 29000 MY = ( PEEK (913) +  PEEK (914) * 256) / 10:AM =  PEEK (902):AD =  PEEK (903):AY =  PEEK (901) + 1800: DIM Q(16),SN(1),ML(1):AS =  RND (1) * 12 * ( PEEK (902) < 4):W =  INT (( FN W(0) + 10) / 20): & DFW,4 AT 80,30,199,161: & DFW,3 AT 28,100,210,37: & DFW,2 AT 0,25,279,45: & DFW,1 AT 0,73,279,118
+ 29001 RE(7) = .06:RE(9) = .02:RE(12) = .01:RE(13) = .02:RE(1) = .007:RE(2) = 0
+ 29004 TM = W:AR = 7 -  PEEK (902) +  RND (1):SA = 37380:Y5 = 111:Q1 = 1: & DFW,5 AT 135,125,144,57: & OPEN,"TOMB.SEQ": FOR L = 0 TO 1: & TPTR,L * 49: & TREED,CM$,N$:SN(L) =  VAL (N$): & TREED,CM$,N$:ML(L) =  VAL (N$): NEXT : & CLOSE
+ 29005  FOR L = 3 TO 7:I(L) =  PEEK (905 + L): NEXT :I(8) =  PEEK (906) +  PEEK (907) * 256:I(2) = 2 *  PEEK (905):I(4) =  PEEK (909) * 20:PF = I(8)
+ 29010 Z = 1920: FOR L = 0 TO 4:N$(L) = "": FOR L1 = Z TO 4000: IF  PEEK (L1) THEN N$(L) = N$(L) +  CHR$ ( PEEK (L1))
+ 29015  IF  NOT  PEEK (L1) THEN Z = L1 + 1:L1 = 4001
+ 29020  NEXT : NEXT :N$ = N$ + "":PN$ = "Oregon Trail" + "":QN$ = "OREGON TRAIL" + "": RETURN 
+
+
+

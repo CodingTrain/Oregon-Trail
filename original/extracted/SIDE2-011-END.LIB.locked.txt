@@ -1,0 +1,12 @@
+
+ 50000  GOSUB 33000: & RFL,"OREGON.IMA" AT SA: & DFT,7,SA: ON LM = 17 GOTO 50050: PRINT CL$: & IMAGE,10,10,20: & IMAGE,10,10,160: & DFW,7 AT 10,50,269,100
+ 50010  & WIND,7: PRINT "The trail divides here.": PRINT "You may:": PRINT : PRINT : PRINT "1. float down the Columbia River": PRINT : PRINT "2. take the Barlow Toll Road": PRINT : PRINT : PRINT WW$;: & INP,1,"-12",1,Z$: ON Z$ = "1" GOTO 50050
+ 50015 MY =  INT (MY * 100 + .5) / 100
+ 50020 V = 5 +  INT (I(2) + .5) * .5:Z = V: GOSUB 200:V = Z:V =  INT (V * 100 + .5) / 100: & BOX: & CO: PRINT : PRINT : PRINT "You must pay $"K$" to travel the Barlow road.  Are you willing to do this? ";: GOSUB 30100: IF Z$ = "Y" AND MY > V THEN MY = MY - V:Z$ = Z$ + "": PRINT CL$: RETURN 
+ 50030  IF Z$ = "Y" AND MY < V THEN  PRINT : PRINT "You do not have enough cash.": GOSUB 30000
+ 50040  & BOX: GOTO 50010
+ 50050  POKE 900,NP: POKE 901,AY - 1800: POKE 902,AM: POKE 903,AD: POKE 909,I(2) + .5:F = I(8): POKE 906, FN LO(F): POKE 907, FN HI(F): POKE 908,I(3):F = I(4): POKE 904, FN LO(F): POKE 905, FN HI(F): POKE 916, INT (H / 35)
+ 50060 Z = 1920: FOR L = 0 TO NP - 1: FOR L1 = 1 TO  LEN (N$(L)): POKE Z, ASC ( MID$ (N$(L),L1,1)):Z = Z + 1: NEXT : POKE Z,0:Z = Z + 1: NEXT :MY =  INT (MY * 100 + .5) / 100
+ 50070  FOR L = 5 TO 7: POKE 905 + L,I(L): NEXT : POKE 913, FN LO(MY): POKE 914, FN HI(MY): POKE 917,(MY -  INT (MY)) * 100 + .5: IF LM = 16 THEN  & RFL,"OREGON.IMA" AT 49152: & DFT,7,49152: & RNH,"FLOAT"
+ 50080  & DUN,"L17.PCK" AT 49152,16: & RNH,"WIN"
+

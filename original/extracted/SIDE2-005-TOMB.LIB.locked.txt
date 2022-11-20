@@ -1,0 +1,17 @@
+
+ 50000  IF H > 105 THEN H = 105
+ 50005 L1 = 0:NP = NP - 1:H1(Q) = H1(NP):H1(NP) =  - 1:H2(Q) = H2(NP):Z$ = N$(Q):N$(Q) = N$(NP):N$(NP) = Z$: IF NP THEN  RETURN 
+ 50010  CALL 54915:NP = Q: & DUN,"TS.PCK": & RFL,"TS.BIN" AT 51944: & DFW,6 AT 56,62,150,45: & WIND,6: INVERSE : PRINT "Here lies"CC$: PRINT N$(Q)CC$: PRINT : & GCP,X,Y: NORMAL : GOSUB 950: & DFW,7 AT 0,163,279,28
+ 50015  & WIND,7: PRINT CF$"Would you like to write": PRINT "an epitaph? ";: GOSUB 30100: IF Z$ = "N" THEN A$ = "": GOTO 50035
+ 50020  & WIND,7: PRINT CF$"What would you like on the tombstone? ": & INP,29,"-09-AZ-az ,.'-",0,A$
+ 50030  IF  LEN (A$) THEN  INVERSE : & WIND,6: & CO,,Y: PRINT CF$A$: NORMAL : & WIND,7: PRINT CF$"Would you like to make": PRINT "changes? ";: GOSUB 30100: IF Z$ = "Y" THEN 50020
+ 50035  GOSUB 51000: & OPEN,"TOMB.SEQ": & TPTR,0: & TWRITE, STR$ (NM * 100 + LM) + CM$: & TWRITE, STR$ (D) + CM$: & TWRITE,N$(NP) + CM$: & TWRITE,A$ + CM$:ZE = 0: IF  NOT ZE THEN  & CLOSE
+ 50037  IF ZE = 4 THEN  & WIND: PRINT CL$: & CO,,89: PRINT "Please remove the write-protect sticker from your diskette.": GOSUB 30000: PRINT CL$
+ 50038  IF ZE THEN 50035
+ 50040  & WIND,7: PRINT CF$"All of the people"CC$: PRINT "in your party have died."CC$: GOSUB 950: & RNH,"MENU 
+ 50100  & OPEN,"TOMB.SEQ": & TPTR,LN * 49: & TREED,CM$,Z$: & TREED,CM$,Z$: & TREED,CM$,A$: & TREED,CM$,Z$: & CLOSE
+ 50105  & DUN,"TS.PCK": & DFW,7 AT 56,62,150,45: INVERSE : & WIND,7: PRINT "Here lies"CC$: PRINT A$CC$: PRINT : PRINT Z$: NORMAL : GOSUB 41100:Z$ = Z$ + "":A$ = A$ + "":SR = 0: GOSUB 300: RETURN 
+ 51000  & SET,1 + S
+ 51010 ZN$ = "":ZE = 0: IF  NOT ZE THEN  & CDN,ZN$
+ 51020 Z =  VAL ( MID$ (ZN$,20,1)):ZN$ =  MID$ (ZN$,2,12):ZE = 0: IF  NOT ZE AND QN$ = ZN$ AND Z = 1 + S THEN  RETURN 
+ 51030  & WIND: PRINT CL$: & CO,,89: PRINT "Please insert side "1 + S" of the "QN$" diskette.": GOSUB 30000: GOTO 51010

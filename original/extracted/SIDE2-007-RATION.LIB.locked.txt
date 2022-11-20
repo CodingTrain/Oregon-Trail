@@ -1,0 +1,8 @@
+
+ 50000  & WIND: PRINT CL$: & IMAGE,10,10,0: & IMAGE,10,10,180: & CO,,20: PRINT "Change food rations"CC$: PRINT "(currently " CHR$ (34)R$(R - 1) CHR$ (34)")"CC$: PRINT : & GCP,ZX,ZY
+ 50005  & DFW,7 AT 10,ZY,269,191 - ZY: & WIND,7: PRINT "The amount of food the people in your party eat each day can change.  These amounts are:": & GCP,,Y
+ 50010 ZY = ZY + Y: & DFW,6 AT 30,ZY,249,191 - ZY: & WIND,6: PRINT : & IN, - 20: PRINT "1. "R$(0)" - meals are large and generous."
+ 50020  PRINT : PRINT "2. "R$(1)" - meals are small, but adequate.": PRINT 
+ 50030  PRINT "3. "R$(2)" - meals are very small; everyone stays hungry.": & WIND,7: & IN: & CO,,164
+ 50040  PRINT WW$;: & GCP,X,Y: & INP,1,"-13",0,Z$:Z$ = Z$ + "":Z =  LEN (Z$):R = Z *  VAL (Z$) + R *  NOT Z: & CO,X,Y: PRINT R: GOSUB 650: RETURN 
+

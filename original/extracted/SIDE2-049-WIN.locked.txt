@@ -1,0 +1,63 @@
+
+ 10  REM PRODUCT:OREGON TRAIL
+ 20  REM PROGRAM:WINNING PROGRAM
+ 30  REM PROGRAMMER:JOHN J KRENZ
+ 40  REM COPYRIGHT (C) MECC 1985 
+ 50  REM LAST UPDATE 85/07/23 JJK
+ 100  LOMEM:39170: & APP,"COMMON.LIB": DEF  FN X(Z) =  INT (Z / 7) * 7: & DFT,15,51944: & RFL,"MS17.BIN" AT 51944
+ 110  POKE 919,0: GOSUB 40000: DIM M$(12),Z$(1,1),HI$(9,2),R$(2),PT(7,1),H$(3),PL$(3):QN$ = "OREGON TRAIL":PN$ = "WIN":S = 1
+ 120  FOR L = 0 TO 2: READ R$(L): NEXT : FOR L = 0 TO 3: READ H$(L): NEXT : FOR L = 0 TO 3: READ PL$(L): NEXT : FOR L = 0 TO 1: FOR L1 = 0 TO 1: READ Z$(L,L1): NEXT : NEXT : FOR L = 1 TO 12: READ M$(L): NEXT 
+ 130 PT(0,0) =  PEEK (900):PT(0,1) = PT(0,0) * (500 - 100 * ( PEEK (916))):PT(1,0) = 1:PT(1,1) = 50:PT(2,0) =  PEEK (909):PT(2,1) = PT(2,0) * 4:PT(3,0) =  PEEK (910) +  PEEK (911) +  PEEK (912):PT(3,1) = PT(3,0) * 2
+ 140 PT(4,0) =  PEEK (908):PT(4,1) = PT(4,0) * 2:PT(5,0) =  PEEK (904) +  PEEK (905) * 256:PT(6,0) =  PEEK (906) +  PEEK (907) * 256:PT(7,0) =  PEEK (913) +  PEEK (914) * 256 +  PEEK (917) / 100:PT(6,1) =  INT (PT(6,0) / 25):PT(7,1) =  INT (PT(7,0) / 5):PT(5,1) =  INT (PT(5,0) / 50)
+ 199  POKE 919,1: GOTO 1000
+ 200  REM WINNING ANIMATION
+ 205  PRINT CL$: & WIND: & CO,0,89: PRINT "One moment please...": & RFL,"FIRST.IMA" AT 8192: & DFT,7,8192: & CST,14848: & OPEN,"HISCORE.SEQ": & TPTR,0: FOR L = 0 TO 9: FOR L1 = 0 TO 2: & TREED,CM$,HI$(L,L1),Z: NEXT : NEXT : & CLOSE
+ 210  RETURN 
+ 250 V =  INT ((V * 100) + .5):K$ = "0" +  STR$ (V):K$ =  STR$ ( INT (V / 100)) + "." +  RIGHT$ (K$,2): RETURN 
+ 300  REM DETERMINE PLAYER'S SCORE
+ 305 SC = 0: FOR L = 0 TO 7:SC = SC + PT(L,1): NEXT 
+ 310  RETURN 
+ 400  REM REPLACE LOWEST SCORE FLAG
+ 405 F = ( VAL (HI$(9,1)) < SC): RETURN 
+ 500  REM GET NAME PUT ON HI SCORE LIST
+ 510 G = 0: FOR L = 9 TO 1 STEP  - 1: IF SC >  VAL (HI$(L,1)) THEN  FOR L1 = 0 TO 2:HI$(L,L1) = HI$(L - 1,L1): NEXT 
+ 515  IF SC <  =  VAL (HI$(L,1)) THEN G = L:L = 0
+ 520  NEXT :HI$(G,1) = "":HI$(G,2) = "":HI$(G,0) = "": & WIND: GOSUB 700:HI$(G,1) =  STR$ (SC):HI$(G,2) = R$(R)
+ 530  & WIND: & CO,,ZZ + G * 9: & CEL: & INP,15,"-AZ-az .'-",1,HI$(G,0): & CO,139,ZZ + G * 9: PRINT  RIGHT$ (" " + HI$(G,1),4);: & CO,189: PRINT HI$(G,2): & WIND,7: & BOX: PRINT "Would you like to make any changes? ";: GOSUB 30100: IF Z$ = "Y" THEN HI$(G,0) = "": GOTO 530
+ 535 S = 0: GOSUB 33000: & OPEN,"HISCORE.SEQ": & TPTR,0: & TWRITE,"L" + CM$:ZE = 0: IF  NOT ZE THEN  & CLOSE
+ 537  IF ZE = 4 THEN  PRINT CL$: & WIND: & CO,,89: PRINT "Please remove the write-protect sticker from your diskette.": GOSUB 30000
+ 539  IF ZE THEN 535
+ 540  & OPEN,"HISCORE.SEQ": & TPTR,0: FOR L = 0 TO 9: FOR L1 = 0 TO 2: & TWRITE,HI$(L,L1) + CM$: NEXT : NEXT : & CLOSE: RETURN 
+ 600  REM FLIP DISKETTE
+ 601  & WIND: & BOX,0,160,279,180,3: INVERSE : & CO,,162: PRINT "The Willamette Valley, Oregon"CC$: PRINT M$( PEEK (902))" " PEEK (903)", 18" PEEK (901)CC$: NORMAL : GOSUB 950
+ 605  & WIND:X1 = 14:X2 = 253:Y1 = 60:Y2 = 108: GOSUB 41000: PRINT "Congratulations!  You have made it to Oregon!  Let's see how many points you have received.": GOSUB 30000
+ 606  PRINT CL$: & WIND:Z$ = "Points for arriving in Oregon":Z = ( LEN (Z$) / 2 + .5) * 8: & BOX,139 - Z,0,139 + Z,11,3: INVERSE : & CO,,2: PRINT Z$CC$: NORMAL : PRINT : PRINT : & GCP,,ZZ:F = 0:P$ = " person": IF PT(0,0) > 1 THEN P$ = " people"
+ 610  & CO,,ZZ: PRINT "   "PT(0,0)P$" in "H$( PEEK (916))" health";: & CO,245: PRINT  RIGHT$ (" " +  STR$ (PT(0,1)),4): PRINT "   "PT(1,0)" wagon";: & CO,245: PRINT  RIGHT$ ("  " +  STR$ (PT(1,1)),4)
+ 615  PRINT  RIGHT$ ("   " +  STR$ (PT(2,0)),4)" ox"PL$((PT(2,0) <  > 1) * 3);: & CO,245: PRINT  RIGHT$ ("   " +  STR$ (PT(2,1)),4)
+ 616  PRINT "   "PT(3,0)" spare wagon part"PL$(PT(3,0) <  > 1);: & CO,245: PRINT  RIGHT$ ("   " +  STR$ (PT(3,1)),4): PRINT  RIGHT$ ("   " +  STR$ (PT(4,0)),4)" set"PL$(PT(4,0) <  > 1)" of clothing";: & CO,245: PRINT  RIGHT$ ("   " +  STR$ (PT(4,1)),4)
+ 620  PRINT  RIGHT$ ("   " +  STR$ (PT(5,0)),4)" bullet"PL$(2 * (PT(5,0) <  > 1));: & CO,245: PRINT  RIGHT$ ("   " +  STR$ (PT(5,1)),4)
+ 621  PRINT  RIGHT$ ("   " +  STR$ (PT(6,0)),4)" pounds of food";: & CO,245: PRINT  RIGHT$ ("   " +  STR$ (PT(6,1)),4):V = PT(7,0): GOSUB 250: PRINT "     $"K$" cash";: & CO,245: PRINT  RIGHT$ ("   " +  STR$ (PT(7,1)),4)
+ 622  PRINT : & CO,185: PRINT "Total:";: & CO,237: PRINT  RIGHT$ ("    " +  STR$ (SC),5): PRINT : PRINT 
+ 625  & GCP,,ZY: & DFW,7 AT 20,ZY,259,191 - ZY: & WIND,7:Z =  PEEK (915): IF  NOT F AND Z > 1 THEN  & WIND,7: PRINT "For going as a "Z$(Z - 2,0)", your points are "Z$(Z - 2,1)".": GOSUB 30000:F = 1: FOR L = 0 TO 7:PT(L,1) = PT(L,1) * Z: NEXT :SC = SC * Z: & WIND: GOTO 610
+ 630 R = (SC < 6000) + (SC < 3000):S = 0: & SET,1: GOSUB 30000: IF  PEEK (955) <  > 254 THEN  RETURN 
+ 635  & BOX: & WIND,7: PRINT "To see if you qualify for the Oregon Top Ten, please flip your diskette to side one.": & WIND
+ 690  GOSUB 30000: & CDN,ZN$:Z =  VAL ( MID$ (ZN$,20,1)):ZN$ =  MID$ (ZN$,2,12): IF Z <  > 1 OR QN$ <  > ZN$ THEN 690
+ 695  RETURN 
+ 700  & CO,,ZZ: FOR L = 0 TO 9: & GCP,ZX,ZY: FOR L1 = 0 TO 2:Z$ = HI$(L,L1): IF L1 = 1 THEN Z$ =  RIGHT$ ("  " + Z$,4)
+ 705  & CO,139 * (L1 = 1) + 189 * (L1 = 2),ZY: PRINT Z$: NEXT : NEXT : RETURN 
+ 950  & WIND: & CO,0,182: PRINT "Press SPACE BAR to continue"CC$:Z =  USR (1)
+ 955  IF  PEEK (975) THEN  & PT,1,1
+ 956 Z =  USR (2): IF Z < 128 THEN 955
+ 957  IF Z = 147 THEN  POKE 975, NOT  PEEK (975):Z =  USR (1): GOTO 955
+ 958  & BOX,0,180,279,191: RETURN 
+ 1000  REM MAIN PROGRAM
+ 1005  & BOX,0,170,279,191: GOSUB 300: GOSUB 600
+ 1010  GOSUB 200: GOSUB 400: GOSUB 2000: IF F THEN  GOSUB 500
+ 1030  & RNH,"MENU"
+ 2000  PRINT CL$: & WIND: & IMAGE,5,55,0:ZY = 20: & CO,10,ZY: PRINT "Name": & CO,130,ZY: PRINT "Points": & CO,210,ZY: PRINT "Rating": PRINT : & GCP,,ZZ
+ 2015  & DFW,7 AT 20,140,230,51
+ 2016  IF  NOT F THEN  GOSUB 700: & WIND,7: PRINT "You have accumulated "SC" points.  This is not enough to qualify for the Oregon Top Ten.": GOSUB 30000: RETURN 
+ 2020  & WIND,7: PRINT "Congratulations!  Type your name as you would like to see it on the Oregon Top Ten list.": RETURN 
+ 29000  DATA Trail guide,Adventurer,Greenhorn,good,fair,poor,very poor,,s,s,en,carpenter,doubled,farmer,tripled
+ 29005  DATA January,February,March,April,May,June,July,August,September,October,November,December
+
