@@ -1,14 +1,25 @@
+let data;
+
+function preload(){
+  data = loadJSON("data.json");
+}
+
+let slides = [];
+let currentSlide = 0;
+
 function setup() {
   createCanvas(280 * 2, 192 * 2);
+  for(let i=0;i<data.slides.length;i++){
+    slides[i] = new Slide(data.slides[i]);
+  }
 }
 
 function draw() {
   background(0);
-  textFont("VT323");
-  textAlign(CENTER, CENTER);
-  textSize(64);
-  fill(255);
-  noStroke();
-  text("The Oregon Trail", width / 2, height / 2);
-  noLoop();
+  
+  slides[currentSlide].render();
+}
+
+function mousePressed(){
+  currentSlide = (currentSlide+1) % slides.length;
 }
