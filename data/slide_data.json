@@ -13,8 +13,9 @@
       "content": {
         "textIndent": 3,
         "font": {
-          "name": "VT323",
-          "size": 24
+          "name": "CodeGon Mono",
+          "file": "fonts/codegon-mono.ttf",
+          "size": 16
         }
       }
     },
