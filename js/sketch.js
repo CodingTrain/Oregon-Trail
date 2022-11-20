@@ -1,7 +1,7 @@
 let data;
 
 function preload(){
-  data = loadJSON("data.json");
+  data = loadJSON("slide_data.json");
 }
 
 let slides = [];
