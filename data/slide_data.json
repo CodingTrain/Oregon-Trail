@@ -15,7 +15,7 @@
         "font": {
           "name": "CodeGon Mono",
           "file": "fonts/codegon-mono.ttf",
-          "size": 16
+          "size": 14
         }
       }
     },
@@ -30,10 +30,11 @@
       "prompt": "What is your choice?",
       "img": "",
       "content": {
-        "textIndent": 0,
+        "textIndent": 0.5,
         "font": {
-          "name": "VT323",
-          "size": 24
+          "name": "CodeGon",
+          "file": "fonts/codegon.ttf",
+          "size": 12
         }
       }
     }

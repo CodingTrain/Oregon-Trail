@@ -58,6 +58,7 @@ class Slide {
 
     if (this.img) {
       this.renderImg(this.img);
+      this.renderBar();
     } else {
       this.renderBar();
       this.newLine();
