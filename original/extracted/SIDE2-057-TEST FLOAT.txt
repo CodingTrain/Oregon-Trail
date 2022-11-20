@@ -1,4 +1,0 @@
-
- 20  POKE 916,0: & HOOK: PRINT  CHR$ (12): POKE 900,5: FOR L = 901 TO 916: POKE L,1: NEXT : POKE 917,.01 * 100 + .5: & VSP: POKE 915,3:PP = 1920: FOR L = 0 TO 4: READ Z$: FOR L1 = 1 TO  LEN (Z$): POKE PP, ASC ( MID$ (Z$,L1,1)):PP = PP + 1: NEXT : POKE PP,0:PP = PP + 1: NEXT : & RNH,"FLOAT
- 30  DATA  "Steve",Craig,John,Phillip,Roger
-

@@ -1,5 +1,5 @@
 const state = {
-  leader: "",
+  leader: '',
   passengers: [],
   money: 0,
   inventory: {
@@ -7,6 +7,6 @@ const state = {
     clothing: 0,
     food: 0,
     ammunition: 0,
-    "spare parts": 0,
+    'spare parts': 0,
   },
 };

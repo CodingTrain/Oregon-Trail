@@ -1,4 +1,0 @@
-
- 50000  & OPEN,"OREGON" +  STR$ (S + 1) + ".SEQ": & TPTR,(LM - S * 5) * 768 + A * 256: & TREED,CM$,A$,Z: & TREED,CM$,Z$,Z:V$ = "": IF  NOT Z THEN  & TREED,CM$,V$,Z
- 50010  & CLOSE:Z$ = Z$ + V$: PRINT CL$: & IMAGE,10,10,10: & IMAGE,10,10,160: & DFW,7 AT 20,40,230,151: & WIND,7: PRINT A$" tells you:": PRINT : PRINT  CHR$ (34)Z$ CHR$ (34): GOSUB 41100:A$ = "" + "":Z$ = "" + "":V$ = "" + "": RETURN 
-
