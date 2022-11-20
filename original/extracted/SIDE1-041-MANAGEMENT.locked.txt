@@ -1,0 +1,34 @@
+
+ 10  REM PRODUCT:OREGON TRAIL
+ 20  REM PROGRAM:MANAGEMENT
+ 30  REM PROGRAMMER:JOHN J KRENZ
+ 40  REM COPYRIGHT (C) MECC 1985
+ 50  REM LAST UPDATE: 87/02/24 JJK
+ 100  LOMEM:39170: & APP,"COMMON.LIB": RESTORE 
+ 110  POKE 919,0: GOSUB 40000:QN$ = "OREGON TRAIL"
+ 130  DIM HI$(9,2),PH$(9,2),S$(1):PN$ = "MANAGEMENT": DEF  FN X(Z) =  INT (Z / 7) * 7
+ 140  FOR L = 0 TO 9: FOR L1 = 0 TO 2: READ HI$(L,L1): NEXT : NEXT : FOR L = 0 TO 1: READ S$(L): NEXT : FOR L = 1 TO 5: READ C$(L): NEXT : READ WW$
+ 150  & OPEN,"HISCORE.SEQ": & TPTR,0: FOR L = 0 TO 9: FOR L1 = 0 TO 2: & TREED,CM$,Z$,Z:PH$(L,L1) = Z$: NEXT : NEXT : & CLOSE: POKE 919,1: GOTO 1000
+ 200  PRINT CL$: & WIND,7: PRINT "There may be a tombstone message on each side of the diskette.  If you erase these messages, they will not be replaced until team leaders die along the trail.": PRINT : PRINT WW$" ";: GOSUB 30100: IF Z$ = "N" THEN  RETURN 
+ 205  & WIND: PRINT CL$:Q$ = "Removing tombstones from side ":A$ = "one":S = 0: GOSUB 250:S = 1:A$ = "two": GOSUB 250:S = 0: PRINT CL$: GOSUB 33000: RETURN 
+ 250  PRINT CL$: GOSUB 33000: PRINT CL$: & CO,0,89: PRINT Q$A$"...": & OPEN,"TOMB.SEQ": & TPTR,0: & TWRITE,"0" + CM$ + "0" + CM$
+ 252 ZE = 0: IF  NOT ZE THEN  & CLOSE
+ 253  IF ZE THEN  GOSUB 300: GOTO 250
+ 255  RETURN 
+ 300  IF ZE = 4 THEN  PRINT CL$: & CO,,89: PRINT "Please remove the write-protect sticker from your diskette.": GOSUB 30000
+ 305  RETURN 
+ 700  PRINT CL$: & WIND,7: PRINT "If you erase the current Top Ten list, the names and scores will be replaced by those on the original list.": PRINT : PRINT WW$" ";: GOSUB 30100: IF Z$ = "N" THEN  RETURN 
+ 705  GOSUB 33000: & WIND: PRINT CL$: & CO,0,89: PRINT "One moment please...": & OPEN,"HISCORE.SEQ": & TPTR,0: & TWRITE,"L" + CM$
+ 706 ZE = 0: IF  NOT ZE THEN  & CLOSE
+ 710  IF ZE THEN  GOSUB 300: GOTO 705
+ 720  GOSUB 33000: & OPEN,"HISCORE.SEQ": & TPTR,0: FOR L = 0 TO 9: FOR L1 = 0 TO 2: & TWRITE,HI$(L,L1) + CM$:PH$(L,L1) = HI$(L,L1): NEXT : NEXT : & CLOSE: RETURN 
+ 900  PRINT CL$: & WIND,0: PRINT S$(F)" Top Ten list"CC$: PRINT : PRINT : PRINT : & GCP,ZX,ZY: & CO,10,ZY: PRINT "Name": & CO,130,ZY: PRINT "Points": & CO,210,ZY: PRINT "Rating": PRINT 
+ 910  FOR L = 0 TO 9: & GCP,ZX,ZY: FOR L1 = 0 TO 2:Z$ = PH$(L,L1): IF F THEN Z$ = HI$(L,L1)
+ 912  IF L1 = 1 THEN Z$ =  RIGHT$ ("  " + Z$,4)
+ 915  & CO,139 * (L1 = 1) + 189 * (L1 = 2),ZY: PRINT Z$: NEXT : NEXT : GOSUB 30000: RETURN 
+ 1000  PRINT CL$: & WIND,0: PRINT "The Oregon Trail"CC$: PRINT "Version 1.4"CC$: PRINT : HCOLOR=6: HPLOT 0,20 TO 279,20: PRINT "Management Options"CC$: & DFW,7 AT 0,60,279,151: & WIND,7: PRINT "You may:": & IN, + 20: PRINT : FOR L = 1 TO 5: PRINT L". "C$(L): NEXT : PRINT : & IN
+ 1015  PRINT "What is your choice? ";: & INP,1,"-15",1,Z$: & WIND,0:Z =  VAL (Z$):F = (Z = 2) + (Z = 4): ON Z GOSUB 900,900,700,200,31000: GOTO 1000
+ 20000  DATA Stephen Meek,7650,Trail guide,David Hastings,5694,Adventurer,Andrew Sublette,4138,Adventurer,Celinda Hines,2945,Greenhorn,Ezra Meeker,2052,Greenhorn,William Vaughn,1401,Greenhorn,Mary Bartlett,937,Greenhorn
+ 20010  DATA William Wiggins,615,Greenhorn,Charles Hopper,396,Greenhorn,Elijah White,250,Greenhorn 
+ 20060  DATA Current,Original,See the current Top Ten list,See the original Top Ten list,Erase the current Top Ten list,Erase the tombstone messages,Return to main menu,Do you want to do this?
+

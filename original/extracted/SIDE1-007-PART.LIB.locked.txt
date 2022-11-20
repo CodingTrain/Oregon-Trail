@@ -1,0 +1,8 @@
+
+ 42000  & WIND: & IMAGE,4,185,29: & BOX,0,Y5,278,Y5 + 9,3: & BOX,7,66,272,97: & DFW,7 AT 15,68,250,27: & WIND,7: PRINT "Broken wagon "S$(B - 2,2)".  Would you like to try to repair it? ";: GOSUB 30100: & BOX
+ 42010  IF (Z$ = "Y") AND ( RND (1) < .5) THEN  & CO: PRINT CF$;: PRINT "You were able to repair the wagon "S$(B - 2,2)".": GOSUB 42100: RETURN 
+ 42020 A$ = "did not": IF Z$ = "Y" THEN A$ = "were unable to"
+ 42030  & CO: PRINT CF$;: PRINT "You "A$" repair the broken wagon "S$(B - 2,2)".  You must replace it with a spare part.":Z = I(B): IF Z THEN I(B) = Z - 1:A$ = A$ + "": GOSUB 42100: RETURN 
+ 42040  GOSUB 30000: & CO: PRINT CF$"Since you don't have a spare "S$(B - 2,2)", you must trade for one.": GOSUB 30000:A$ = A$ + "": RETURN 
+ 42100  GOSUB 400: GOSUB 30000:B = ( PEEK ( - 16384) = 13): RETURN 
+

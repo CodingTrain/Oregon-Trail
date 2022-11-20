@@ -1,0 +1,53 @@
+
+ 50000 SR = 0:RC = (LM = 2) + 2 * (LM = 9) + 3 * (LM = 12): GOSUB 50150: GOSUB 250: RESTORE : FOR L = 0 TO 6: READ Z$: NEXT : FOR L = 0 TO 5: READ Z$:T$(L) = Z$ + "": NEXT : & QFH
+ 50001  GOSUB 260: & WIND: PRINT : PRINT Z$CC$: PRINT TD$CC$: & DFW,7 AT 20,60,220,119: & DFW,6 AT 30,70,230,89: & WIND,7
+ 50005  PRINT : PRINT "You must cross the river in order to continue.  The river at this point is currently "RW" feet across, and "RD" feet deep in the middle.": GOSUB 30000
+ 50010  GOSUB 50150: & DFW,7 AT 0,48,279,111: & WIND,7: & BOX: & CO: PRINT "Weather: "W$(W): PRINT "River width: "RW" feet": PRINT "River depth: "RD" feet
+ 50011  & GCP,,Y: & CO,,Y + 4: PRINT "You may:":Z = 0:F = 0: & GCP,,Y: & CO,,Y + 4: FOR L = 0 TO 1:Z = Z + 1: PRINT Z". "T$(L): NEXT : IF RC(RC,5) THEN Z = Z + 1:F = 1: PRINT Z". "T$(RC(RC,5) + 3)
+ 50015  FOR L = 2 TO 3:Z = Z + 1: PRINT Z". "T$(L): NEXT : PRINT :Z$ = "-1" +  STR$ (Z): PRINT WW$;: & INP,1,Z$,1,Z$:V =  VAL (Z$)
+ 50020  IF V = 4 + F THEN  & BOX: & WIND,6: GOSUB 50160: GOTO 50010
+ 50025  IF V = 3 + F THEN  & BOX: & CO,,50: PRINT "You camp near the river for a day."CC$: GOSUB 30000:SR = 0:SD = 1: GOSUB 500: GOSUB 250: & WIND: & CO,,18: & CEL: PRINT TD$CC$: GOTO 50010
+ 50030 IX = 1:V = V + (V = 3) * (RC(RC,5) = 2):Z = 0: ON V GOSUB 50035,50080,50130,50100: ON F GOTO 50010:A$ = A$ + "":Z$ = Z$ + "":K$ = K$ + "": RETURN 
+ 50035 Z = 0:I = 2:F = 0:A$ = "You made the crossing successfully.": IF RD < 2.5 THEN  ON RB GOSUB 50060,50070: RETURN 
+ 50037  IF RD < 3 THEN A$ = "Your supplies got wet.  Lose 1 day.":SD = 1: GOSUB 500:Z = 0: RETURN 
+ 50040 V = (RD / 10) / IX: GOSUB 50205:V = ((RD - 1) / 10) / IX: GOSUB 50185:V = ((RD - 2.5) / 10) / IX: GOSUB 50175
+ 50050  IF Z THEN A$ = "The river is too deep to ford.  You lose:"
+ 50055  RETURN 
+ 50060 A$ = "It was a muddy crossing, but you did not get stuck.": IF  RND (1) < .4 / IX THEN A$ = "You become stuck in the mud.  Lose 1 day.":SD = 1:SR = 0: GOSUB 500:Z = 0
+ 50065  RETURN 
+ 50070 A$ = "It was a rough crossing, but you did not overturn.":Z$ = "": IF  RND (1) < .16 / IX THEN A$ = "The wagon tipped over":Z$ = " but you did not lose anything.":V = .1 +  RND (1) * .3: GOSUB 50205: IF Z THEN Z$ = ".  You lose:"
+ 50075 A$ = A$ + Z$: RETURN 
+ 50080 Z = 0:I = 3:F = 0: IF RD < 1.5 THEN  & BOX:F = 1: & CO,0,50: PRINT "The river is too shallow"CC$: PRINT "to float across."CC$: GOSUB 30000: RETURN 
+ 50085 SD = 1: GOSUB 500:Z = 0:A$ = "You had no trouble floating the wagon across.":V = (RD > 2.5) * (RS / 20) / IX: IF  RND (1) < V THEN V = (.4 + RS / 25) / IX: GOSUB 50205:V = ((RS - 3) / 15) / IX: GOSUB 50175
+ 50090  IF Z THEN A$ = "The wagon tipped over while floating.  You lose:"
+ 50095  RETURN 
+ 50100 Z = 0:F = 0: IF RD < 2.5 THEN F = 1: & BOX: & CO,0,50: PRINT "The ferry is not operating today because the river is to shallow.": GOSUB 30000: RETURN 
+ 50101 X =  INT ( RND (1) * 5 + 2):V = 5: GOSUB 200:V = 5: & BOX: & WIND,6: PRINT "The ferry operator says that he will charge you $"K$" and that you will have to wait "X" days.  Are you willing to do this? ";: GOSUB 30100
+ 50105  IF Z$ = "Y" AND MY < V THEN  & CO: & CEW: PRINT "You do not have enough money to pay for the ferry.": GOSUB 30000:F = 1: RETURN 
+ 50110  IF Z$ = "N" THEN F = 1: RETURN 
+ 50115 SR = 0:I = 1:MY = MY - V:SD = X:X5 = 18: GOSUB 4505:Z = 0:F = 0:Z$ = "":A$ = "The ferry got your party and wagon safely across.":V = .05 * (RS > 5) + .1 * (RS > 10)
+ 50120  IF  RND (1) < V THEN A$ = "The ferry broke loose from moorings. You lose:":V = .8: GOSUB 50205:V = .2: GOSUB 50175:V = .5: GOSUB 50185: IF  NOT Z THEN A$ = "Some trouble in crossing but nothing was lost."
+ 50125 A$ = A$ + "":Z$ = Z$ + "": RETURN 
+ 50130 X =  INT ( RND (1) * 2 + 2): & BOX: & WIND,6: PRINT "A Shoshoni guide says that he will take your wagon across the river in exchange for "X" sets of clothing.":F = 1: PRINT 
+ 50135  IF I(3) < X THEN  PRINT "You don't have "X" sets of clothing.": GOSUB 30000: RETURN 
+ 50136  PRINT "Will you accept this ": PRINT "offer? ";: GOSUB 30100: IF Z$ = "N" THEN  RETURN 
+ 50140 F = 0:IX = 5:I(3) = I(3) - X:K$ = "The Shoshoni guide will help you ":Z$ = "ford the river.":V = 1: IF RD > 2.4 THEN Z$ = "float your wagon across.":V = 2
+ 50145 K$ = K$ + Z$: & BOX: & WIND,6: PRINT K$: GOSUB 30000:Z = 0: ON V GOSUB 50035,50080: RETURN 
+ 50150 RD =  INT ((RC(RC,0) + AR * 2) * 10 + .5) / 10:RW =  INT (RC(RC,1) + 15 * AR):RS = RC(RC,2) + AR:RB = RC(RC,3)
+ 50155  RETURN 
+ 50160  & CO: PRINT "To ford a river means to pull your wagon across a shallow part of the river, with the oxen still attached.": GOSUB 30000: & BOX: & CO
+ 50165  PRINT "To caulk the wagon means to seal it so that no water can get in.  The wagon can then be floated across like a boat.": GOSUB 30000: & BOX: & CO
+ 50170  PRINT "To use a ferry means to put your wagon on top of a flat boat that belongs to someone else.  The owner of the ferry will take your wagon across the river.": GOSUB 30000: RETURN 
+ 50175  FOR L = (NP > 1) TO NP - 1: IF  RND (1) < V THEN T$(Z) = N$(L) + " (drowned)":H1(L) =  - 2:Z = Z + 1:V = V * (Z < 11)
+ 50180  NEXT : RETURN 
+ 50185 Y = 0:X = I(2): IF  NOT X THEN  RETURN 
+ 50190  FOR L = 1 TO X: IF  RND (1) < V THEN Y = Y + 1
+ 50195  NEXT : IF Y THEN T$(Z) =  STR$ (Y) + " oxen":T$(Z) =  LEFT$ (T$(Z), LEN (T$(Z)) - 2 * (Y = 1)):Z = Z + 1:I(2) = X - Y: IF I(2) < 0 THEN I(2) = 0
+ 50200  RETURN 
+ 50205  FOR L = 3 TO 8:X = I(L): IF X AND  RND (1) < V THEN Y =  INT ( RND (1) * X + 1):I(L) = X - Y:Z$ = I$(L): GOSUB 50250:T$(Z) =  STR$ (Y) + " " + Z$:Z = Z + 1
+ 50210  NEXT :Z$ = Z$ + "": RETURN 
+ 50250 X = (Y = 1) * ((L = 8) + (L = 3) + ("s" =  RIGHT$ (Z$,1))): IF  NOT X THEN  RETURN 
+ 50255  IF L <  > 8 AND L <  > 3 THEN Z$ =  LEFT$ (Z$, LEN (Z$) - 1): RETURN 
+ 50260 X = 6 - 2 * (L = 3):Z$ =  LEFT$ (Z$,X - 1) +  RIGHT$ (Z$, LEN (Z$) - X): RETURN 
+ 51000  DATA attempt to ford the river,caulk wagon and float it across,wait to see if conditions improve,get more information,hire an Indian to help,take a ferry across 
+

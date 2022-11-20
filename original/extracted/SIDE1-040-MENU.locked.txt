@@ -1,0 +1,67 @@
+
+ 10  REM PRODUCT:OREGON
+ 20  REM PROGRAM:MENU
+ 30  REM PROG:KRENZ
+ 40  REM COPYRIGHT (C) MECC 1985
+ 50  REM UPDATE 85/07/12 JJK
+ 100  CALL 54915: LOMEM:39958: & APP,"COMMON.LIB"
+ 105  DEF  FN P(Z) =  PEEK (Z) +  PEEK (Z + 1) * 256: DEF  FN X(Z) =  INT (Z / 7) * 7: DEF  FN HI(Z) =  INT (Z / 256): DEF  FN LO(Z) = Z -  FN HI(Z) * 256: DEF  FN W(Z) =  VAL ( MID$ (WC$(ZO),(AM) * 2 + 1 + Z,1))
+ 110  POKE 919,0: & RFL,"FIRST.IMA" AT 49152: & RFL,"OREGON.IMA" AT 37380: GOSUB 40000: & CST,ST: DIM HI$(9,2),PT$(6),Y(1),SB$(1): DEF  FN P(Z) =  PEEK (Z) +  PEEK (Z + 1) * 256:SB$(0) = "off":SB$(1) = "on":QN$ = "OREGON TRAIL":PN$ = "MENU"
+ 130  IF  PEEK (975) = 255 THEN  POKE 975,1
+ 140  & HOOK: PRINT CL$: & HSP,2,0: & DFT,7,49152: & DFT,15,51944: POKE 919,1: & WIND: GOTO 1000
+ 500  & INP,ZN,"-AZ-az '.-",ZZ,Z$: RETURN 
+ 1000  & BOX: & IMAGE,2,1,10: & IMAGE,3,8,40
+ 1005 JF = 1: & DFW,7 AT 32,63,245,188: & WIND,7: & VSP,3: PRINT "You may:": PRINT 
+ 1010  PRINT "  1. Travel the trail": PRINT "  2. Learn about the trail": PRINT "  3. See the Oregon Top Ten": PRINT "  4. Turn sound "SB$( NOT  PEEK (975))
+ 1015  PRINT : & IMAGE,3,8,164: PRINT "What is your choice? ";: & INP,1, CHR$ (1) + "-14",1,Z$:JF = 0:A =  ASC (Z$): & VSP:Z =  RND ( - ( PEEK (78) +  PEEK (79) * 256)): IF A = 1 THEN  PRINT CL$: & WIND: & CO,0,89: PRINT "Getting Management Options...": GOSUB 33000: & RNH,"MANAGEMENT"
+ 1020  ON A - 48 GOSUB 9000,7000,2000,2300: GOTO 1000
+ 2000  IF  NOT DD THEN  & OPEN,"HISCORE.SEQ": & TPTR,0: FOR L = 0 TO 9: FOR L1 = 0 TO 2: & TREED,CM$,HI$(L,L1),Z: NEXT : NEXT : & CLOSE:DD = 1
+ 2005  PRINT CL$: & WIND: & IMAGE,5,55,0:ZY = 20: INVERSE : & BOX,30,18,69,29,3: & CO,34,ZY: PRINT "Name": & BOX,126,18,177,29,3: & CO,130,ZY: PRINT "Points": & BOX,204,18,255,29,3: & CO,208,ZY: PRINT "Rating": NORMAL : PRINT 
+ 2010  FOR L = 0 TO 9: & GCP,ZX,ZY: FOR L1 = 0 TO 2:Z$ = HI$(L,L1): IF L1 = 1 THEN Z$ =  RIGHT$ ("  " + Z$,4)
+ 2015  & CO,139 * (L1 = 1) + 189 * (L1 = 2),ZY: PRINT Z$: NEXT : NEXT : PRINT : & GCP,ZX,ZY:X1 = 20:Y1 = ZY:X2 = 240:Y2 = ZY + 30: GOSUB 41000: PRINT "Would you like to see how points are earned? ";: GOSUB 30100: & WIND: IF Z$ = "Y" THEN  GOSUB 2200
+ 2020  RETURN 
+ 2200  RESTORE : FOR L = 0 TO 9: READ Z$: NEXT : PRINT CL$: & WIND: & IMAGE,6,45,0: PRINT :ZY = 20: & DFW,7 AT 0,ZY,279,191 - ZY: & WIND,7
+ 2205  PRINT "Your most important resource is the people you have with you.  You receive points for each member of your party who arrives safely; you receive more points if they arrive in good health!": PRINT : & IN,10
+ 2207  INVERSE : & BOX,6,61,81,81,3: & BOX,146,61,229,81,3
+ 2210  PRINT "Health of";: & CO,140: PRINT "Points per": PRINT "  Party";: & CO,140: PRINT "  Person": NORMAL : PRINT : FOR L = 0 TO 3: READ A$,Z$: PRINT A$;: & CO,166: PRINT Z$: NEXT : & IN: GOSUB 30000: & BOX: & CO
+ 2220  PRINT "The resources you arrive with will help you get started in the new land.  You receive points for each item you bring safely to Oregon.": PRINT : & IN,10
+ 2222  INVERSE : & BOX,6,43,107,63,3: & BOX,166,43,249,63,3
+ 2225  PRINT "Resources of";: & CO,160: PRINT "Points per": PRINT "   Party";: & CO,160: PRINT "   Item": NORMAL : PRINT : FOR L = 0 TO 6: READ A$,Z$: PRINT A$;: & CO,190: PRINT  RIGHT$ (" " + Z$,2): NEXT : & IN: GOSUB 30000: & BOX: & CO,,50: & IMAGE,3,10,30: & IMAGE,3,10,160
+ 2227  & DFW,2 AT 21,60,255,191: & WIND,2
+ 2230  PRINT "You receive points for your occupation in the new land.  Because more farmers and carpenters were needed than bankers, you receive double points upon arriving in Oregon as a carpenter, and triple points for arriving as a farmer."
+ 2235  & WIND: GOSUB 30000: RETURN 
+ 2300  & WIND: & BOX,0,63,279,160: & DFW,7 AT 20,90,240,70: & WIND,7: POKE 975, NOT  PEEK (975): PRINT "The sound is now turned "SB$( PEEK (975))".": PRINT : PRINT "You may turn the sound on or off during the program by pressing Control-S.": GOSUB 30000: RETURN 
+ 4000  PRINT CL$
+ 4005  & IMAGE,3,10,5: & DFW,7 AT 10,35,240,124: & WIND,7:A$ = "Be a ": PRINT "Many kinds of people made the trip to Oregon.": PRINT : PRINT "You may:": PRINT 
+ 4006  & IN, + 10: PRINT "1. "A$"banker from Boston"
+ 4010  PRINT "2. "A$"carpenter from Ohio": PRINT "3. "A$"farmer from Illinois": PRINT "4. Find out the differences": & IN,30: PRINT "between these choices"
+ 4025  PRINT : & IMAGE,3,10,160: & IN: PRINT "What is your choice? ";: & INP,1,"-14",1,Z$:Z =  VAL (Z$): IF Z = 4 THEN  GOSUB 4100: GOTO 4005
+ 4030  POKE 915,Z:Z = ((Z = 1) * 1600 + (Z = 2) * 800 + (Z = 3) * 400) * 10: POKE 913, FN LO(Z): POKE 914, FN HI(Z): RETURN 
+ 4100  & BOX: & DFW,7 AT 20,35,240,124: & WIND,7: PRINT "Traveling to Oregon isn't easy!  But if you're a banker, you'll have more money for supplies and services than a carpenter or a farmer.": PRINT 
+ 4110  PRINT "However, the harder you have to try, the more points you deserve!  Therefore, the farmer earns the greatest number of points and the banker earns the least.": GOSUB 30000: & BOX: RETURN 
+ 5000  & WIND: PRINT CL$: & CO,0,89: PRINT "Insert another diskette."CC$: GOSUB 30000: PRINT CL$: POKE 1012,0: HOME : CALL  PEEK ( - 4) +  PEEK ( - 3) * 256
+ 6000  RESTORE : FOR L = 0 TO 9: READ Z$:Z =  INT ( RND (1) * 10)
+ 6010  IF N$(Z) <  > "" THEN Z = Z + 1:Z = Z * (Z < 10): GOTO 6010
+ 6015 N$(Z) = Z$: NEXT : & DFW,7 AT 0,102,279,89: & WIND,7: PRINT CL$: & IMAGE,1,7,0: & CO: PRINT "What is the first name of the wagon leader? ";:ZZ = 1:ZN = 9: GOSUB 500:N$(0) = Z$
+ 6020  & CO: PRINT CF$: & CO: PRINT "What are the first names of the four other members in your party? ": PRINT : & GCP,ZX,Y: & CO,,81: PRINT "(Enter names or press Return)"CC$
+ 6021  & CO,ZX,Y: FOR L = 0 TO 4: PRINT L + 1". ";: & GCP,ZX,ZY: PRINT :Z(L,0) = ZX:Z(L,1) = ZY: NEXT : PRINT :ZZ = 0:ZN = 9
+ 6030  & CO,Z(0,0),Z(0,1): PRINT N$(0): FOR L = 1 TO 4: & CO,Z(L,0),Z(L,1): GOSUB 500: IF Z$ = "" THEN  FOR L = L TO 4: & CO,Z(L,0),Z(L,1): PRINT N$(L): NEXT : GOTO 6040
+ 6035 N$(L) = Z$: NEXT 
+ 6040  & CO,,81: & CEL: PRINT "Are these names correct? ";: GOSUB 30100: IF Z$ = "Y" THEN 6045
+ 6041  & CO,,81: & CEL: PRINT "Change which name? ";: & INP,1,"-15",1,Z$:Z =  VAL (Z$) - 1: & CO,Z(Z,0),Z(Z,1): & CEL:L = Z: GOSUB 500: IF Z$ = "" THEN  & CO,Z(Z,0),Z(Z,1): PRINT N$(L):Z$ = N$(L)
+ 6042 N$(L) = Z$: GOTO 6040
+ 6045 NA = 1920: FOR L = 0 TO 4: FOR L1 = 1 TO  LEN (N$(L)): POKE NA, ASC ( MID$ (N$(L),L1,1)):NA = NA + 1: NEXT : POKE NA,0:NA = NA + 1: NEXT : RETURN 
+ 7000  & WIND: & BOX,0,63,279,160: & DFW,7 AT 20,70,240,90: & WIND,7
+ 7010  PRINT "Try taking a journey by covered wagon across 2000 miles of plains, rivers, and mountains.  Try!  On the plains, will you slosh your oxen through mud and water-filled ruts or will you plod through dust six inches deep?": GOSUB 30000
+ 7015  & CO: PRINT CF$: PRINT "How will you cross the rivers?  If you have money, you might take a ferry (if there is a ferry).  Or, you can ford the river and hope you and your wagon aren't swallowed alive!": GOSUB 30000: & CO: PRINT CF$
+ 7020  PRINT "What about supplies?  Well, if you're low on food you can hunt.  You might get a buffalo...you might.  And there are bear in the mountains.": GOSUB 30000: & CO: PRINT CF$
+ 7030  PRINT "At the Dalles, you can try navigating the Columbia River, but if running the rapids with a makeshift raft makes you queasy, better take the Barlow Road.": GOSUB 30000: & CO: PRINT CF$
+ 7040  PRINT "If for some reason you don't survive ";
+ 7041  PRINT "-- your wagon burns, or thieves steal your oxen, or you run out of provisions, or you die of cholera -- don't give up!  Try again...and again...until your name is up with the others on The Oregon Top Ten.": GOSUB 30000: & CO: PRINT CF$
+ 7400 BR$(0) = "Orange":BR$(1) = "Green":BR$(2) = "Blue":BR$(3) = "Violet": PRINT "You may use these colors to"CC$: PRINT "adjust your monitor or"CC$: PRINT "television."CC$: PRINT : & GCP,ZX,ZY: & WIND:ZX = ZX + 20:ZY = ZY + 70
+ 7410  FOR L = 0 TO 3: & WIND: & BOX,ZX + (60 * L),ZY,ZX + 50 + (60 * L),ZY + 30,5 * (L = 0) + 1 * (L = 1) + 6 * (L = 2) + 2 * (L = 3): & DFW,6 AT ZX + 60 * L,ZY + 32,50,10: & WIND,6: PRINT BR$(L)CC$: NEXT L: & WIND,7: GOSUB 30000
+ 7500  & CO: PRINT CF$: PRINT : PRINT "Control-S key"CC$: PRINT : PRINT "You may turn the sound on or off during the program by pressing Control-S.": GOSUB 30000: & BOX: RETURN 
+ 9000  POKE 901,48: GOSUB 4000: GOSUB 6000: GOSUB 33000: & WIND: & DUN,"L0.PCK" AT PA,16: & CST,ST:X1 = 49:X2 = X1 + 170:Y1 = 160:Y2 = 180: GOSUB 41000: PRINT "Going back to 18" PEEK (901)"...": & RNH,"BUY SUPPLIES"
+ 29000  DATA Zeke,Jed,Anna,Mary,Joey,Beth,John,Sara,Henry,Emily
+ 29010  DATA good,500,fair,400,poor,300,very poor,200,wagon,50,ox,4,spare wagon part,2,set of clothing,2,bullets (each 50),1,food (each 25 pounds),1,cash (each 5 dollars),1
+
