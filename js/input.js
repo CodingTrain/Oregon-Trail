@@ -1,6 +1,9 @@
-function other(code) {
-  const codes = [CONTROL, SHIFT];
-  return codes.includes(code);
+// Valid Keys
+const all = 'abcdefghijklmnopqrstuvwxyz';
+const valid = (all + all.toUpperCase() + '1234567890').split('');
+
+function validate(key) {
+  return valid.includes(key);
 }
 
 class Input {
@@ -10,7 +13,6 @@ class Input {
   }
 
   addKey(key, keyCode) {
-    if (other(keyCode)) return;
     if (keyCode == BACKSPACE) {
       this.buffer = this.buffer.substring(0, this.buffer.length - 1);
     } else if (keyCode == ENTER) {
@@ -18,14 +20,13 @@ class Input {
       const result = this.buffer;
       this.clear();
       return result;
-    } else {
+    } else if (validate(key)) {
       this.buffer += key;
     }
   }
 
   render() {
     fill(255);
-    textFont('VT323');
     textAlign(LEFT);
     text(this.buffer + '█', this.cursor.x, this.cursor.y);
   }
