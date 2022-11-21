@@ -35,7 +35,7 @@ const OCCUPATION = {
     }
 }
 const STORE = {
-    oxen: 20,
+    yoke: 20,
     clothing: 10,
     food: 10,
     ammunition: 2,
