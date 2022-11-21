@@ -1,4 +1,4 @@
-// Wagon needs to know its location on map, pace, and whether it is moving
+// Wagon needs to know its location on map, and pace
 // Since can get lost, might need to add direction as well
 
 class Wagon {
