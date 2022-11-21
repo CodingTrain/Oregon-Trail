@@ -1,6 +1,6 @@
 // Valid Keys
 const all = 'abcdefghijklmnopqrstuvwxyz';
-const valid = (all + all.toUpperCase() + '1234567890').split('');
+const valid = (all + all.toUpperCase() + ' 1234567890').split('');
 
 function validate(key) {
   return valid.includes(key);
