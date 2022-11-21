@@ -1,4 +1,5 @@
 let data;
+let stateManager;
 
 function preload() {
   data = loadJSON('data/slide_data.json');
@@ -14,6 +15,8 @@ function setup() {
 
   // Placing an input just in the bottom
   playerInput = new Input(width / 2, height - 50);
+
+  stateManager = new GameStateManager();
 
   for (let i = 0; i < data.slides.length; i++) {
     slides[i] = new Slide(data.slides[i]);
