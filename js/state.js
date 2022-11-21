@@ -25,7 +25,7 @@ const OCCUPATION = {
         wealth: 1600,
         weight: 1
     },
-    carpender: {
+    carpenter: {
         wealth: 800,
         weight: 2
     },
