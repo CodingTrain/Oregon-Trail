@@ -14,19 +14,22 @@
               "type": "changePage",
               "newPageName": "occupation"
             }
-          }, {
+          },
+          {
             "text": "Learn about the trail",
             "action": {
               "type": "changePage",
-              "newPageName": ""
+              "newPageName": "learn1"
             }
-          }, {
+          },
+          {
             "text": "See the Oregon Top Ten",
             "action": {
               "type": "changePage",
               "newPageName": ""
             }
-          }, {
+          },
+          {
             "text": "Turn sound off",
             "action": {
               "type": "toggleSetting",
@@ -48,41 +51,52 @@
       }
     },
     {
+      "name": "learn1",
+      "type": "start",
+      "title": "The Oregon Trail"
+    },
+    {
       "name": "occupation",
       "type": "start",
       "data": {
         "title": ["Many kinds of people made the", "trip to Oregon."],
-        "choices": [{
-          "text": "Be a banker from Boston",
-          "action": {
-            "type": "changePage",
-            "newPageName": ""
+        "choices": [
+          {
+            "text": "Be a banker from Boston",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Be a carpenter from Ohio",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Be a farmer from Illinois",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": ["Find out the differences", "between theese choices"],
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Return back",
+            "action": {
+              "type": "changePage",
+              "newPageName": "main_menu"
+            }
           }
-        }, {
-          "text": "Be a carpenter from Ohio",
-          "action": {
-            "type": "changePage",
-            "newPageName": ""
-          }
-        }, {
-          "text": "Be a farmer from Illinois",
-          "action": {
-            "type": "changePage",
-            "newPageName": ""
-          }
-        }, {
-          "text": ["Find out the differences", "between theese choices"],
-          "action": {
-            "type": "changePage",
-            "newPageName": ""
-          }
-        }, {
-          "text": "Return back",
-          "action": {
-            "type": "changePage",
-            "newPageName": "main_menu"
-          }
-        }],
+        ],
         "prompt": "What is your choice?",
         "img": "",
         "content": {

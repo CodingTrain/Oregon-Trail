@@ -1,6 +1,5 @@
 class Slide {
   constructor(json) {
-
     this.name = json.name;
     this.type = json.type; // doesn't do anything yet
     this.loadFromJSON(json.data);
@@ -14,7 +13,7 @@ class Slide {
     this.bar = loadImage('img/bar.png');
   }
 
-  loadFromJSON(data){
+  loadFromJSON(data) {
     this.prompt = data.prompt;
     this.choices = data.choices;
     if (data.img.length != 0) this.img = loadImage(data.img);
@@ -29,7 +28,6 @@ class Slide {
     this.fontSize = content.font.size * SETTINGS.scale;
     this.textIndent = content.textIndent;
   }
-
 
   resetRenderPosition() {
     let x = this.textIndent * this.fontSize;
@@ -54,7 +52,7 @@ class Slide {
         str = prefix + str;
       }
       text(str, x, this.renderPosition.y);
-      if(usePrefix){
+      if (usePrefix) {
         x += textWidth(prefix);
       }
       this.newLine();
@@ -64,7 +62,7 @@ class Slide {
   renderListText(indent, list) {
     for (let i = 0; i < list.length; i++) {
       let item = list[i];
-      if(item instanceof Object){
+      if (item instanceof Object) {
         item = item.text;
       }
       this.renderText(indent, item, i + 1 + '. ');

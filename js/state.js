@@ -46,15 +46,15 @@ const STORE = {
 const PACE = {
   steady: {
     value: 2,
-    name: 'Steady'
+    name: 'Steady',
   },
   slow: {
     value: 1,
-    name: 'Slow'
+    name: 'Slow',
   },
   stopped: {
     value: 0,
-    name: 'Stopped'
+    name: 'Stopped',
   },
 };
 
