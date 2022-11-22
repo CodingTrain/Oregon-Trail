@@ -1,7 +1,8 @@
 
 // temporary
 const SETTINGS = {
-  "sound": true
+  "sound": true,
+  scale: 2
 }
 
 let data;
@@ -16,7 +17,7 @@ let slideManager;
 let playerInput;
 
 function setup() {
-  createCanvas(280 * 2, 192 * 2);
+  createCanvas(280 * SETTINGS.scale, 192 * SETTINGS.scale);
 
   stateManager = new GameStateManager();
 

@@ -26,7 +26,7 @@ class Slide {
     } else {
       this.font = content.font.name;
     }
-    this.fontSize = content.font.size;
+    this.fontSize = content.font.size * SETTINGS.scale;
     this.textIndent = content.textIndent;
   }
 

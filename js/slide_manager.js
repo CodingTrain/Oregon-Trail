@@ -11,7 +11,6 @@ class SlideManager {
 			this.slides[i] = new Slide(json.pages[i]);
 		}
 
-
 		this.actions = {
 			"changePage": (choice) => {this.changePage(choice);},
 			"toggleSetting": (choice) => {this.toggleSetting(choice);}

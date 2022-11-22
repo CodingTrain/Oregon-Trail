@@ -42,7 +42,7 @@
           "font": {
             "name": "CodeGon Mono",
             "file": "fonts/codegon-mono.ttf",
-            "size": 14
+            "size": 7
           }
         }
       }
@@ -90,7 +90,7 @@
           "font": {
             "name": "CodeGon Mono",
             "file": "fonts/codegon-mono.ttf",
-            "size": 14
+            "size": 7
           }
         }
       }
