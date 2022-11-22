@@ -14,13 +14,13 @@ function setup() {
   createCanvas(280 * 2, 192 * 2);
 
   // Placing an input just in the bottom
-  playerInput = new Input(width / 2, height - 50);
 
   stateManager = new GameStateManager();
 
   for (let i = 0; i < data.slides.length; i++) {
     slides[i] = new Slide(data.slides[i]);
   }
+  playerInput = new Input(slides[currentSlide]);
 }
 
 function keyPressed() {
@@ -31,5 +31,5 @@ function draw() {
   background(0);
   const slide = slides[currentSlide];
   slide.render();
-  playerInput.render(slide);
+  playerInput.render();
 }

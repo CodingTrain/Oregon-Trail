@@ -20,6 +20,7 @@ class Slide {
 
     // For the input prompt
     this.promptPosition = createVector();
+    this.promptLimit = 1;
   }
 
   resetRenderPosition() {

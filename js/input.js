@@ -7,9 +7,10 @@ function validate(key) {
 }
 
 class Input {
-  constructor(x, y) {
+  constructor(slide) {
     this.buffer = '';
     this.blink = false;
+    this.parent = slide;
   }
 
   addKey(key, keyCode) {
@@ -21,18 +22,20 @@ class Input {
       this.clear();
       return result;
     } else if (validate(key)) {
-      this.buffer += key;
+      if (this.parent.promptLimit > this.buffer) this.buffer += key;
     }
   }
 
-  render(slide) {
+  render() {
     fill(255);
     textAlign(LEFT);
+    let { x, y } = this.parent.promptPosition;
+    text(this.buffer, x, y);
+    x += textWidth(this.buffer);
     // Very silly way to blink the cursor
     if (this.blink && frameCount % 60 == 0) this.blink = false;
     else if (!this.blink && frameCount % 20 == 0) this.blink = true;
-    if (this.blink)
-      text(this.buffer + '█', slide.promptPosition.x, slide.promptPosition.y);
+    if (this.blink) text('█', x, y);
   }
 
   clear() {
