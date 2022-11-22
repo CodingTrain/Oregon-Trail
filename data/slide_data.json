@@ -52,11 +52,11 @@
     },
     {
       "name": "learn1",
-      "type": "start",
+      "type": "info",
       "data": {
         "title": "The Oregon Trail",
         "prompt": "Press SPACE BAR to continue",
-        "img": "",
+        "img": "img/title.png",
         "content": {
           "text": "Try taking a journey by covered wagon across 2000 miles of plains, rivers, and mountains. Try! On the plains, will you slosh your oxen through mud and water-filled ruts or will you plod through dust six inches deep?",
           "textIndent": 2,

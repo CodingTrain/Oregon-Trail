@@ -4,7 +4,7 @@ class SlideManager {
     this.end = json.end;
 
     this.slides = [];
-    this.currentSlide = 0;
+    this.currentSlide = 1;
 
     for (let i = 0; i < json.pages.length; i++) {
       this.slides[i] = new Slide(json.pages[i]);
