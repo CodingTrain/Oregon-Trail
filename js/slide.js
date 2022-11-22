@@ -2,6 +2,7 @@ class Slide {
   constructor(json) {
     this.name = json.name;
     this.type = json.type; // doesn't do anything yet
+
     this.loadFromJSON(json.data);
 
     this.renderPosition = createVector();

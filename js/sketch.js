@@ -1,3 +1,6 @@
+// Turning these off for now
+p5.disableFriendlyErrors = true;
+
 // temporary
 const SETTINGS = {
   sound: true,
