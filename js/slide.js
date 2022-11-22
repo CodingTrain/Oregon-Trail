@@ -1,27 +1,35 @@
 class Slide {
   constructor(json) {
-    this.bar = loadImage('img/bar.png');
 
-    this.prompt = json.prompt;
-    this.choices = json.choices;
-    if (json.img.length != 0) this.img = loadImage(json.img);
-    this.title = json.title;
-
-    let content = json.content;
-    if (content.font.file) {
-      this.font = loadFont(content.font.file);
-    } else {
-      this.font = content.font.name;
-    }
-    this.fontSize = content.font.size;
-    this.textIndent = content.textIndent;
+    this.name = json.name;
+    this.type = json.type; // doesn't do anything yet
+    this.loadFromJSON(json.data);
 
     this.renderPosition = createVector();
 
     // For the input prompt
     this.promptPosition = createVector();
     this.promptLimit = 1;
+
+    this.bar = loadImage('img/bar.png');
   }
+
+  loadFromJSON(data){
+    this.prompt = data.prompt;
+    this.choices = data.choices;
+    if (data.img.length != 0) this.img = loadImage(data.img);
+    this.title = data.title;
+
+    let content = data.content;
+    if (content.font.file) {
+      this.font = loadFont(content.font.file);
+    } else {
+      this.font = content.font.name;
+    }
+    this.fontSize = content.font.size * SETTINGS.scale;
+    this.textIndent = content.textIndent;
+  }
+
 
   resetRenderPosition() {
     let x = this.textIndent * this.fontSize;
@@ -36,23 +44,19 @@ class Slide {
     if (lines instanceof Array == false) {
       lines = [lines];
     }
-    let prefixOffset = '';
-    if (prefix) {
-      for (var i = 0; i < prefix.length; i++) {
-        prefixOffset += ' ';
-      }
-    }
     let x = this.renderPosition.x + indent * this.fontSize;
     for (var i = 0; i < lines.length; i++) {
       let str = lines[i];
-      if (prefix) {
-        if (i == 0) {
-          str = prefix + str;
-        } else {
-          str = prefixOffset + str;
-        }
+      const usePrefix = prefix != undefined && i == 0;
+      // I don't know a better way, without the two if statements
+      // If you know, please make it better
+      if (usePrefix) {
+        str = prefix + str;
       }
       text(str, x, this.renderPosition.y);
+      if(usePrefix){
+        x += textWidth(prefix);
+      }
       this.newLine();
     }
   }
@@ -60,6 +64,9 @@ class Slide {
   renderListText(indent, list) {
     for (let i = 0; i < list.length; i++) {
       let item = list[i];
+      if(item instanceof Object){
+        item = item.text;
+      }
       this.renderText(indent, item, i + 1 + '. ');
     }
   }

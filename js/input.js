@@ -13,6 +13,10 @@ class Input {
     this.parent = slide;
   }
 
+  updateParent(parent) {
+    this.parent = parent;
+  }
+
   addKey(key, keyCode) {
     if (keyCode == BACKSPACE) {
       this.buffer = this.buffer.substring(0, this.buffer.length - 1);
