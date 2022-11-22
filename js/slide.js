@@ -17,6 +17,10 @@ class Slide {
     this.textIndent = content.textIndent;
 
     this.renderPosition = createVector();
+
+    // For the input prompt
+    this.promptPosition = createVector();
+    this.promptLimit = 1;
   }
 
   resetRenderPosition() {
@@ -32,19 +36,19 @@ class Slide {
     if (lines instanceof Array == false) {
       lines = [lines];
     }
-    let prefixOffset = "";
-    if(prefix){
+    let prefixOffset = '';
+    if (prefix) {
       for (var i = 0; i < prefix.length; i++) {
-        prefixOffset += " ";
+        prefixOffset += ' ';
       }
     }
     let x = this.renderPosition.x + indent * this.fontSize;
     for (var i = 0; i < lines.length; i++) {
       let str = lines[i];
-      if(prefix){
-        if(i == 0){
+      if (prefix) {
+        if (i == 0) {
           str = prefix + str;
-        }else{
+        } else {
           str = prefixOffset + str;
         }
       }
@@ -53,10 +57,10 @@ class Slide {
     }
   }
 
-  renderListText(indent, list){
+  renderListText(indent, list) {
     for (let i = 0; i < list.length; i++) {
       let item = list[i];
-      this.renderText(indent, item, ((i+1) + '. '));
+      this.renderText(indent, item, i + 1 + '. ');
     }
   }
 
@@ -97,6 +101,12 @@ class Slide {
     this.renderListText(1, this.choices);
     this.newLine();
     this.renderText(0, this.prompt);
+
+    // Set the cursor position
+    this.promptPosition.set(this.renderPosition);
+    this.promptPosition.x += textWidth(this.prompt + ' ');
+    this.promptPosition.y -= this.fontSize;
+
     this.newLine();
     this.renderBar();
   }
