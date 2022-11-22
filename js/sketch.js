@@ -13,18 +13,20 @@ let playerInput;
 function setup() {
   createCanvas(280 * 2, 192 * 2);
 
-  // Placing an input just in the bottom
-
   stateManager = new GameStateManager();
 
   for (let i = 0; i < data.slides.length; i++) {
     slides[i] = new Slide(data.slides[i]);
   }
+
   playerInput = new Input(slides[currentSlide]);
 }
 
 function keyPressed() {
-  playerInput.addKey(key, keyCode);
+  const result = playerInput.addKey(key, keyCode);
+
+  // Temporary mechanism for going to the next slide
+  if (result == 1) currentSlide++;
 }
 
 function draw() {
