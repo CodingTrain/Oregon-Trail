@@ -30,12 +30,12 @@ class Slide {
 
   renderText(indent, lines, prefix) {
     if (lines instanceof Array == false) {
-        lines = [lines];
+      lines = [lines];
     }
     let prefixOffset = "";
     if(prefix){
       for (var i = 0; i < prefix.length; i++) {
-        prefixOffset += " "
+        prefixOffset += " ";
       }
     }
     let x = this.renderPosition.x + indent * this.fontSize;
