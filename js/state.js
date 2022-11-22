@@ -57,7 +57,124 @@ const PACE = {
     name: 'Stopped',
   },
 };
-
+const RATIONS = {
+   filling: {
+     value: 3,  // amount of food consumed per person per day
+     name: 'Filling', 
+   },
+   meager: {
+    value: 2,
+    name: 'Meager',
+  },
+  barebones: {
+    value: 1,
+    name: 'Bare Bones',
+  },
+};
+const LANDMARKS = {
+  kansasriver: {
+    distance: 102,
+    name: 'Kansas River Crossing',
+  },
+  blueriver: {
+    distance: 240,
+    name: 'Blue River Crossing',
+  },
+  ftkearney: {
+    distance: 304,
+    name: 'Fort Kearney',
+  },
+  chimneyrock: {
+    distance: 554,
+    name: 'Chimney Rock',
+  },
+  ftlaramie: {
+    distance: 640,
+    name: 'Fort Laramie',
+  },
+  indepencerock: {
+    distance: 830,
+    name: 'Independence Rock',
+  },
+  indepencerock: {
+    distance: 830,
+    name: 'Independence Rock',
+  },
+  southpass: {
+    distance: 932,
+    name: 'South Pass',
+  },
+  greenriver: {
+    distance: 1057,
+    name: 'Green River Crossing',
+  },
+  sodasprings: {
+    distance: 1201,
+    name: 'Soda Springs',
+  },
+  forthall: {
+    distance: 1258,
+    name: 'Fort Hall',
+  },
+};
+const EVENTS = {
+  cholera: {
+    proability: 0.0,
+    name: 'Cholera',
+  },
+  dyenstery: {
+    proability: 0.0,
+    name: 'Dysentery',
+  },
+  Measles: {
+    proability: 0.0,
+    name: 'Measles',
+  },
+  exhaustion: {
+    proability: 0.0,
+    name: 'Exhaustion',
+  },
+  snakebite: {
+    proability: 0.0,
+    name: 'Snake Bite',
+  },
+  nowater: {
+    proability: 0.0,
+    name: 'No Water',
+  },
+  badwater: {
+    proability: 0.0,
+    name: 'Bad Water',
+  },
+  theft: {
+    proability: 0.0,
+    name: 'Thief Steals Clothing',
+  },
+  lost: {
+    proability: 0.0,
+    name: 'You Have the Lost Trail',
+  },
+  brokenwheel: {
+    proability: 0.0,
+    name: 'Wheel Broke',
+  },
+  nograss: {
+    proability: 0.0,
+    name: 'No Grass for Oxen',
+  },
+  oxsick: {
+    proability: 0.0,
+    name: 'Ox is Sick',
+  },
+  oxwander: {
+    proability: 0.0,
+    name: 'Ox Has Wandered Off',
+  },
+  wildfruit: {
+    proability: 0.0,
+    name: 'You Found Wild Fruit',
+  },
+};
 const state = {
   leader: {
     name: '',
