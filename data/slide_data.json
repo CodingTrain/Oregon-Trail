@@ -1,40 +1,97 @@
 {
-  "slides": [
+  "start": "main_menu",
+  "end": "",
+  "pages": [
     {
-      "title": "The Oregon Trail",
-      "choices": [
-        "Travel the trail",
-        "Learn about the trail",
-        "See the Oregon Top Ten",
-        "Turn sound off"
-      ],
-      "prompt": "What is your choice?",
-      "img": "img/title.png",
-      "content": {
-        "textIndent": 5,
-        "font": {
-          "name": "CodeGon Mono",
-          "file": "fonts/codegon-mono.ttf",
-          "size": 14
+      "name": "main_menu",
+      "type": "start",
+      "data": {
+        "title": "The Oregon Trail",
+        "choices": [
+          {
+            "text": "Travel the trail",
+            "action": {
+              "type": "changePage",
+              "newPageName": "occupation"
+            }
+          }, {
+            "text": "Learn about the trail",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          }, {
+            "text": "See the Oregon Top Ten",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          }, {
+            "text": "Turn sound off",
+            "action": {
+              "type": "toggleSetting",
+              "setting": "sound",
+              "atlernativeText": "Turn sound on"
+            }
+          }
+        ],
+        "prompt": "What is your choice?",
+        "img": "img/title.png",
+        "content": {
+          "textIndent": 5,
+          "font": {
+            "name": "CodeGon Mono",
+            "file": "fonts/codegon-mono.ttf",
+            "size": 14
+          }
         }
       }
     },
     {
-      "title": ["Many kinds of people made the", "trip to Oregon."],
-      "choices": [
-        "Be a banker from Boston",
-        "Be a carpenter from Ohio",
-        "Be a farmer from Illinois",
-        ["Find out the differences", "between theese choices"]
-      ],
-      "prompt": "What is your choice?",
-      "img": "",
-      "content": {
-        "textIndent": 2,
-        "font": {
-          "name": "CodeGon Mono",
-          "file": "fonts/codegon-mono.ttf",
-          "size": 14
+      "name": "occupation",
+      "type": "start",
+      "data": {
+        "title": ["Many kinds of people made the", "trip to Oregon."],
+        "choices": [{
+          "text": "Be a banker from Boston",
+          "action": {
+            "type": "changePage",
+            "newPageName": ""
+          }
+        }, {
+          "text": "Be a carpenter from Ohio",
+          "action": {
+            "type": "changePage",
+            "newPageName": ""
+          }
+        }, {
+          "text": "Be a farmer from Illinois",
+          "action": {
+            "type": "changePage",
+            "newPageName": ""
+          }
+        }, {
+          "text": ["Find out the differences", "between theese choices"],
+          "action": {
+            "type": "changePage",
+            "newPageName": ""
+          }
+        }, {
+          "text": "Return back",
+          "action": {
+            "type": "changePage",
+            "newPageName": "main_menu"
+          }
+        }],
+        "prompt": "What is your choice?",
+        "img": "",
+        "content": {
+          "textIndent": 2,
+          "font": {
+            "name": "CodeGon Mono",
+            "file": "fonts/codegon-mono.ttf",
+            "size": 14
+          }
         }
       }
     }

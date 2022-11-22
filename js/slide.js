@@ -1,13 +1,26 @@
 class Slide {
   constructor(json) {
+
+    this.name = json.name;
+    this.type = json.type; // doesn't do anything yet
+    this.loadFromJSON(json.data);
+
+    this.renderPosition = createVector();
+
+    // For the input prompt
+    this.promptPosition = createVector();
+    this.promptLimit = 1;
+
     this.bar = loadImage('img/bar.png');
+  }
 
-    this.prompt = json.prompt;
-    this.choices = json.choices;
-    if (json.img.length != 0) this.img = loadImage(json.img);
-    this.title = json.title;
+  loadFromJSON(data){
+    this.prompt = data.prompt;
+    this.choices = data.choices;
+    if (data.img.length != 0) this.img = loadImage(data.img);
+    this.title = data.title;
 
-    let content = json.content;
+    let content = data.content;
     if (content.font.file) {
       this.font = loadFont(content.font.file);
     } else {
@@ -15,13 +28,8 @@ class Slide {
     }
     this.fontSize = content.font.size;
     this.textIndent = content.textIndent;
-
-    this.renderPosition = createVector();
-
-    // For the input prompt
-    this.promptPosition = createVector();
-    this.promptLimit = 1;
   }
+
 
   resetRenderPosition() {
     let x = this.textIndent * this.fontSize;
@@ -60,6 +68,9 @@ class Slide {
   renderListText(indent, list) {
     for (let i = 0; i < list.length; i++) {
       let item = list[i];
+      if(item instanceof Object){
+        item = item.text;
+      }
       this.renderText(indent, item, i + 1 + '. ');
     }
   }

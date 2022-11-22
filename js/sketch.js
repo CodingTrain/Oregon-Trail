@@ -1,3 +1,9 @@
+
+// temporary
+const SETTINGS = {
+  "sound": true
+}
+
 let data;
 let stateManager;
 
@@ -5,8 +11,7 @@ function preload() {
   data = loadJSON('data/slide_data.json');
 }
 
-let slides = [];
-let currentSlide = 0;
+let slideManager;
 
 let playerInput;
 
@@ -15,23 +20,25 @@ function setup() {
 
   stateManager = new GameStateManager();
 
-  for (let i = 0; i < data.slides.length; i++) {
-    slides[i] = new Slide(data.slides[i]);
-  }
-
-  playerInput = new Input(slides[currentSlide]);
+  slideManager = new SlideManager(data);
+  playerInput = new Input(slideManager.getCurrentSlide());
 }
+
 
 function keyPressed() {
   const result = playerInput.addKey(key, keyCode);
 
-  // Temporary mechanism for going to the next slide
-  if (result == 1) currentSlide++;
+  slideManager.performAction(result-1);
+  playerInput.updateParent(slideManager.getCurrentSlide());
 }
+
 
 function draw() {
   background(0);
-  const slide = slides[currentSlide];
-  slide.render();
+  slideManager.render();
   playerInput.render();
+}
+
+function toggleSetting(setting) {
+  SETTINGS[setting] = !SETTINGS[setting];
 }
