@@ -17,7 +17,6 @@ function setup() {
   for (let i = 0; i < data.slides.length; i++) {
     slides[i] = new Slide(data.slides[i]);
   }
-
 }
 
 function draw() {
