@@ -44,23 +44,19 @@ class Slide {
     if (lines instanceof Array == false) {
       lines = [lines];
     }
-    let prefixOffset = '';
-    if (prefix) {
-      for (var i = 0; i < prefix.length; i++) {
-        prefixOffset += ' ';
-      }
-    }
     let x = this.renderPosition.x + indent * this.fontSize;
     for (var i = 0; i < lines.length; i++) {
       let str = lines[i];
-      if (prefix) {
-        if (i == 0) {
-          str = prefix + str;
-        } else {
-          str = prefixOffset + str;
-        }
+      const usePrefix = prefix != undefined && i == 0;
+      // I don't know a better way, without the two if statements
+      // If you know, please make it better
+      if (usePrefix) {
+        str = prefix + str;
       }
       text(str, x, this.renderPosition.y);
+      if(usePrefix){
+        x += textWidth(prefix);
+      }
       this.newLine();
     }
   }
