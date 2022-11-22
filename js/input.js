@@ -9,7 +9,7 @@ function validate(key) {
 class Input {
   constructor(x, y) {
     this.buffer = '';
-    this.cursor = createVector(x, y);
+    this.blink = false;
   }
 
   addKey(key, keyCode) {
@@ -25,10 +25,14 @@ class Input {
     }
   }
 
-  render() {
+  render(slide) {
     fill(255);
     textAlign(LEFT);
-    text(this.buffer + '█', this.cursor.x, this.cursor.y);
+    // Very silly way to blink the cursor
+    if (this.blink && frameCount % 60 == 0) this.blink = false;
+    else if (!this.blink && frameCount % 20 == 0) this.blink = true;
+    if (this.blink)
+      text(this.buffer + '█', slide.promptPosition.x, slide.promptPosition.y);
   }
 
   clear() {

@@ -17,20 +17,50 @@ class Slide {
     this.textIndent = content.textIndent;
 
     this.renderPosition = createVector();
+
+    // For the input prompt
+    this.promptPosition = createVector();
   }
 
   resetRenderPosition() {
-    this.renderPosition.set(0, 0);
+    let x = this.textIndent * this.fontSize;
+    this.renderPosition.set(x, 0);
   }
 
   newLine() {
     this.renderPosition.y += this.fontSize;
   }
 
-  renderText(indent, str) {
-    let x = this.renderPosition.x + (indent + this.textIndent) * this.fontSize;
-    text(str, x, this.renderPosition.y);
-    this.newLine();
+  renderText(indent, lines, prefix) {
+    if (lines instanceof Array == false) {
+      lines = [lines];
+    }
+    let prefixOffset = '';
+    if (prefix) {
+      for (var i = 0; i < prefix.length; i++) {
+        prefixOffset += ' ';
+      }
+    }
+    let x = this.renderPosition.x + indent * this.fontSize;
+    for (var i = 0; i < lines.length; i++) {
+      let str = lines[i];
+      if (prefix) {
+        if (i == 0) {
+          str = prefix + str;
+        } else {
+          str = prefixOffset + str;
+        }
+      }
+      text(str, x, this.renderPosition.y);
+      this.newLine();
+    }
+  }
+
+  renderListText(indent, list) {
+    for (let i = 0; i < list.length; i++) {
+      let item = list[i];
+      this.renderText(indent, item, i + 1 + '. ');
+    }
   }
 
   renderImg(img) {
@@ -67,19 +97,15 @@ class Slide {
     }
     this.renderText(0, 'You may:');
     this.newLine();
-    for (let i = 0; i < this.choices.length; i++) {
-      let choice = this.choices[i];
-      if (choice instanceof Array == false) {
-        choice = [choice];
-      }
-      for (let c = 0; c < choice.length; c++) {
-        let str = choice[c];
-        if (c == 0) str = i + 1 + '. ' + str;
-        this.renderText(c == 0 ? 1 : 2, str);
-      }
-    }
+    this.renderListText(1, this.choices);
     this.newLine();
     this.renderText(0, this.prompt);
+
+    // Set the cursor position
+    this.promptPosition.set(this.renderPosition);
+    this.promptPosition.x += textWidth(this.prompt + ' ');
+    this.promptPosition.y -= this.fontSize;
+
     this.newLine();
     this.renderBar();
   }

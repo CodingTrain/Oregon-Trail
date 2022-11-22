@@ -33,7 +33,3 @@ function draw() {
   slide.render();
   playerInput.render(slide);
 }
-
-function mousePressed() {
-  // currentSlide = (currentSlide + 1) % slides.length;
-}
