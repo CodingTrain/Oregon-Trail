@@ -2,7 +2,7 @@ class Slide {
   constructor(json) {
 
     this.name = json.name;
-    this.type = json.type; // doesn't do anything yet
+    this.type = json.type;
     this.loadFromJSON(json.data);
 
     this.renderPosition = createVector();
@@ -81,7 +81,7 @@ class Slide {
     this.renderImg(this.bar);
   }
 
-  render() {
+  renderStart(){
     textFont(this.font);
     textAlign(LEFT, CENTER);
     textSize(this.fontSize);
@@ -93,28 +93,24 @@ class Slide {
     imageMode(CORNER);
 
     this.resetRenderPosition();
+  }
 
-    if (this.img) {
-      this.renderImg(this.img);
-      this.renderBar();
-    } else {
-      this.renderBar();
-      this.newLine();
-      this.renderText(0, this.title);
-      this.newLine();
-    }
-    this.renderText(0, 'You may:');
-    this.newLine();
-    this.renderListText(1, this.choices);
-    this.newLine();
-    this.renderText(0, this.prompt);
-
+  updateCursor(){
     // Set the cursor position
     this.promptPosition.set(this.renderPosition);
     this.promptPosition.x += textWidth(this.prompt + ' ');
     this.promptPosition.y -= this.fontSize;
+  }
+
+  render() {
+    this.renderStart();
 
     this.newLine();
-    this.renderBar();
+    this.renderText(0, this.title);
+    this.newLine();
+    this.renderText(0, ["This slide uses", "no existing type: " + this.type]);
+    this.newLine();
+
+    this.updateCursor();
   }
 }

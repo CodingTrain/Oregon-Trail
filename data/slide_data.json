@@ -4,7 +4,7 @@
   "pages": [
     {
       "name": "main_menu",
-      "type": "start",
+      "type": "choice",
       "data": {
         "title": "The Oregon Trail",
         "choices": [
@@ -49,7 +49,7 @@
     },
     {
       "name": "occupation",
-      "type": "start",
+      "type": "choice",
       "data": {
         "title": ["Many kinds of people made the", "trip to Oregon."],
         "choices": [{

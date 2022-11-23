@@ -2,7 +2,7 @@
 // temporary
 const SETTINGS = {
   "sound": true,
-  scale: 2
+  scale: 4
 }
 
 let data;

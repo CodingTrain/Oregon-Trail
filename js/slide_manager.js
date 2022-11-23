@@ -7,20 +7,32 @@ class SlideManager {
 		this.slides = [];
 		this.currentSlide = 0;
 
-		for (let i = 0; i < json.pages.length; i++) {
-			this.slides[i] = new Slide(json.pages[i]);
-		}
-
 		this.actions = {
 			"changePage": (choice) => {this.changePage(choice);},
 			"toggleSetting": (choice) => {this.toggleSetting(choice);}
+		};
+
+		this.types = {
+			"choice": (json) => {return new Choice(json);},
+		};
+
+		for (let i = 0; i < json.pages.length; i++) {
+			this.slides[i] = this.loadSlide(json.pages[i]);
 		}
+	}
+
+	loadSlide(json){
+		const slideClass = this.types[json.type];
+		if(slideClass === undefined) {
+			return new Slide(json);
+		}
+		return slideClass(json);
 	}
 
 	performAction(actionIndex) {
 		const slide = this.getCurrentSlide();
 		const choice = slide.choices[actionIndex];
-		if(choice == undefined) return;
+		if(choice === undefined) return;
 
 		const action = choice.action;
 
