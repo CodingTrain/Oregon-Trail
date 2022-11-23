@@ -1,6 +1,7 @@
 class SlideManager {
   constructor(json) {
     this.start = json.start;
+    console.log(this.start);
     this.end = json.end;
 
     this.slides = [];

@@ -3,7 +3,7 @@ p5.disableFriendlyErrors = true;
 // temporary
 const SETTINGS = {
   sound: true,
-  scale: 4,
+  scale: 2,
 };
 
 let data;

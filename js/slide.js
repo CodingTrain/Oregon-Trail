@@ -53,7 +53,16 @@ class Slide {
       if (usePrefix) {
         str = prefix + str;
       }
-      text(str, x, this.renderPosition.y);
+      console.log(indent);
+
+      textAlign(LEFT, TOP);
+      text(
+        str,
+        x,
+        this.renderPosition.y,
+        width - this.textIndent * this.fontSize,
+        height
+      );
       this.lastText = str;
       if (usePrefix) {
         x += textWidth(prefix);

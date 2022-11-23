@@ -1,61 +1,73 @@
 {
-    "start": "startPage",
-    "end": "ending",
-    "pages": [{
-        "name": "startPage",
-        "type": "start",
-        "data": {
-            "title": "The Oregon Trail",
-            "choices": [{
-                "text": "Travel the trail",
-                "action": "changePage",
-                "newPageName": "travel",
-            }, {
-                "text": "Learn about the trail",
-                "action": "changePage",
-                "newPageName": "learn",
-            }, {
-                "text": "See the Oregon Top Ten",
-                "action": "changePage",
-                "newPageName": "topTen",
-            }, {
-                "text": "Turn sound off",
-                "action": "toggleSound",
-                "atlernativeText": "Turn sound on"
-            }],
-            "prompt": "What is your choice?",
-            "img": "img/title.png",
-        }
-    }, {
-        "type": "choice",
-        "name": "travel",
-        "data": {
-            "text": "First text",
-            "choices": [...],
-            "img": "",
-            "nextPage": "story1"
-        }
-    }, {
-        "type": "story",
-        "name": "story1",
-        "data": {
-            "texts": [
-                "This is the first text",
-                "This is the second text, which will appear after pressing space"
-            ]
-        }
-    }, {
-        "type": "shop",
-        "name": "firstShop",
-        "data": {
-            "items": [{
-                "id": 1,
-                "name": "Some thing to buy",
-                "description": "This is a buyable thing",
-                "price": 1600
-            }],
-            "topText": "Here could be your shop text",
-            "nextPage": "pageAfterShop"
-        }
-    }]
+  "start": "startPage",
+  "end": "ending",
+  "pages": [
+    {
+      "name": "startPage",
+      "type": "start",
+      "data": {
+        "title": "The Oregon Trail",
+        "choices": [
+          {
+            "text": "Travel the trail",
+            "action": "changePage",
+            "newPageName": "travel"
+          },
+          {
+            "text": "Learn about the trail",
+            "action": "changePage",
+            "newPageName": "learn"
+          },
+          {
+            "text": "See the Oregon Top Ten",
+            "action": "changePage",
+            "newPageName": "topTen"
+          },
+          {
+            "text": "Turn sound off",
+            "action": "toggleSound",
+            "atlernativeText": "Turn sound on"
+          }
+        ],
+        "prompt": "What is your choice?",
+        "img": "img/title.png"
+      }
+    },
+    {
+      "type": "choice",
+      "name": "travel",
+      "data": {
+        "text": "First text",
+        "choices": ["..."],
+        "img": "",
+        "nextPage": "story1"
+      }
+    },
+    {
+      "type": "story",
+      "name": "story1",
+      "data": {
+        "texts": [
+          "This is the first text",
+          "This is the second text, which will appear after pressing space"
+        ]
+      }
+    },
+    {
+      "type": "shop",
+      "name": "firstShop",
+      "data": {
+        "items": [
+          {
+            "id": 1,
+            "name": "Some thing to buy",
+            "description": "This is a buyable thing",
+            "price": 1600
+          }
+        ],
+        "topText": "Here could be your shop text",
+        "nextPage": "pageAfterShop"
+      }
+    }
+  ]
 }
