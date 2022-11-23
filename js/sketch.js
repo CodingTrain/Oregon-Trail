@@ -1,10 +1,9 @@
-// Turning these off for now
 p5.disableFriendlyErrors = true;
 
 // temporary
 const SETTINGS = {
   sound: true,
-  scale: 2,
+  scale: 4,
 };
 
 let data;
@@ -29,8 +28,7 @@ function setup() {
 
 function keyPressed() {
   const result = playerInput.addKey(key, keyCode);
-
-  slideManager.performAction(result - 1);
+  slideManager.performActionByInput(result);
   playerInput.updateParent(slideManager.getCurrentSlide());
 }
 

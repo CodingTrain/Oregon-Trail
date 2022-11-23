@@ -1,0 +1,46 @@
+{
+  "landmarks": [
+    {
+      "kansasriver": {
+        "distance": 102,
+        "name": "Kansas River Crossing"
+      },
+      "blueriver": {
+        "distance": 240,
+        "name": "Blue River Crossing"
+      },
+      "ftkearney": {
+        "distance": 304,
+        "name": "Fort Kearney"
+      },
+      "chimneyrock": {
+        "distance": 554,
+        "name": "Chimney Rock"
+      },
+      "ftlaramie": {
+        "distance": 640,
+        "name": " Fort Laramie"
+      },
+      "indepencerock": {
+        "distance": 830,
+        "name": "Independence Rock"
+      },
+      "southpass": {
+        "distance": 932,
+        "name": "South Pass"
+      },
+      "greenriver": {
+        "distance": 1057,
+        "name": "Green River Crossing"
+      },
+      "sodasprings": {
+        "distance": 1201,
+        "name": "Soda Springs"
+      },
+      "forthall": {
+        "distance": 1258,
+        "name": "Fort Hall"
+      }
+    }
+  ]
+}

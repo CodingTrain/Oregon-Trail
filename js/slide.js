@@ -1,8 +1,7 @@
 class Slide {
   constructor(json) {
     this.name = json.name;
-    this.type = json.type; // doesn't do anything yet
-
+    this.type = json.type;
     this.loadFromJSON(json.data);
 
     this.renderPosition = createVector();
@@ -10,13 +9,13 @@ class Slide {
     // For the input prompt
     this.promptPosition = createVector();
     this.promptLimit = 1;
+    this.lastText = '';
+    this.showInput = json.showInput;
 
     this.bar = loadImage('img/bar.png');
   }
 
   loadFromJSON(data) {
-    this.prompt = data.prompt;
-    this.choices = data.choices;
     if (data.img.length != 0) this.img = loadImage(data.img);
     this.title = data.title;
 
@@ -35,8 +34,10 @@ class Slide {
     this.renderPosition.set(x, 0);
   }
 
-  newLine() {
-    this.renderPosition.y += this.fontSize;
+  newLine(total) {
+    let offset = this.fontSize;
+    if (total !== undefined) offset *= total;
+    this.renderPosition.y += offset;
   }
 
   renderText(indent, lines, prefix) {
@@ -53,6 +54,7 @@ class Slide {
         str = prefix + str;
       }
       text(str, x, this.renderPosition.y);
+      this.lastText = str;
       if (usePrefix) {
         x += textWidth(prefix);
       }
@@ -80,7 +82,7 @@ class Slide {
     this.renderImg(this.bar);
   }
 
-  render() {
+  renderStart() {
     textFont(this.font);
     textAlign(LEFT, CENTER);
     textSize(this.fontSize);
@@ -92,28 +94,34 @@ class Slide {
     imageMode(CORNER);
 
     this.resetRenderPosition();
+  }
 
-    if (this.img) {
-      this.renderImg(this.img);
-      this.renderBar();
-    } else {
-      this.renderBar();
-      this.newLine();
-      this.renderText(0, this.title);
-      this.newLine();
-    }
-    this.renderText(0, 'You may:');
-    this.newLine();
-    this.renderListText(1, this.choices);
-    this.newLine();
-    this.renderText(0, this.prompt);
-
+  updateCursor() {
     // Set the cursor position
     this.promptPosition.set(this.renderPosition);
-    this.promptPosition.x += textWidth(this.prompt + ' ');
+    this.promptPosition.x += textWidth(this.lastText + ' ');
     this.promptPosition.y -= this.fontSize;
+  }
+
+  // --- CHANGES WITH TYPE ---
+
+  render() {
+    this.renderStart();
 
     this.newLine();
-    this.renderBar();
+    this.renderText(0, this.title);
+    this.newLine();
+    this.renderText(0, ['This slide uses', 'no existing type: ' + this.type]);
+    this.newLine();
+
+    this.updateCursor();
+  }
+
+  getAction(actionIndex) {
+    return undefined;
+  }
+
+  changeText(changeData) {
+    return undefined;
   }
 }

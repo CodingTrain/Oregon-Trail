@@ -4,53 +4,111 @@ class SlideManager {
     this.end = json.end;
 
     this.slides = [];
-    this.currentSlide = 1;
-
-    for (let i = 0; i < json.pages.length; i++) {
-      this.slides[i] = new Slide(json.pages[i]);
-    }
+    this.currentSlide = 0;
 
     this.actions = {
-      changePage: (choice) => {
-        this.changePage(choice);
+      changePage: (actionData) => {
+        this.changePage(actionData.action);
       },
-      toggleSetting: (choice) => {
-        this.toggleSetting(choice);
+      toggleSetting: (actionData) => {
+        this.toggleSetting(actionData.action);
+      },
+      changeText: (actionData) => {
+        this.changeText(actionData.action, actionData.actionIndex);
+      },
+      printOut: (actionData) => {
+        print(actionData.action.print);
       },
     };
+
+    /*
+			printOut use like so:
+			"action" : {
+				"type": "printOut",
+				"print": "Hello World!"
+			}
+			sometimes usefull for debuging
+		*/
+
+    this.types = {
+      choice: (json) => {
+        return new Choice(json);
+      },
+      info: (json) => {
+        return new Info(json);
+      },
+    };
+
+    for (let i = 0; i < json.pages.length; i++) {
+      this.slides[i] = this.loadSlide(json.pages[i]);
+    }
+
+    if (this.start.length > 0) this.changePageTo(this.start);
   }
 
-  performAction(actionIndex) {
-    const slide = this.getCurrentSlide();
-    const choice = slide.choices[actionIndex];
-    if (choice == undefined) return;
+  loadSlide(json) {
+    const slideClass = this.types[json.type];
+    if (slideClass === undefined) {
+      return new Slide(json);
+    }
+    return slideClass(json);
+  }
 
-    const action = choice.action;
+  performActionByInput(input) {
+    const slide = this.getCurrentSlide();
+
+    const actionData = slide.getAction(input);
+
+    this.performAction(actionData);
+  }
+
+  performAction(actionData) {
+    if (actionData === undefined) return;
+
+    const action = actionData.action;
+
+    if (action === undefined) return;
 
     const actionFunction = this.actions[action.type];
-    if (actionFunction) {
-      actionFunction(choice);
+    if (actionFunction !== undefined) {
+      actionFunction(actionData);
+      if (action.secondAction !== undefined) {
+        actionData.action = action.secondAction;
+        this.performAction(actionData);
+      }
     }
   }
 
-  changePage(choice) {
-    const action = choice.action;
+  // --- ACTIONS ---
+
+  changePage(action) {
     const newPageName = action.newPageName;
     if (newPageName.length == 0) return;
 
-    const chosen = this.getSlideByName(newPageName);
-    if (chosen != undefined) {
-      this.currentSlide = chosen;
-    }
+    this.changePageTo(newPageName);
   }
 
-  toggleSetting(choice) {
-    const action = choice.action;
+  toggleSetting(action) {
     toggleSetting(action.setting);
-    [choice.text, choice.action.atlernativeText] = [
-      choice.action.atlernativeText,
-      choice.text,
-    ];
+  }
+
+  changeText(action, actionIndex) {
+    const slide = this.getCurrentSlide();
+    action.current = (action.current + 1) % action.texts.length;
+    const changeData = {
+      text: action.texts[action.current],
+      index: actionIndex,
+    };
+    slide.changeText(changeData);
+  }
+
+  // ---
+
+  changePageTo(name) {
+    const page = this.getSlideByName(name);
+    if (page != undefined) {
+      this.currentSlide = page;
+    }
   }
 
   render() {
