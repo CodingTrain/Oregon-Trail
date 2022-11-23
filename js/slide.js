@@ -1,116 +1,127 @@
 class Slide {
-  constructor(json) {
+    constructor(json) {
+        this.name = json.name;
+        this.type = json.type;
+        this.loadFromJSON(json.data);
 
-    this.name = json.name;
-    this.type = json.type;
-    this.loadFromJSON(json.data);
+        this.renderPosition = createVector();
 
-    this.renderPosition = createVector();
+        // For the input prompt
+        this.promptPosition = createVector();
+        this.promptLimit = 1;
+        this.lastText = "";
+        this.showInput = json.showInput;
 
-    // For the input prompt
-    this.promptPosition = createVector();
-    this.promptLimit = 1;
-
-    this.bar = loadImage('img/bar.png');
-  }
-
-  loadFromJSON(data){
-    this.prompt = data.prompt;
-    this.choices = data.choices;
-    if (data.img.length != 0) this.img = loadImage(data.img);
-    this.title = data.title;
-
-    let content = data.content;
-    if (content.font.file) {
-      this.font = loadFont(content.font.file);
-    } else {
-      this.font = content.font.name;
+        this.bar = loadImage("img/bar.png");
     }
-    this.fontSize = content.font.size * SETTINGS.scale;
-    this.textIndent = content.textIndent;
-  }
 
+    loadFromJSON(data) {
+        if (data.img.length != 0) this.img = loadImage(data.img);
+        this.title = data.title;
 
-  resetRenderPosition() {
-    let x = this.textIndent * this.fontSize;
-    this.renderPosition.set(x, 0);
-  }
-
-  newLine() {
-    this.renderPosition.y += this.fontSize;
-  }
-
-  renderText(indent, lines, prefix) {
-    if (lines instanceof Array == false) {
-      lines = [lines];
+        let content = data.content;
+        if (content.font.file) {
+            this.font = loadFont(content.font.file);
+        } else {
+            this.font = content.font.name;
+        }
+        this.fontSize = content.font.size * SETTINGS.scale;
+        this.textIndent = content.textIndent;
     }
-    let x = this.renderPosition.x + indent * this.fontSize;
-    for (var i = 0; i < lines.length; i++) {
-      let str = lines[i];
-      const usePrefix = prefix != undefined && i == 0;
-      // I don't know a better way, without the two if statements
-      // If you know, please make it better
-      if (usePrefix) {
-        str = prefix + str;
-      }
-      text(str, x, this.renderPosition.y);
-      if(usePrefix){
-        x += textWidth(prefix);
-      }
-      this.newLine();
+
+    resetRenderPosition() {
+        let x = this.textIndent * this.fontSize;
+        this.renderPosition.set(x, 0);
     }
-  }
 
-  renderListText(indent, list) {
-    for (let i = 0; i < list.length; i++) {
-      let item = list[i];
-      if(item instanceof Object){
-        item = item.text;
-      }
-      this.renderText(indent, item, i + 1 + '. ');
+    newLine(total) {
+        let offset = this.fontSize;
+        if (total !== undefined) offset *= total;
+        this.renderPosition.y += offset;
     }
-  }
 
-  renderImg(img) {
-    let h = (width / img.width) * img.height;
-    image(img, 0, this.renderPosition.y, width, h);
-    this.renderPosition.y += h;
-  }
+    renderText(indent, lines, prefix) {
+        if (lines instanceof Array == false) {
+            lines = [lines];
+        }
+        let x = this.renderPosition.x + indent * this.fontSize;
+        for (var i = 0; i < lines.length; i++) {
+            let str = lines[i];
+            const usePrefix = prefix != undefined && i == 0;
+            // I don't know a better way, without the two if statements
+            // If you know, please make it better
+            if (usePrefix) {
+                str = prefix + str;
+            }
+            text(str, x, this.renderPosition.y);
+            this.lastText = str;
+            if (usePrefix) {
+                x += textWidth(prefix);
+            }
+            this.newLine();
+        }
+    }
 
-  renderBar() {
-    this.renderImg(this.bar);
-  }
+    renderListText(indent, list) {
+        for (let i = 0; i < list.length; i++) {
+            let item = list[i];
+            if (item instanceof Object) {
+                item = item.text;
+            }
+            this.renderText(indent, item, i + 1 + ". ");
+        }
+    }
 
-  renderStart(){
-    textFont(this.font);
-    textAlign(LEFT, CENTER);
-    textSize(this.fontSize);
-    textLeading(this.fontSize);
+    renderImg(img) {
+        let h = (width / img.width) * img.height;
+        image(img, 0, this.renderPosition.y, width, h);
+        this.renderPosition.y += h;
+    }
 
-    fill(255);
-    noStroke();
+    renderBar() {
+        this.renderImg(this.bar);
+    }
 
-    imageMode(CORNER);
+    renderStart() {
+        textFont(this.font);
+        textAlign(LEFT, CENTER);
+        textSize(this.fontSize);
+        textLeading(this.fontSize);
 
-    this.resetRenderPosition();
-  }
+        fill(255);
+        noStroke();
 
-  updateCursor(){
-    // Set the cursor position
-    this.promptPosition.set(this.renderPosition);
-    this.promptPosition.x += textWidth(this.prompt + ' ');
-    this.promptPosition.y -= this.fontSize;
-  }
+        imageMode(CORNER);
 
-  render() {
-    this.renderStart();
+        this.resetRenderPosition();
+    }
 
-    this.newLine();
-    this.renderText(0, this.title);
-    this.newLine();
-    this.renderText(0, ["This slide uses", "no existing type: " + this.type]);
-    this.newLine();
+    updateCursor() {
+        // Set the cursor position
+        this.promptPosition.set(this.renderPosition);
+        this.promptPosition.x += textWidth(this.lastText + " ");
+        this.promptPosition.y -= this.fontSize;
+    }
 
-    this.updateCursor();
-  }
+    // --- CHANGES WITH TYPE ---
+
+    render() {
+        this.renderStart();
+
+        this.newLine();
+        this.renderText(0, this.title);
+        this.newLine();
+        this.renderText(0, ["This slide uses", "no existing type: " + this.type]);
+        this.newLine();
+
+        this.updateCursor();
+    }
+
+    getAction(actionIndex) {
+        return undefined;
+    }
+
+    changeText(changeData) {
+        return undefined;
+    }
 }
