@@ -1,9 +1,12 @@
 class Choice extends Page {
-    loadFromJSON(data) {
-        super.loadFromJSON(data);
+    loadData(data) {
+        super.loadData(data);
 
-        this.prompt = data.prompt;
-        this.choices = data.choices;
+        const img = data.img;
+        if (img.length != 0) this.img = loadImage(img);
+
+        this.loadVariable(data, "prompt");
+        this.loadVariable(data, "choices");
     }
 
     getAction(input) {
@@ -48,8 +51,6 @@ class Choice extends Page {
         if (choice === undefined) return;
         choice.text = changeData.text;
     }
-
-    // --- CLASS SPECIFIC ---
 
     changeChoice(choiceIndex, newText) {
         const choice = this.choices[choiceIndex];

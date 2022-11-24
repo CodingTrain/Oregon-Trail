@@ -1,8 +1,7 @@
 class Page {
-    constructor(json) {
-        this.name = json.name;
-        this.type = json.type;
-        this.loadFromJSON(json.data);
+    constructor(json, defaultPage) {
+        this.loadDefault(defaultPage);
+        this.loadPage(json);
 
         this.renderPosition = createVector();
 
@@ -10,7 +9,6 @@ class Page {
         this.promptPosition = createVector();
         this.promptLimit = 1;
         this.lastText = "";
-        this.showInput = json.showInput;
 
         textSize(this.fontSize);
         const ascent = textAscent();
@@ -20,19 +18,65 @@ class Page {
         this.bar = loadImage("img/bar.png");
     }
 
-    loadFromJSON(data) {
-        if (data.img.length != 0) this.img = loadImage(data.img);
-        this.title = data.title;
+    // --- LOADING ---
 
-        let content = data.content;
-        if (content.font.file) {
-            this.font = loadFont(content.font.file);
-        } else {
-            this.font = content.font.name;
+    loadDefault(json) {
+        // loads default page variables
+        this.loadVariable(json, "name");
+        this.loadVariable(json, "type");
+        this.loadVariable(json, "showInput");
+
+        const data = json.data;
+        if (data !== undefined) {
+            this.loadVariable(data, "title");
+            this.loadVariable(data, "action");
+            const content = data.content;
+            if (content !== undefined) {
+                this.loadContent(content);
+            }
         }
-        this.fontSize = content.font.size * SETTINGS.scale;
-        this.textIndent = content.textIndent;
     }
+
+    loadPage(json) {
+        this.loadDefault(json);
+
+        this.loadData(json.data);
+    }
+
+    loadData(data) {
+        // used to load specific variables in different page types
+    }
+
+    loadContent(content) {
+        const font = content.font;
+        if (font !== undefined) {
+            if (font.file !== undefined) {
+                this.font = loadFont(font.file);
+            } else {
+                this.loadVariable(font, "name", "font");
+            }
+
+            if (font.size !== undefined) {
+                this.fontSize = font.size * SETTINGS.scale;
+            }
+        }
+
+        this.loadVariable(content, "textIndent");
+    }
+
+    loadVariable(json, key, saveKey) {
+        const value = json[key];
+        if (value === undefined) return false;
+
+        if (saveKey === undefined) {
+            this[key] = value;
+        } else {
+            this[saveKey] = value;
+        }
+        return true;
+    }
+
+    // --- RENDERING ---
 
     resetRenderPosition() {
         let x = this.textIndent * this.fontSize;
@@ -104,7 +148,7 @@ class Page {
         // Set the cursor position
         this.promptPosition.set(this.renderPosition);
         this.promptPosition.x += textWidth(this.lastText + " ");
-        this.promptPosition.y -= this.fontSize;
+        this.promptPosition.y -= this.textHeight;
     }
 
     // --- CHANGES WITH TYPE ---
@@ -115,14 +159,16 @@ class Page {
         this.newLine();
         this.renderText(0, this.title);
         this.newLine();
-        this.renderText(0, ["This page uses", "no existing type: " + this.type]);
+        this.renderText(0, ["This page has", "no existing type: " + this.type]);
         this.newLine();
 
         this.updateCursor();
     }
 
-    getAction(actionIndex) {
-        return undefined;
+    getAction(input) {
+        return {
+            action: this.action,
+        };
     }
 
     changeText(changeData) {

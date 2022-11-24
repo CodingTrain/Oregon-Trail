@@ -2,6 +2,7 @@ class PageManager {
     constructor(json) {
         this.start = json.start;
         this.end = json.end;
+        this.defaultPage = json.default;
 
         this.pages = [];
         this.currentPage = 0;
@@ -19,6 +20,9 @@ class PageManager {
             printOut: (actionData) => {
                 print(actionData.action.print);
             },
+            goToStart: (actionData) => {
+                this.changeToStartPage();
+            },
         };
 
         /*
@@ -32,24 +36,28 @@ class PageManager {
 
         this.types = {
             choice: (json) => {
-                return new Choice(json);
+                return new Choice(json, this.defaultPage);
             },
             info: (json) => {
-                return new Info(json);
+                return new Info(json, this.defaultPage);
             },
         };
 
         for (let i = 0; i < json.pages.length; i++) {
-            this.pages[i] = this.loadPage(json.pages[i]);
+            this.pages[i] = this.loadPage(json.pages[i], this.defaultPage);
         }
 
+        this.changeToStartPage();
+    }
+
+    changeToStartPage() {
         if (this.start.length > 0) this.changePageTo(this.start);
     }
 
     loadPage(json) {
         const pageClass = this.types[json.type];
         if (pageClass === undefined) {
-            return new Page(json);
+            return new Page(json, this.defaultPage);
         }
         return pageClass(json);
     }

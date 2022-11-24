@@ -1,6 +1,25 @@
 {
     "start": "main_menu",
     "end": "",
+    "default": {
+        "name": "default",
+        "type": "no-type",
+        "showInput": true,
+        "data": {
+            "title": "Default Page",
+            "action": {
+                "type": "goToStart"
+            },
+            "content": {
+                "textIndent": 0,
+                "font": {
+                    "name": "CodeGon Mono",
+                    "file": "fonts/codegon-mono.ttf",
+                    "size": 7
+                }
+            }
+        }
+    },
     "pages": [{
             "name": "main_menu",
             "type": "choice",
@@ -39,17 +58,19 @@
                                 "current": 0
                             }
                         }
+                    },
+                    {
+                        "text": "Open the test page",
+                        "action": {
+                            "type": "changePage",
+                            "newPageName": "test"
+                        }
                     }
                 ],
                 "prompt": "What is your choice?",
                 "img": "img/title.png",
                 "content": {
-                    "textIndent": 5,
-                    "font": {
-                        "name": "CodeGon Mono",
-                        "file": "fonts/codegon-mono.ttf",
-                        "size": 7
-                    }
+                    "textIndent": 5
                 }
             }
         },
@@ -98,12 +119,7 @@
                 "prompt": "What is your choice?",
                 "img": "",
                 "content": {
-                    "textIndent": 2,
-                    "font": {
-                        "name": "CodeGon Mono",
-                        "file": "fonts/codegon-mono.ttf",
-                        "size": 7
-                    }
+                    "textIndent": 2
                 }
             }
         },
@@ -131,14 +147,12 @@
                 },
                 "img": "img/title.png",
                 "content": {
-                    "textIndent": 2,
-                    "font": {
-                        "name": "CodeGon Mono",
-                        "file": "fonts/codegon-mono.ttf",
-                        "size": 7
-                    }
+                    "textIndent": 2
                 }
             }
+        },
+        {
+            "name": "test"
         }
     ]
 }

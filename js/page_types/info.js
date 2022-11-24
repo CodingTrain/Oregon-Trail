@@ -1,10 +1,10 @@
 class Info extends Page {
-    loadFromJSON(data) {
-        super.loadFromJSON(data);
+    loadData(data) {
+        super.loadData(data);
 
-        this.prompt = data.prompt;
-        this.action = data.action;
-        this.text = data.text;
+        this.loadVariable(data, "prompt");
+        this.loadVariable(data, "action");
+        this.loadVariable(data, "text");
     }
 
     getAction(input) {
