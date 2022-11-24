@@ -1,131 +1,145 @@
 class Page {
-    constructor(json) {
-        this.name = json.name;
-        this.type = json.type;
-        this.loadFromJSON(json.data);
+  constructor(json) {
+    this.name = json.name;
+    this.type = json.type;
+    this.loadFromJSON(json.data);
 
-        this.renderPosition = createVector();
+    this.renderPosition = createVector();
 
-        // For the input prompt
-        this.promptPosition = createVector();
-        this.promptLimit = 1;
-        this.lastText = "";
-        this.showInput = json.showInput;
+    // For the input prompt
+    this.promptPosition = createVector();
+    this.promptLimit = 1;
+    this.lastText = '';
+    this.showInput = json.showInput;
 
-        textSize(this.fontSize);
-        const ascent = textAscent();
-        const descent = textDescent();
-        this.textHeight = ascent + descent;
+    textSize(this.fontSize);
+    const ascent = textAscent();
+    const descent = textDescent();
+    this.textHeight = ascent + descent;
 
-        this.bar = loadImage("img/bar.png");
+    this.bar = loadImage('img/bar.png');
+  }
+
+  loadFromJSON(data) {
+    if (data.img.length != 0) this.img = loadImage(data.img);
+    this.title = data.title;
+
+    let content = data.content;
+    if (content.font.file) {
+      this.font = loadFont(content.font.file);
+    } else {
+      this.font = content.font.name;
     }
+    this.fontSize = content.font.size * SETTINGS.scale;
+    this.textIndent = content.textIndent;
+  }
 
-    loadFromJSON(data) {
-        if (data.img.length != 0) this.img = loadImage(data.img);
-        this.title = data.title;
+  resetRenderPosition() {
+    let x = this.textIndent * this.fontSize;
+    this.renderPosition.set(x, 0);
+  }
 
-        let content = data.content;
-        if (content.font.file) {
-            this.font = loadFont(content.font.file);
-        } else {
-            this.font = content.font.name;
-        }
-        this.fontSize = content.font.size * SETTINGS.scale;
-        this.textIndent = content.textIndent;
+  newLine(total) {
+    let offset = this.textHeight;
+    if (total !== undefined) offset *= total;
+    this.renderPosition.y += offset;
+  }
+
+  renderText(indent, lines, prefix) {
+    if (lines instanceof Array == false) {
+      lines = [lines];
     }
+    let x = this.renderPosition.x + indent * this.fontSize;
 
-    resetRenderPosition() {
-        let x = this.textIndent * this.fontSize;
-        this.renderPosition.set(x, 0);
+    for (var i = 0; i < lines.length; i++) {
+      let str = lines[i];
+      const usePrefix = prefix != undefined && i == 0;
+      // I don't know a better way, without the two if statements
+      // If you know, please make it better
+      if (usePrefix) {
+        str = prefix + str;
+      }
+
+      textAlign(LEFT, TOP);
+      const box = {
+        x,
+        y: this.renderPosition.y,
+        w: width - 2 * this.textIndent * this.fontSize,
+        h: height - this.renderPosition.y,
+      };
+      text(str, box.x, box.y, box.w, box.h);
+      this.lastText = str;
+      if (textWidth(str) > box.w) {
+        const bounds = this.font.textBounds(str, box.x, box.y, box.w, box.h);
+        this.renderPosition.y += box.y;
+      }
+
+      if (usePrefix) {
+        x += textWidth(prefix);
+      }
+      this.newLine();
     }
+  }
 
-    newLine(total) {
-        let offset = this.textHeight;
-        if (total !== undefined) offset *= total;
-        this.renderPosition.y += offset;
+  renderListText(indent, list) {
+    for (let i = 0; i < list.length; i++) {
+      let item = list[i];
+      if (item instanceof Object) {
+        item = item.text;
+      }
+      this.renderText(indent, item, i + 1 + '. ');
     }
+  }
 
-    renderText(indent, lines, prefix) {
-        if (lines instanceof Array == false) {
-            lines = [lines];
-        }
-        let x = this.renderPosition.x + indent * this.fontSize;
-        for (var i = 0; i < lines.length; i++) {
-            let str = lines[i];
-            const usePrefix = prefix != undefined && i == 0;
-            // I don't know a better way, without the two if statements
-            // If you know, please make it better
-            if (usePrefix) {
-                str = prefix + str;
-            }
-            text(str, x, this.renderPosition.y);
-            this.lastText = str;
-            if (usePrefix) {
-                x += textWidth(prefix);
-            }
-            this.newLine();
-        }
-    }
+  renderImg(img) {
+    let h = (width / img.width) * img.height;
+    image(img, 0, this.renderPosition.y, width, h);
+    this.renderPosition.y += h;
+  }
 
-    renderListText(indent, list) {
-        for (let i = 0; i < list.length; i++) {
-            let item = list[i];
-            if (item instanceof Object) {
-                item = item.text;
-            }
-            this.renderText(indent, item, i + 1 + ". ");
-        }
-    }
+  renderBar() {
+    this.renderImg(this.bar);
+  }
 
-    renderImg(img) {
-        let h = (width / img.width) * img.height;
-        image(img, 0, this.renderPosition.y, width, h);
-        this.renderPosition.y += h;
-    }
+  renderStart() {
+    textFont(this.font);
+    textAlign(LEFT, CENTER);
+    textSize(this.fontSize);
 
-    renderBar() {
-        this.renderImg(this.bar);
-    }
+    fill(255);
+    noStroke();
 
-    renderStart() {
-        textFont(this.font);
-        textAlign(LEFT, CENTER);
-        textSize(this.fontSize);
+    imageMode(CORNER);
 
-        fill(255);
-        noStroke();
+    this.resetRenderPosition();
+  }
 
-        imageMode(CORNER);
+  updateCursor() {
+    // Set the cursor position
+    this.promptPosition.set(this.renderPosition);
+    this.promptPosition.x += textWidth(this.lastText + ' ');
+    this.promptPosition.y -= this.fontSize;
+  }
 
-        this.resetRenderPosition();
-    }
+  // --- CHANGES WITH TYPE ---
 
-    updateCursor() {
-        // Set the cursor position
-        this.promptPosition.set(this.renderPosition);
-        this.promptPosition.x += textWidth(this.lastText + " ");
-        this.promptPosition.y -= this.fontSize;
-    }
+  render() {
+    this.renderStart();
 
-    // --- CHANGES WITH TYPE ---
+    this.newLine();
+    this.renderText(0, this.title);
+    this.newLine();
+    this.renderText(0, ['This page uses', 'no existing type: ' + this.type]);
+    this.newLine();
 
-    render() {
-        this.renderStart();
+    this.updateCursor();
+  }
 
-        this.newLine();
-        this.renderText(0, this.title);
-        this.newLine();
-        this.renderText(0, ["This page uses", "no existing type: " + this.type]);
-        this.newLine();
+  getAction(actionIndex) {
+    return undefined;
+  }
 
-        this.updateCursor();
-    }
-
-    getAction(actionIndex) {
-        return undefined;
-    }
-
-    changeText(changeData) {
-        return undefined;
-    }
+  changeText(changeData) {
+    return undefined;
+  }
 }
