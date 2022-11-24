@@ -2,9 +2,9 @@ class Info extends Page {
     loadData(data) {
         super.loadData(data);
 
-        this.loadVariable(data, "prompt");
-        this.loadVariable(data, "action");
-        this.loadVariable(data, "text");
+        this.loadImportantVariable(data, "prompt");
+        this.loadImportantVariable(data, "action");
+        this.loadImportantVariable(data, "text");
     }
 
     getAction(input) {

@@ -76,6 +76,18 @@ class Page {
         return true;
     }
 
+    loadImportantVariable(json, key, saveKey) {
+        const loaded = this.loadVariable(json, key, saveKey);
+        if (loaded == false) {
+            console.log(
+                "Important variable (" +
+                key +
+                ") didn't load, page might not look as intended!\nPage: " +
+                this.name
+            );
+        }
+    }
+
     // --- RENDERING ---
 
     resetRenderPosition() {

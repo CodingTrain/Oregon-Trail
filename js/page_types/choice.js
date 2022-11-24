@@ -5,8 +5,8 @@ class Choice extends Page {
         const img = data.img;
         if (img.length != 0) this.img = loadImage(img);
 
-        this.loadVariable(data, "prompt");
-        this.loadVariable(data, "choices");
+        this.loadImportantVariable(data, "prompt");
+        this.loadImportantVariable(data, "choices");
     }
 
     getAction(input) {
