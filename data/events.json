@@ -1,0 +1,72 @@
+{
+    "events": [{
+        "cholera": {
+            "affects": "HEALTH",
+            "description": "Cholera"
+        },
+        "dyenstery": {
+            "affects": "HEALTH",
+            "description": "Dysentery"
+        },
+        "measles": {
+            "affects": "HEALTH",
+            "description": "Measles"
+        },
+        "exhaustion": {
+            "affects": "HEALTH",
+            "description": "Exhaustion"
+        },
+        "snakebite": {
+            "affects": "HEALTH",
+            "description": "Snake Bite"
+        },
+        "brokenarm": {
+            "affects": "HEALTH",
+            "description": "Broken Arm"
+        },
+        "brokenleg": {
+            "affects": "HEALTH",
+            "description": "Broken Leg"
+        },
+        "nowater": {
+            "affects": "HEALTH",
+            "description": "No Water"
+        },
+        "badwater": {
+            "affects": "HEALTH",
+            "description": "Bad Water"
+        },
+        "lost": {
+            "affects": "PACE",
+            "description": "You Have the Lost Trail"
+        },
+        "brokenwheel": {
+            "affects": "PACE",
+            "description": "Wheel Broke"
+        },
+        "theftofox": {
+            "affects": "INVENTORY",
+            "description": "Thief Steals ox"
+        },
+        "nograss": {
+            "affects": "INVENTORY",
+            "description": "No Grass for Oxen"
+        },
+        "oxsick": {
+            "affects": "INVENTORY",
+            "description": "Ox is Sick"
+        },
+        "oxwander": {
+            "affects": "INVENTORY",
+            "description": "Ox Has Wandered Off"
+        },
+        "wildfruit": {
+            "affects": "INVENTORY",
+            "description": "You Found Wild Fruit"
+        },
+        "indianshelp": {
+            "affects": "INVENTORY",
+            "description": "Indians Help Find Food"
+        }
+    }]
+}
