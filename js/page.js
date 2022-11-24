@@ -1,4 +1,4 @@
-class Slide {
+class Page {
     constructor(json) {
         this.name = json.name;
         this.type = json.type;
@@ -115,7 +115,7 @@ class Slide {
         this.newLine();
         this.renderText(0, this.title);
         this.newLine();
-        this.renderText(0, ["This slide uses", "no existing type: " + this.type]);
+        this.renderText(0, ["This page uses", "no existing type: " + this.type]);
         this.newLine();
 
         this.updateCursor();
