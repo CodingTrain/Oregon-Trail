@@ -83,7 +83,12 @@
         "indianshelp": {
             "affects": "INVENTORY",
             "location": "1",
-            "description": "Indians Help Find Food"
+            "description": "Indians Helped You Find Food"
+        },
+        "wagonstuck": {
+            "affects": "PACE",
+            "location": "0",
+            "description": "Your Wagon is Stuck in the Mud"
         }
     }]
 }
