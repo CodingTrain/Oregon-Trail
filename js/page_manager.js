@@ -44,7 +44,7 @@ class PageManager {
         };
 
         for (let i = 0; i < json.pages.length; i++) {
-            this.pages[i] = this.loadPage(json.pages[i], this.defaultPage);
+            this.pages[i] = this.loadPage(json.pages[i]);
         }
 
         this.changeToStartPage();

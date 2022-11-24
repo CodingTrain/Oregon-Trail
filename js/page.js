@@ -94,6 +94,7 @@ class Page {
             lines = [lines];
         }
         let x = this.renderPosition.x + indent * this.fontSize;
+
         for (var i = 0; i < lines.length; i++) {
             let str = lines[i];
             const usePrefix = prefix != undefined && i == 0;
@@ -102,8 +103,21 @@ class Page {
             if (usePrefix) {
                 str = prefix + str;
             }
-            text(str, x, this.renderPosition.y);
+
+            textAlign(LEFT, TOP);
+            const box = {
+                x,
+                y: this.renderPosition.y,
+                w: width - 2 * this.textIndent * this.fontSize,
+                h: height - this.renderPosition.y,
+            };
+            text(str, box.x, box.y, box.w, box.h);
             this.lastText = str;
+            if (textWidth(str) > box.w) {
+                const bounds = this.font.textBounds(str, box.x, box.y, box.w, box.h);
+                this.renderPosition.y += box.y;
+            }
+
             if (usePrefix) {
                 x += textWidth(prefix);
             }
@@ -150,9 +164,6 @@ class Page {
         this.promptPosition.x += textWidth(this.lastText + " ");
         this.promptPosition.y -= this.textHeight;
     }
-
-    // --- CHANGES WITH TYPE ---
-
     render() {
         this.renderStart();
 
