@@ -7,10 +7,10 @@ function validate(key) {
 }
 
 class Input {
-    constructor(slide) {
+    constructor(page) {
         this.buffer = "";
         this.blink = false;
-        this.parent = slide;
+        this.parent = page;
     }
 
     updateParent(parent) {

@@ -2,42 +2,42 @@ p5.disableFriendlyErrors = true;
 
 // temporary
 const SETTINGS = {
-  sound: true,
-  scale: 4,
+    sound: true,
+    scale: 2,
 };
 
 let data;
 let stateManager;
 
 function preload() {
-  data = loadJSON('data/slide_data.json');
+    data = loadJSON("data/page_data.json");
 }
 
-let slideManager;
+let pageManager;
 
 let playerInput;
 
 function setup() {
-  createCanvas(280 * SETTINGS.scale, 192 * SETTINGS.scale);
+    createCanvas(280 * SETTINGS.scale, 192 * SETTINGS.scale);
 
-  stateManager = new GameStateManager();
+    stateManager = new GameStateManager();
 
-  slideManager = new SlideManager(data);
-  playerInput = new Input(slideManager.getCurrentSlide());
+    pageManager = new PageManager(data);
+    playerInput = new Input(pageManager.getCurrentPage());
 }
 
 function keyPressed() {
-  const result = playerInput.addKey(key, keyCode);
-  slideManager.performActionByInput(result);
-  playerInput.updateParent(slideManager.getCurrentSlide());
+    const result = playerInput.addKey(key, keyCode);
+    pageManager.performActionByInput(result);
+    playerInput.updateParent(pageManager.getCurrentPage());
 }
 
 function draw() {
-  background(0);
-  slideManager.render();
-  playerInput.render();
+    background(0);
+    pageManager.render();
+    playerInput.render();
 }
 
 function toggleSetting(setting) {
-  SETTINGS[setting] = !SETTINGS[setting];
+    SETTINGS[setting] = !SETTINGS[setting];
 }
