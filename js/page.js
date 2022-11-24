@@ -1,4 +1,4 @@
-class Slide {
+class Page {
   constructor(json) {
     this.name = json.name;
     this.type = json.type;
@@ -11,6 +11,11 @@ class Slide {
     this.promptLimit = 1;
     this.lastText = '';
     this.showInput = json.showInput;
+
+    textSize(this.fontSize);
+    const ascent = textAscent();
+    const descent = textDescent();
+    this.textHeight = ascent + descent;
 
     this.bar = loadImage('img/bar.png');
   }
@@ -35,7 +40,7 @@ class Slide {
   }
 
   newLine(total) {
-    let offset = this.fontSize;
+    let offset = this.textHeight;
     if (total !== undefined) offset *= total;
     this.renderPosition.y += offset;
   }
@@ -100,7 +105,6 @@ class Slide {
     textFont(this.font);
     textAlign(LEFT, CENTER);
     textSize(this.fontSize);
-    textLeading(this.fontSize);
 
     fill(255);
     noStroke();
@@ -125,7 +129,7 @@ class Slide {
     this.newLine();
     this.renderText(0, this.title);
     this.newLine();
-    this.renderText(0, ['This slide uses', 'no existing type: ' + this.type]);
+    this.renderText(0, ['This page uses', 'no existing type: ' + this.type]);
     this.newLine();
 
     this.updateCursor();

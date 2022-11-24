@@ -1,10 +1,10 @@
-class SlideManager {
+class PageManager {
   constructor(json) {
     this.start = json.start;
     this.end = json.end;
 
-    this.slides = [];
-    this.currentSlide = 0;
+    this.pages = [];
+    this.currentPage = 0;
 
     this.actions = {
       changePage: (actionData) => {
@@ -40,24 +40,24 @@ class SlideManager {
     };
 
     for (let i = 0; i < json.pages.length; i++) {
-      this.slides[i] = this.loadSlide(json.pages[i]);
+      this.pages[i] = this.loadPage(json.pages[i]);
     }
 
     if (this.start.length > 0) this.changePageTo(this.start);
   }
 
-  loadSlide(json) {
-    const slideClass = this.types[json.type];
-    if (slideClass === undefined) {
-      return new Slide(json);
+  loadPage(json) {
+    const pageClass = this.types[json.type];
+    if (pageClass === undefined) {
+      return new Page(json);
     }
-    return slideClass(json);
+    return pageClass(json);
   }
 
   performActionByInput(input) {
-    const slide = this.getCurrentSlide();
+    const page = this.getCurrentPage();
 
-    const actionData = slide.getAction(input);
+    const actionData = page.getAction(input);
 
     this.performAction(actionData);
   }
@@ -93,38 +93,38 @@ class SlideManager {
   }
 
   changeText(action, actionIndex) {
-    const slide = this.getCurrentSlide();
+    const page = this.getCurrentPage();
     action.current = (action.current + 1) % action.texts.length;
     const changeData = {
       text: action.texts[action.current],
       index: actionIndex,
     };
-    slide.changeText(changeData);
+    page.changeText(changeData);
   }
 
   // ---
 
   changePageTo(name) {
-    const page = this.getSlideByName(name);
+    const page = this.getPageByName(name);
     if (page != undefined) {
-      this.currentSlide = page;
+      this.currentPage = page;
     }
   }
 
   render() {
-    const slide = this.getCurrentSlide();
-    slide.render();
+    const page = this.getCurrentPage();
+    page.render();
   }
 
-  getCurrentSlide() {
-    return this.slides[this.currentSlide];
+  getCurrentPage() {
+    return this.pages[this.currentPage];
   }
 
-  getSlideByName(name) {
+  getPageByName(name) {
     let chosen = undefined;
-    for (let i = 0; i < this.slides.length; i++) {
-      let slide = this.slides[i];
-      if (name == slide.name) {
+    for (let i = 0; i < this.pages.length; i++) {
+      let page = this.pages[i];
+      if (name == page.name) {
         chosen = i;
       }
     }

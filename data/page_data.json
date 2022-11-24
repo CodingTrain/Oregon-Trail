@@ -126,7 +126,7 @@
         },
         "img": "img/title.png",
         "content": {
-          "textIndent": 4,
+          "textIndent": 2,
           "font": {
             "name": "CodeGon Mono",
             "file": "fonts/codegon-mono.ttf",

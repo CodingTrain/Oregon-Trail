@@ -10,10 +10,10 @@ let data;
 let stateManager;
 
 function preload() {
-  data = loadJSON('data/slide_data.json');
+  data = loadJSON('data/page_data.json');
 }
 
-let slideManager;
+let pageManager;
 
 let playerInput;
 
@@ -22,19 +22,19 @@ function setup() {
 
   stateManager = new GameStateManager();
 
-  slideManager = new SlideManager(data);
-  playerInput = new Input(slideManager.getCurrentSlide());
+  pageManager = new PageManager(data);
+  playerInput = new Input(pageManager.getCurrentPage());
 }
 
 function keyPressed() {
   const result = playerInput.addKey(key, keyCode);
-  slideManager.performActionByInput(result);
-  playerInput.updateParent(slideManager.getCurrentSlide());
+  pageManager.performActionByInput(result);
+  playerInput.updateParent(pageManager.getCurrentPage());
 }
 
 function draw() {
   background(0);
-  slideManager.render();
+  pageManager.render();
   playerInput.render();
 }
 

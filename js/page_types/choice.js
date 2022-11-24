@@ -1,4 +1,4 @@
-class Choice extends Slide {
+class Choice extends Page {
   loadFromJSON(data) {
     super.loadFromJSON(data);
 

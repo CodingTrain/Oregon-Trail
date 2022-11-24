@@ -1,4 +1,4 @@
-class Info extends Slide {
+class Info extends Page {
   loadFromJSON(data) {
     super.loadFromJSON(data);
 
@@ -32,8 +32,8 @@ class Info extends Slide {
     this.renderText(0, this.text);
     this.newLine();
     this.renderBar();
-    this.newLine(2);
-    this.renderText(0, this.prompt);
+    this.newLine();
+    this.renderText(3, this.prompt);
 
     this.updateCursor();
   }

@@ -1,15 +1,60 @@
 {
-  "professions": [
-    {
+  "professions": [{
       "name": "banker",
-      "money": 1600
+      "money": 1600,
+      "weight": 1
+    },
+    {
+      "name": "carpenter",
+      "money": 800,
+      "weight": 2
     },
     {
       "name": "farmer",
-      "money": 0
+      "money": 400,
+      "weight": 3
     }
   ],
 
+  "rations": [{
+      "name": "Filling",
+      "value": 3
+    },
+    {
+      "name": "Meager",
+      "value": 2
+    },
+    {
+      "name": "Bare Bones",
+      "value": 1
+    }
+  ],
+
+  "startdate": [{
+      "name": "March 1, 1848",
+      "date": "1848-03-01"
+    },
+    {
+      "name": "April 1, 1848",
+      "date": "1848-04-01"
+    },
+    {
+      "name": "May 1, 1848",
+      "date": "1848-05-01"
+    },
+    {
+      "name": "June 1, 1848",
+      "date": "1848-06-01"
+    },
+    {
+      "name": "July 1, 1848",
+      "date": "1848-07-01"
+    },
+    {
+      "name": "August 1, 1848",
+      "date": "1848-08-01"
+    }
+  ],
   "intro": {
     "choices": [
       "Travel the trail",
