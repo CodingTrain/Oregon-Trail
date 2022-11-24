@@ -32,7 +32,7 @@ class Info extends Page {
         this.renderText(0, this.text);
         this.newLine();
         this.renderBar();
-        this.newLine(2);
+        this.newLine();
         this.renderText(3, this.prompt);
 
         this.updateCursor();
