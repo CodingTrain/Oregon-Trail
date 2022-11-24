@@ -45,6 +45,7 @@ class Slide {
       lines = [lines];
     }
     let x = this.renderPosition.x + indent * this.fontSize;
+
     for (var i = 0; i < lines.length; i++) {
       let str = lines[i];
       const usePrefix = prefix != undefined && i == 0;
@@ -53,17 +54,21 @@ class Slide {
       if (usePrefix) {
         str = prefix + str;
       }
-      console.log(indent);
 
       textAlign(LEFT, TOP);
-      text(
-        str,
+      const box = {
         x,
-        this.renderPosition.y,
-        width - this.textIndent * this.fontSize,
-        height
-      );
+        y: this.renderPosition.y,
+        w: width - 2 * this.textIndent * this.fontSize,
+        h: height - this.renderPosition.y,
+      };
+      text(str, box.x, box.y, box.w, box.h);
       this.lastText = str;
+      if (textWidth(str) > box.w) {
+        const bounds = this.font.textBounds(str, box.x, box.y, box.w, box.h);
+        this.renderPosition.y += box.y;
+      }
+
       if (usePrefix) {
         x += textWidth(prefix);
       }

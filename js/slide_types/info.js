@@ -33,7 +33,7 @@ class Info extends Slide {
     this.newLine();
     this.renderBar();
     this.newLine(2);
-    this.renderText(3, this.prompt);
+    this.renderText(0, this.prompt);
 
     this.updateCursor();
   }

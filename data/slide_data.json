@@ -1,5 +1,5 @@
 {
-  "start": "about_game",
+  "start": "main_menu",
   "end": "",
   "pages": [
     {
@@ -118,7 +118,7 @@
         "title": "The Oregon Trail",
         "prompt": "Press SPACE BAR to continue",
         "text": [
-          "Try taking a journey by covered wagon across 2000 miles of plain rivers, and mountains.  Try! On the plains, will you slosh your oxen through mud and water-filled ruts or will you plod through dust six inches \"deep?\""
+          "Try taking a journey by covered wagon across 2000 miles of plain rivers, and mountains. Try! On the plains, will you slosh your oxen through mud and water-filled ruts or will you plod through dust six inches deep?"
         ],
         "action": {
           "type": "changePage",
@@ -126,7 +126,7 @@
         },
         "img": "img/title.png",
         "content": {
-          "textIndent": 2,
+          "textIndent": 4,
           "font": {
             "name": "CodeGon Mono",
             "file": "fonts/codegon-mono.ttf",
