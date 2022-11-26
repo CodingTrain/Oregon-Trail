@@ -1,94 +1,96 @@
 {
-    "events": [{
-        "cholera": {
-            "affects": "HEALTH",
-            "location": "2",
-            "description": "Cholera"
-        },
-        "dyenstery": {
-            "affects": "HEALTH",
-            "location": "2",
-            "description": "Dysentery"
-        },
-        "measles": {
-            "affects": "HEALTH",
-            "location": "2",
-            "description": "Measles"
-        },
-        "exhaustion": {
-            "affects": "HEALTH",
-            "location": "1",
-            "description": "Exhaustion"
-        },
-        "snakebite": {
-            "affects": "HEALTH",
-            "location": "1",
-            "description": "Snake Bite"
-        },
-        "brokenarm": {
-            "affects": "HEALTH",
-            "location": "2",
-            "description": "Broken Arm"
-        },
-        "brokenleg": {
-            "affects": "HEALTH",
-            "location": "2",
-            "description": "Broken Leg"
-        },
-        "nowater": {
-            "affects": "HEALTH",
-            "location": "1",
-            "description": "No Water"
-        },
-        "badwater": {
-            "affects": "HEALTH",
-            "location": "3",
-            "description": "Bad Water"
-        },
-        "lost": {
-            "affects": "PACE",
-            "location": "1",
-            "description": "You Have the Lost Trail"
-        },
-        "brokenwheel": {
-            "affects": "PACE",
-            "location": "1",
-            "description": "Wheel Broke"
-        },
-        "theftofox": {
-            "affects": "INVENTORY",
-            "location": "1",
-            "description": "Thief Steals ox"
-        },
-        "nograss": {
-            "affects": "INVENTORY",
-            "location": "1",
-            "description": "No Grass for Oxen"
-        },
-        "oxsick": {
-            "affects": "INVENTORY",
-            "location": "1",
-            "description": "Ox is Sick"
-        },
-        "oxwander": {
-            "affects": "INVENTORY",
-            "location": "1",
-            "description": "Ox Has Wandered Off"
-        },
-        "wildfruit": {
-            "affects": "INVENTORY",
-            "location": "1",
-            "description": "You Found Wild Fruit"
-        },
-        "indianshelp": {
-            "affects": "INVENTORY",
-            "location": "1",
-            "description": "Indians Helped You Find Food"
-        },
-        "wagonstuck": {
-            "affects": "PACE",
-            "location": "0",
-            "description": "Your Wagon is Stuck in the Mud"
-        }
-    }]
+  "events": [
+    {
+      "cholera": {
+        "affects": "HEALTH",
+        "location": "2",
+        "description": "Cholera"
+      },
+      "dyenstery": {
+        "affects": "HEALTH",
+        "location": "2",
+        "description": "Dysentery"
+      },
+      "measles": {
+        "affects": "HEALTH",
+        "location": "2",
+        "description": "Measles"
+      },
+      "exhaustion": {
+        "affects": "HEALTH",
+        "location": "1",
+        "description": "Exhaustion"
+      },
+      "snakebite": {
+        "affects": "HEALTH",
+        "location": "1",
+        "description": "Snake Bite"
+      },
+      "brokenarm": {
+        "affects": "HEALTH",
+        "location": "2",
+        "description": "Broken Arm"
+      },
+      "brokenleg": {
+        "affects": "HEALTH",
+        "location": "2",
+        "description": "Broken Leg"
+      },
+      "nowater": {
+        "affects": "HEALTH",
+        "location": "1",
+        "description": "No Water"
+      },
+      "badwater": {
+        "affects": "HEALTH",
+        "location": "3",
+        "description": "Bad Water"
+      },
+      "lost": {
+        "affects": "PACE",
+        "location": "1",
+        "description": "You Have the Lost Trail"
+      },
+      "brokenwheel": {
+        "affects": "PACE",
+        "location": "1",
+        "description": "Wheel Broke"
+      },
+      "theftofox": {
+        "affects": "INVENTORY",
+        "location": "1",
+        "description": "Thief Steals ox"
+      },
+      "nograss": {
+        "affects": "INVENTORY",
+        "location": "1",
+        "description": "No Grass for Oxen"
+      },
+      "oxsick": {
+        "affects": "INVENTORY",
+        "location": "1",
+        "description": "Ox is Sick"
+      },
+      "oxwander": {
+        "affects": "INVENTORY",
+        "location": "1",
+        "description": "Ox Has Wandered Off"
+      },
+      "wildfruit": {
+        "affects": "INVENTORY",
+        "location": "1",
+        "description": "You Found Wild Fruit"
+      },
+      "indianshelp": {
+        "affects": "INVENTORY",
+        "location": "1",
+        "description": "Indians Helped You Find Food"
+      },
+      "wagonstuck": {
+        "affects": "PACE",
+        "location": "0",
+        "description": "Your Wagon is Stuck in the Mud"
+      }
+    }
+  ]
 }
