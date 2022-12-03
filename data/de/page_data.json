@@ -207,7 +207,7 @@
             }
           },
           {
-            "text": "beenden",
+            "text": "abbrechen",
             "action": {
               "type": "changePage",
               "newPageName": "main_menu"
