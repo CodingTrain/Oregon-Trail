@@ -1,0 +1,225 @@
+{
+  "start": "main_menu",
+  "end": "",
+  "default": {
+    "name": "default",
+    "type": "no-type",
+    "showInput": true,
+    "data": {
+      "title": "Default Page",
+      "action": {
+        "type": "goToStart"
+      },
+      "content": {
+        "textIndent": 0,
+        "font": {
+          "name": "CodeGon Mono",
+          "file": "fonts/codegon-mono.ttf",
+          "size": 7
+        }
+      }
+    }
+  },
+  "pages": [
+    {
+      "name": "main_menu",
+      "type": "choice",
+      "showInput": true,
+      "data": {
+        "title": "The Oregon Trail",
+        "choices": [
+          {
+            "text": "Travel the trail",
+            "action": {
+              "type": "changePage",
+              "newPageName": "occupation"
+            }
+          },
+          {
+            "text": "Learn about the trail",
+            "action": {
+              "type": "changePage",
+              "newPageName": "about_game"
+            }
+          },
+          {
+            "text": "See the Oregon Top Ten",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Turn sound off",
+            "action": {
+              "type": "toggleSetting",
+              "setting": "sound",
+              "secondAction": {
+                "type": "changeText",
+                "texts": ["Turn sound off", "Turn sound on"],
+                "current": 0
+              }
+            }
+          },
+          {
+            "text": "Open the test page",
+            "action": {
+              "type": "changePage",
+              "newPageName": "test"
+            }
+          },
+          {
+            "text": "Change Language",
+            "action": {
+              "type": "changePage",
+              "newPageName": "language"
+            }
+          }
+        ],
+        "prompt": "What is your choice?",
+        "img": "img/title.png",
+        "content": {
+          "textIndent": 5
+        }
+      }
+    },
+    {
+      "name": "occupation",
+      "type": "choice",
+      "showInput": true,
+      "data": {
+        "title": ["Many kinds of people made the", "trip to Oregon."],
+        "choices": [
+          {
+            "text": "Be a banker from Boston",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Be a carpenter from Ohio",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Be a farmer from Illinois",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": ["Find out the differences", "between theese choices"],
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Return back",
+            "action": {
+              "type": "changePage",
+              "newPageName": "main_menu"
+            }
+          }
+        ],
+        "prompt": "What is your choice?",
+        "img": "",
+        "content": {
+          "textIndent": 2
+        }
+      }
+    },
+    {
+      "name": "about_game",
+      "type": "info",
+      "showInput": false,
+      "data": {
+        "title": "The Oregon Trail",
+        "prompt": "Press SPACE BAR to continue",
+        "text": [
+          "Try taking a journey by",
+          "covered wagon across 2000",
+          "miles of plains, rivers, and",
+          "mountains.  Try! On the",
+          "plains, will you slosh your",
+          "oxen through mud and",
+          "water-filled ruts or will you",
+          "plod through dust six inches",
+          "deep?"
+        ],
+        "action": {
+          "type": "changePage",
+          "newPageName": "main_menu"
+        },
+        "img": "img/title.png",
+        "content": {
+          "textIndent": 2
+        }
+      }
+    },
+    {
+      "name": "test"
+    },
+    {
+      "name" : "language",
+      "type": "choice",
+      "showInput": true,
+      "data": {
+        "title": ["Choose your display language"],
+        "choices": [
+          {
+            "text": "English",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Deutsch",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Italiano",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Czech",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Add new Language",
+            "action": {
+              "type": "changePage",
+              "newPageName": "test"
+            }
+          },
+          {
+            "text": "Cancel",
+            "action": {
+              "type": "changePage",
+              "newPageName": "main_menu"
+            }
+          }
+        ],
+        "prompt": "What is your choice?",
+        "img": "",
+        "content": {
+          "textIndent": 2
+        }
+      }
+    }
+  ]
+}
