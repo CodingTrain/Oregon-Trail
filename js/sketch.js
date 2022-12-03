@@ -4,13 +4,14 @@ p5.disableFriendlyErrors = true;
 const SETTINGS = {
   sound: true,
   scale: 2,
+  language: 'en'
 };
 
 let data;
 let stateManager;
 
 function preload() {
-  data = loadJSON('data/page_data.json');
+  data = loadJSON('data/' + SETTINGS.language + '/page_data.json');
 }
 
 let pageManager;

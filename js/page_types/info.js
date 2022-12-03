@@ -19,10 +19,10 @@ class Info extends Page {
 
     if (this.img) {
       this.renderImg(this.img);
-      this.renderBar();
+      this.renderTopBar();
       this.newLine();
     } else {
-      this.renderBar();
+      this.renderTopBar();
       this.newLine();
       this.renderText(0, this.title);
       this.newLine();
@@ -31,7 +31,7 @@ class Info extends Page {
     this.newLine();
     this.renderText(0, this.text);
     this.newLine();
-    this.renderBar();
+    this.renderBottomBar();
     this.newLine();
     this.renderText(3, this.prompt);
 

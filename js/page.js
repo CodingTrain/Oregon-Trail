@@ -15,7 +15,8 @@ class Page {
     const descent = textDescent();
     this.textHeight = ascent + descent;
 
-    this.bar = loadImage('img/bar.png');
+    this.topBar = loadImage('img/top_bar.png');
+    this.bottomBar = loadImage('img/bottom_bar.png');
   }
 
   // --- LOADING ---
@@ -153,8 +154,12 @@ class Page {
     this.renderPosition.y += h;
   }
 
-  renderBar() {
-    this.renderImg(this.bar);
+  renderBottomBar() {
+    this.renderImg(this.bottomBar);
+  }
+
+  renderTopBar() {  
+    this.renderImg(this.topBar);
   }
 
   renderStart() {

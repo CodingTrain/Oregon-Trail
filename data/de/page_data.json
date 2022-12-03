@@ -6,7 +6,7 @@
     "type": "no-type",
     "showInput": true,
     "data": {
-      "title": "Default Page",
+      "title": "Startseite",
       "action": {
         "type": "goToStart"
       },
@@ -29,47 +29,54 @@
         "title": "The Oregon Trail",
         "choices": [
           {
-            "text": "Travel the trail",
+            "text": "Befahre die Spur",
             "action": {
               "type": "changePage",
               "newPageName": "occupation"
             }
           },
           {
-            "text": "Learn about the trail",
+            "text": "Mehr uber die Spur",
             "action": {
               "type": "changePage",
               "newPageName": "about_game"
             }
           },
           {
-            "text": "See the Oregon Top Ten",
+            "text": ["sehe Oregon Top Ten an"],
             "action": {
               "type": "changePage",
               "newPageName": ""
             }
           },
           {
-            "text": "Turn sound off",
+            "text": "Ton ausschalten",
             "action": {
               "type": "toggleSetting",
               "setting": "sound",
               "secondAction": {
                 "type": "changeText",
-                "texts": ["Turn sound off", "Turn sound on"],
+                "texts": ["Ton ausschalten", "Ton anschalten"],
                 "current": 0
               }
             }
           },
           {
-            "text": "Open the test page",
+            "text": "Testseite aufmachen",
             "action": {
               "type": "changePage",
               "newPageName": "test"
             }
+          },
+          {
+            "text": "Sprache aendern",
+            "action": {
+              "type": "changePage",
+              "newPageName": "language"
+            }
           }
         ],
-        "prompt": "What is your choice?",
+        "prompt": "Was ist deine Wahl?",
         "img": "img/title.png",
         "content": {
           "textIndent": 5
@@ -81,45 +88,45 @@
       "type": "choice",
       "showInput": true,
       "data": {
-        "title": ["Many kinds of people made the", "trip to Oregon."],
+        "title": ["Viele Arten von Menschen haben das gemacht", "Reise nach Oregon."],
         "choices": [
           {
-            "text": "Be a banker from Boston",
+            "text": "Sei ein Banker aus Boston",
             "action": {
               "type": "changePage",
               "newPageName": ""
             }
           },
           {
-            "text": "Be a carpenter from Ohio",
+            "text": "Seien Sie ein Zimmermann aus Ohio",
             "action": {
               "type": "changePage",
               "newPageName": ""
             }
           },
           {
-            "text": "Be a farmer from Illinois",
+            "text": "Sei ein Bauer aus Illinois",
             "action": {
               "type": "changePage",
               "newPageName": ""
             }
           },
           {
-            "text": ["Find out the differences", "between theese choices"],
+            "text": ["Finden Sie die Unterschiede heraus", "zwischen diesen Entscheidungen"],
             "action": {
               "type": "changePage",
               "newPageName": ""
             }
           },
           {
-            "text": "Return back",
+            "text": "Kehren Sie zurück",
             "action": {
               "type": "changePage",
               "newPageName": "main_menu"
             }
           }
         ],
-        "prompt": "What is your choice?",
+        "prompt": "Was ist deine Wahl?",
         "img": "",
         "content": {
           "textIndent": 2
@@ -131,18 +138,18 @@
       "type": "info",
       "showInput": false,
       "data": {
-        "title": "The Oregon Trail",
-        "prompt": "Press SPACE BAR to continue",
+        "title": "Der Oregon-Trail",
+        "prompt": "Drücke die LEERTASTE um fortzufahren",
         "text": [
-          "Try taking a journey by",
-          "covered wagon across 2000",
-          "miles of plains, rivers, and",
-          "mountains.  Try! On the",
+          "Versuchen Sie, eine Reise",
+          "mit einem Planwagen über 2000",
+          "Meilen von Ebenen, Flüssen und",
+          "Bergen zu unternehmen. Versuchen!",
           "plains, will you slosh your",
-          "oxen through mud and",
-          "water-filled ruts or will you",
-          "plod through dust six inches",
-          "deep?"
+          "Werden Sie Ihre Ochsen in der Ebene",
+          "durch schlammige und wassergefüllte Furchen",
+          "schwappen oder durch sechs Zoll",
+          "tiefen Staub stapfen?"
         ],
         "action": {
           "type": "changePage",
@@ -156,6 +163,63 @@
     },
     {
       "name": "test"
+    },
+    {
+      "name" : "language",
+      "type": "choice",
+      "showInput": true,
+      "data": {
+        "title": ["Wählen Sie Ihre Anzeigesprache"],
+        "choices": [
+          {
+            "text": "Englisch",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Deutsch",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Italienisch",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Tschechisch",
+            "action": {
+              "type": "changePage",
+              "newPageName": ""
+            }
+          },
+          {
+            "text": "Neue Sprache hinzufuegen",
+            "action": {
+              "type": "changePage",
+              "newPageName": "test"
+            }
+          },
+          {
+            "text": "abbrechen",
+            "action": {
+              "type": "changePage",
+              "newPageName": "main_menu"
+            }
+          }
+        ],
+        "prompt": "Was ist deine Wahl?",
+        "img": "",
+        "content": {
+          "textIndent": 2
+        }
+      }
     }
   ]
 }

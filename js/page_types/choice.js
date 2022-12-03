@@ -26,10 +26,10 @@ class Choice extends Page {
 
     if (this.img) {
       this.renderImg(this.img);
-      this.renderBar();
+      this.renderTopBar();
       this.newLine();
     } else {
-      this.renderBar();
+      this.renderTopBar();
       this.newLine();
       this.renderText(0, this.title);
       this.newLine();
@@ -43,7 +43,7 @@ class Choice extends Page {
     this.updateCursor();
 
     this.newLine();
-    this.renderBar();
+    this.renderBottomBar();
   }
 
   changeText(changeData) {
