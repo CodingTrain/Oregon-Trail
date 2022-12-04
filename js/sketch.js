@@ -4,6 +4,7 @@ p5.disableFriendlyErrors = true;
 const SETTINGS = {
   sound: true,
   scale: 2,
+  language: 'en',
 };
 
 let data;

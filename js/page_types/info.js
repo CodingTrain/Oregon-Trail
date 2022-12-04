@@ -2,6 +2,9 @@ class Info extends Page {
   loadData(data) {
     super.loadData(data);
 
+    const img = data.img;
+    if (img.length != 0) this.img = loadImage(img);
+
     this.loadImportantVariable(data, 'prompt');
     this.loadImportantVariable(data, 'action');
     this.loadImportantVariable(data, 'text');
