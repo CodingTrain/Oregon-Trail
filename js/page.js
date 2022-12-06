@@ -101,10 +101,24 @@ class Page {
     this.renderPosition.y += offset;
   }
 
-  renderText(indent, lines, prefix) {
+  getLinesFromTextObject(textObject) {
+    let lines = textObject[SETTINGS.language];
+    if (lines === undefined) {
+      if (textObject instanceof Object) {
+        lines = Object.values(textObject)[0];
+      } else {
+        lines = textObject; // if no translations avaiable
+      }
+    }
     if (lines instanceof Array == false) {
       lines = [lines];
     }
+    return lines;
+  }
+
+  renderText(indent, textObject, prefix) {
+    const lines = this.getLinesFromTextObject(textObject);
+
     let x = this.renderPosition.x + indent * this.fontSize;
 
     for (var i = 0; i < lines.length; i++) {

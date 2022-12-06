@@ -23,6 +23,9 @@ class PageManager {
       goToStart: (actionData) => {
         this.changeToStartPage();
       },
+      changeLanguage: (actionData) => {
+        SETTINGS.language = actionData.action.language;
+      },
     };
 
     /*
