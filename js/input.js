@@ -23,6 +23,7 @@ class Input {
     } else if (keyCode == ENTER) {
       console.log('enter');
       const result = this.buffer;
+      console.log(result)
       this.clear();
       return result;
     } else if (validate(key)) {

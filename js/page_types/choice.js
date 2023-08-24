@@ -54,6 +54,7 @@ class Choice extends Page {
 
   changeChoice(choiceIndex, newText) {
     const choice = this.choices[choiceIndex];
+    console.log(choice)
     if (choice === undefined) return;
     choice.text = newText;
   }

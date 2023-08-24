@@ -10,8 +10,22 @@ const SETTINGS = {
 let data;
 let stateManager;
 
+
+// old original preload:
+// function preload() {
+//   data = loadJSON('data/page_data.json');
+// }
+
 function preload() {
-  data = loadJSON('data/page_data.json');
+  data = loadJSON('data/page_data.json', onDataLoaded, onDataLoadError);
+}
+
+function onDataLoaded(loadedData) {
+  data = loadedData;
+}
+
+function onDataLoadError(error) {
+  console.error('Error loading JSON:', error);
 }
 
 let pageManager;
