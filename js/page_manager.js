@@ -34,7 +34,7 @@ class PageManager {
 				"type": "printOut",
 				"print": "Hello World!"
 			}
-			sometimes usefull for debuging
+			sometimes useful for debugging
 		*/
 
     this.types = {
